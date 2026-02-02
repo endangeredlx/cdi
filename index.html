@@ -1,64 +1,1630 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>CDI-Global.org | Crew Development Institute</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDI | Crew Development Institute - Building Crews Who Build Shows</title>
+    <meta name="description" content="CDI trains world-class production crews across Africa. Free stagehand training, specialized technical tracks in audio, lighting, video, and rigging.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-              body { font-family: 'Inter', sans-serif; }
-              .font-display { font-family: 'Bebas Neue', sans-serif; }
-              .gradient-text { background: linear-gradient(135deg, #d4a500, #c9a227); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-          </style>
+        :root {
+            /* CDI Hybrid Color Palette */
+            --cdi-gold: #C9A227;
+            --cdi-gold-light: #E5C555;
+            --cdi-navy: #0D1B2A;
+            --cdi-navy-light: #1B3A5F;
+            --cdi-teal: #00B4A0;
+            --cdi-teal-light: #00D4BC;
+            --cdi-teal-dark: #008B7A;
+
+            /* Neutrals */
+            --white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --gray-100: #F1F3F5;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-400: #CED4DA;
+            --gray-500: #ADB5BD;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-800: #343A40;
+            --gray-900: #212529;
+
+            /* Ghana Flag Colors (for accents) */
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+            /* Spacing */
+            --section-padding: 100px 0;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: var(--white);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+        h4 { font-size: 1.25rem; }
+
+        p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 44px;
+            height: 44px;
+            background: var(--cdi-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1rem;
+            color: var(--white);
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--cdi-navy);
+            line-height: 1.3;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cdi-teal);
+        }
+
+        .nav-cta {
+            background: var(--cdi-teal);
+            color: var(--white) !important;
+            padding: 12px 24px;
+            border-radius: 4px;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--cdi-teal-dark) !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--cdi-navy);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--cdi-teal);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--cdi-teal-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cdi-navy);
+            border: 2px solid var(--cdi-navy);
+        }
+
+        .btn-secondary:hover {
+            background: var(--cdi-navy);
+            color: var(--white);
+        }
+
+        .btn-gold {
+            background: var(--cdi-gold);
+            color: var(--white);
+        }
+
+        .btn-gold:hover {
+            background: var(--cdi-gold-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(201, 162, 39, 0.2);
+            color: var(--cdi-gold);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-label::before {
+            content: '✦';
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--cdi-gold);
+        }
+
+        .hero p {
+            color: var(--gray-300);
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0 16px;
+            border-left: 1px solid var(--gray-200);
+        }
+
+        .stat-item:first-child {
+            border-left: none;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--cdi-navy);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-number span {
+            color: var(--cdi-teal);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Sections */
+        section {
+            padding: var(--section-padding);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cdi-teal);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '✦';
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--cdi-navy);
+            color: var(--white);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .problem h2 {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .problem h2 span {
+            color: var(--cdi-gold);
+        }
+
+        .problem p {
+            color: var(--gray-300);
+            margin-bottom: 32px;
+        }
+
+        .problem-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .problem-stat {
+            background: rgba(255,255,255,0.05);
+            padding: 32px 24px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .problem-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--cdi-teal);
+            margin-bottom: 8px;
+        }
+
+        .problem-stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-400);
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--off-white);
+        }
+
+        .solution-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .solution-header h2 span {
+            color: var(--cdi-teal);
+        }
+
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .pillar {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--cdi-teal);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .pillar:nth-child(1) { border-top-color: var(--ghana-red); }
+        .pillar:nth-child(2) { border-top-color: var(--cdi-gold); }
+        .pillar:nth-child(3) { border-top-color: var(--ghana-green); }
+
+        .pillar:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .pillar-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 1.5rem;
+        }
+
+        .pillar:nth-child(1) .pillar-icon { background: rgba(206, 17, 38, 0.1); }
+        .pillar:nth-child(2) .pillar-icon { background: rgba(201, 162, 39, 0.1); }
+        .pillar:nth-child(3) .pillar-icon { background: rgba(0, 107, 63, 0.1); }
+
+        .pillar h3 {
+            margin-bottom: 16px;
+            color: var(--cdi-navy);
+        }
+
+        .pillar p {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        /* Training Section */
+        .training {
+            background: var(--white);
+        }
+
+        .training-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .training h2 span {
+            color: var(--cdi-gold);
+        }
+
+        .tier {
+            background: var(--off-white);
+            padding: 32px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--cdi-teal);
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .tier-badge {
+            background: var(--cdi-teal);
+            color: var(--white);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .tier h4 {
+            color: var(--cdi-navy);
+        }
+
+        .tier-meta {
+            font-size: 0.9rem;
+            color: var(--cdi-teal);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .tier p {
+            font-size: 1rem;
+            color: var(--gray-600);
+        }
+
+        .tracks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .track {
+            background: var(--cdi-navy);
+            padding: 24px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .track:hover {
+            transform: scale(1.02);
+        }
+
+        .track-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .track h5 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .track p {
+            color: var(--gray-400);
+            font-size: 0.85rem;
+        }
+
+        /* Team Section */
+        .team {
+            background: var(--off-white);
+        }
+
+        .team-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .team-header h2 span {
+            color: var(--cdi-teal);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .team-photo {
+            height: 280px;
+            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-initials {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--cdi-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .team-info {
+            padding: 24px;
+        }
+
+        .team-role {
+            color: var(--cdi-teal);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .team-info h4 {
+            color: var(--cdi-navy);
+            margin-bottom: 12px;
+        }
+
+        .team-info p {
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: var(--cdi-navy);
+            color: var(--white);
+        }
+
+        .timeline-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .timeline-header h2 {
+            color: var(--white);
+        }
+
+        .timeline-header h2 span {
+            color: var(--cdi-gold);
+        }
+
+        .timeline-header p {
+            color: var(--gray-400);
+        }
+
+        .timeline-track {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .timeline-track::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 5%;
+            right: 5%;
+            height: 2px;
+            background: var(--cdi-gold);
+        }
+
+        .timeline-item {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--cdi-gold);
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--cdi-navy);
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-date {
+            color: var(--cdi-teal);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item h4 {
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .cta-box {
+            padding: 80px 60px;
+        }
+
+        .cta-trainees {
+            background: var(--cdi-navy);
+            color: var(--white);
+        }
+
+        .cta-partners {
+            background: var(--cdi-teal);
+            color: var(--white);
+        }
+
+        .cta-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+            opacity: 0.8;
+        }
+
+        .cta-label::before {
+            content: '✦';
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 32px;
+        }
+
+        .cta-trainees .btn {
+            background: var(--cdi-gold);
+            color: var(--cdi-navy);
+        }
+
+        .cta-partners .btn {
+            background: var(--white);
+            color: var(--cdi-teal);
+        }
+
+        /* Forms Section */
+        .forms-section {
+            background: var(--off-white);
+            padding: 100px 0;
+        }
+
+        .forms-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .forms-header h2 span {
+            color: var(--cdi-teal);
+        }
+
+        .forms-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+        }
+
+        .form-tab {
+            padding: 12px 24px;
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .form-tab.active,
+        .form-tab:hover {
+            background: var(--cdi-teal);
+            border-color: var(--cdi-teal);
+            color: var(--white);
+        }
+
+        .form-container {
+            max-width: 640px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+        }
+
+        .form-panel {
+            display: none;
+        }
+
+        .form-panel.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--cdi-navy);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cdi-teal);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: var(--cdi-gold);
+            padding: 60px 0;
+        }
+
+        .newsletter-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .newsletter-text h3 {
+            color: var(--cdi-navy);
+            margin-bottom: 8px;
+        }
+
+        .newsletter-text p {
+            color: var(--cdi-navy);
+            opacity: 0.8;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .newsletter-form input {
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 300px;
+        }
+
+        .newsletter-form button {
+            background: var(--cdi-navy);
+            color: var(--white);
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--cdi-navy-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--cdi-navy);
+            color: var(--white);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand p {
+            color: var(--gray-400);
+            margin: 24px 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .footer-social a:hover {
+            background: var(--cdi-teal);
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-column a:hover {
+            color: var(--cdi-teal);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        .ghana-stripe {
+            height: 4px;
+            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .problem-grid,
+            .training-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats-grid,
+            .team-grid,
+            .pillars {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-section {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-track {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .timeline-track::before {
+                top: 0;
+                bottom: 0;
+                left: 24px;
+                width: 2px;
+                height: auto;
+            }
+
+            .timeline-item {
+                text-align: left;
+                padding-left: 80px;
+            }
+
+            .timeline-dot {
+                position: absolute;
+                left: 0;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .stats-grid,
+            .team-grid,
+            .pillars,
+            .tracks {
+                grid-template-columns: 1fr;
+            }
+
+            .problem-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .newsletter-form input {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .stat-item {
+                border-left: none;
+                border-bottom: 1px solid var(--gray-200);
+                padding-bottom: 24px;
+            }
+
+            .stat-item:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 32px 24px;
+            }
+
+            .cta-box {
+                padding: 60px 24px;
+            }
+        }
+    </style>
 </head>
-  <body class="bg-black text-white">
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 border-b border-gray-800">
-          <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-                    <div class="flex items-center gap-3">
-                                  <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
-                                                    <span class="text-black font-black text-xl">CDI</span>span>
-                                  </div>div>
-                    </div>div>
-          </div>div>
-    </nav>nav>
-    <section class="min-h-screen flex flex-col justify-center px-6 py-20 pt-32">
-          <div class="max-w-7xl mx-auto w-full">
-                    <p class="text-amber-400 tracking-widest text-sm mb-6">IN PARTNERSHIP WITH ILLUMIN8 ACADEMY</p>p>
-                    <h1 class="font-display text-7xl sm:text-8xl md:text-9xl leading-tight mb-8">CREW<br>DEVELOPMENT<br><span class="gradient-text">INSTITUTE</span>span></h1>h1>
-                    <p class="text-gray-400 text-xl italic mb-12">Building Crews Who Build Shows.</p>p>
-                    <button class="bg-amber-500 text-black font-bold px-8 py-4 rounded">APPLY NOW</button>button>
-          </div>div>
-    </section>section>
-    <section class="bg-gray-950 py-24">
-          <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-                    <div>
-                                  <h2 class="font-display text-6xl mb-8">BUILDING AFRICA'S <span class="text-amber-400">PRODUCTION</span>span> WORKFORCE</h2>h2>
-                                  <div class="space-y-8">
-                                                    <div><span class="text-5xl font-black text-amber-400">85%</span>span><p class="text-gray-400">of African live events rely on imported crews</p>p></div>
-                                                  <div><span class="text-5xl font-black text-amber-400">$2B+</span>span><p class="text-gray-400">annual production spending leaves the continent</p>p></div>
-                                                  <div><span class="text-5xl font-black text-amber-400">$5B+</span>span><p class="text-gray-400">African live entertainment market by 2030</p>p></div>
-                                  </div>
-                    </div>
-          </div>
-    </section>section>
-  <section class="py-24">
-      <div class="max-w-7xl mx-auto px-6">
-                <h2 class="font-display text-5xl text-center mb-16">KEY AREAS COVERED</h2>h2>
-                <div class="grid md:grid-cols-4 gap-6">
-                              <div class="rounded-2xl border-2 border-red-500 bg-gradient-to-b from-red-900 to-black p-6 h-80 flex flex-col justify-end"><h3 class="font-display text-3xl">AUDIO</h3>h3></div>
-                              <div class="rounded-2xl border-2 border-amber-500 bg-gradient-to-b from-amber-700 to-black p-6 h-80 flex flex-col justify-end"><h3 class="font-display text-3xl">LIGHTING</h3>h3></div>
-                              <div class="rounded-2xl border-2 border-blue-400 bg-gradient-to-b from-blue-800 to-black p-6 h-80 flex flex-col justify-end"><h3 class="font-display text-3xl">VIDEO</h3>h3></div>
-                              <div class="rounded-2xl border-2 border-green-400 bg-gradient-to-b from-green-800 to-black p-6 h-80 flex flex-col justify-end"><h3 class="font-display text-3xl">RIGGING</h3>h3></div>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <div class="logo-mark">CDI</div>
+                <div class="logo-text">CREW<br>DEVELOPMENT<br>INSTITUTE</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#apply" class="nav-cta">Apply Now</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Launching March 2026</div>
+                <h1>Building Crews Who <span>Build Shows</span></h1>
+                <p>Free, world-class production training for Africa's live entertainment industry. Developing local talent to global standards through hands-on experience and industry mentorship.</p>
+                <div class="hero-buttons">
+                    <a href="#apply" class="btn btn-primary">Apply for Training</a>
+                    <a href="#partners" class="btn btn-secondary" style="color: white; border-color: white;">Partner With Us</a>
                 </div>
-      </div>
-  </section>section>
-    <footer class="py-16 border-t border-gray-800 text-center">
-          <p class="text-gray-400">© 2026 Crew Development Institute | www.CDI-Global.org | Erica@EndangeredLX.com</p>p>
-    </footer>footer>
-  </body>body>
-</html>html>
-      </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">100<span>+</span></div>
+                    <div class="stat-label">Stagehands trained per quarter</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$5B<span>+</span></div>
+                    <div class="stat-label">African music industry by 2026</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">13<span>%</span></div>
+                    <div class="stat-label">Annual industry growth rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Specialized technical tracks</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="problem" id="about">
+        <div class="container">
+            <div class="problem-grid">
+                <div>
+                    <span class="section-label" style="color: var(--cdi-gold);">The Opportunity</span>
+                    <h2>Africa's stages are ready to <span>shine</span></h2>
+                    <p>Africa's live entertainment industry is booming, but the technical infrastructure and trained crews haven't kept pace. International productions fly in crews at massive cost while local talent remains untrained and underemployed.</p>
+                    <p>CDI exists to bridge this gap. We're not just training technicians—we're building the foundation for world-class productions across the diaspora.</p>
+                </div>
+                <div class="problem-stats">
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">85%</div>
+                        <div class="problem-stat-label">of African live events rely on imported technical crews</div>
                     </div>
-    </style></title>
-</head><!DOCTYPE html>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">$2B+</div>
+                        <div class="problem-stat-label">annual production spending leaves the continent</div>
+                    </div>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">0</div>
+                        <div class="problem-stat-label">formal production training programs in most West African markets</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <div class="solution-header">
+                <span class="section-label">Our Solution</span>
+                <h2>CDI is not a traditional school. <span>CDI is workforce infrastructure.</span></h2>
+                <p>We deliver free, high-volume stagehand training combined with specialized technical tracks across all core production departments.</p>
+            </div>
+            <div class="pillars">
+                <div class="pillar">
+                    <div class="pillar-icon">📚</div>
+                    <h3>Learning Arm</h3>
+                    <p>School programs and hands-on training for local technicians in lighting, audio, and production management. University partnerships with California Baptist University, University of Ghana, and University of Nigeria.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🎯</div>
+                    <h3>Technical Advisory</h3>
+                    <p>On-site and virtual production management, implementing training to create world-class shows. Industry professionals mentoring and supporting local crews on real productions.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🎬</div>
+                    <h3>Production Arm</h3>
+                    <p>Direct production support during the transition period, phasing out as local teams become self-sufficient. Goal: Build capacity so locals own and operate their own world-class events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Section -->
+    <section class="training" id="programs">
+        <div class="container">
+            <div class="training-grid">
+                <div>
+                    <span class="section-label">Training Programs</span>
+                    <h2>Two tiers of <span>professional development</span></h2>
+
+                    <div class="tier">
+                        <div class="tier-header">
+                            <span class="tier-badge">Tier 1</span>
+                            <h4>Stagehand Fundamentals</h4>
+                        </div>
+                        <div class="tier-meta">2-Day Free Program • 100 Trainees Per Quarter</div>
+                        <p>Load-in/load-out procedures, stage etiquette, power fundamentals, cable handling, safety awareness, and department workflow orientation.</p>
+                    </div>
+
+                    <div class="tier">
+                        <div class="tier-header">
+                            <span class="tier-badge" style="background: var(--cdi-gold);">Tier 2</span>
+                            <h4>Specialized Technical Tracks</h4>
+                        </div>
+                        <div class="tier-meta">3-Day Intensives • 15-30 Participants Per Track</div>
+                        <p>Deep-dive training in your chosen specialization with hands-on equipment experience and industry-standard workflows.</p>
+                    </div>
+                </div>
+
+                <div class="tracks">
+                    <div class="track">
+                        <div class="track-icon">🎧</div>
+                        <h5>Audio</h5>
+                        <p>FOH/Monitor mixing, system design, RF coordination</p>
+                    </div>
+                    <div class="track">
+                        <div class="track-icon">💡</div>
+                        <h5>Lighting</h5>
+                        <p>GrandMA3 programming, fixture rigging, show design</p>
+                    </div>
+                    <div class="track">
+                        <div class="track-icon">🎥</div>
+                        <h5>Video</h5>
+                        <p>LED wall systems, camera ops, Resolume servers</p>
+                    </div>
+                    <div class="track">
+                        <div class="track-icon">⚙️</div>
+                        <h5>Rigging</h5>
+                        <p>Rigging safety, load-in logistics, operational awareness</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="team-header">
+                <span class="section-label">Our Team</span>
+                <h2>50+ years combined <span>industry experience</span></h2>
+                <p>Diaspora-driven expertise from concert touring, television, film, and live event production professionals.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-initials">EH</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">Lighting Designer | Educator</div>
+                        <h4>Erica D. Hayes</h4>
+                        <p>15+ years across concert touring, television, and film. Designed for Fantasia, Amaarae, The Isley Brothers, Anita Baker, and Ledisi. IATSE 728 member. Professor at California Baptist University.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-initials">KB</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">Lighting Designer | Visual Director</div>
+                        <h4>Keith Bernard</h4>
+                        <p>Experience spanning film, television, high-profile national events, and concert touring for top-tier artists across hip-hop, R&B, and soul. Specializes in visually driven lighting.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo">
+                        <div class="team-initials">BB</div>
+                    </div>
+                    <div class="team-info">
+                        <div class="team-role">Producer | Operations Leader</div>
+                        <h4>Blake Brady</h4>
+                        <p>10+ years specializing in technical direction, stage management, and live event production for large-scale events. Expert in LED wall systems and building sustainable infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <div class="container">
+            <div class="timeline-header">
+                <span class="section-label" style="color: var(--cdi-gold);">2026 Roadmap</span>
+                <h2>Our path to <span>transforming African production</span></h2>
+                <p>A strategic timeline from foundation to sustainable operations.</p>
+            </div>
+            <div class="timeline-track">
+                <div class="timeline-item">
+                    <div class="timeline-dot">Q1</div>
+                    <div class="timeline-date">Jan - Feb 2026</div>
+                    <h4>Foundation</h4>
+                    <p>Secure partnerships, finalize curriculum, establish 501(c)(3)</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">Q2</div>
+                    <div class="timeline-date">March 2026</div>
+                    <h4>Program Launch</h4>
+                    <p>First training cohort, equipment testing, refine systems</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">Q3</div>
+                    <div class="timeline-date">Jun - Sep 2026</div>
+                    <h4>Scale & Deploy</h4>
+                    <p>Container ships, first production support, expand curriculum</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">Q4</div>
+                    <div class="timeline-date">Oct - Dec 2026</div>
+                    <h4>December in GH</h4>
+                    <p>Local teams lead shows, showcase impact, evaluate & expand</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="partners">
+        <div class="cta-box cta-trainees">
+            <div class="cta-label">For Aspiring Technicians</div>
+            <h2>Launch your career in live production</h2>
+            <p>Join our free training program and gain the skills, certification, and real-world experience to work on world-class productions.</p>
+            <a href="#apply" class="btn">Apply for Training</a>
+        </div>
+        <div class="cta-box cta-partners">
+            <div class="cta-label">For Production Partners</div>
+            <h2>Access trained local crews</h2>
+            <p>Reduce costs, improve safety, and build sustainable production infrastructure with CDI-trained technicians.</p>
+            <a href="#apply" class="btn">Partner With Us</a>
+        </div>
+    </section>
+
+    <!-- Forms Section -->
+    <section class="forms-section" id="apply">
+        <div class="container">
+            <div class="forms-header">
+                <span class="section-label">Get Started</span>
+                <h2>Join the <span>CDI movement</span></h2>
+                <p>Whether you're an aspiring technician or a production company looking to partner, we'd love to hear from you.</p>
+            </div>
+
+            <div class="forms-tabs">
+                <button class="form-tab active" data-tab="trainee">Trainee Application</button>
+                <button class="form-tab" data-tab="partner">Partner Inquiry</button>
+            </div>
+
+            <div class="form-container">
+                <!-- Trainee Form -->
+                <form class="form-panel active" id="trainee-form" data-panel="trainee">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="trainee-first">First Name *</label>
+                            <input type="text" id="trainee-first" name="first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="trainee-last">Last Name *</label>
+                            <input type="text" id="trainee-last" name="last_name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainee-email">Email Address *</label>
+                        <input type="email" id="trainee-email" name="email" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="trainee-phone">Phone Number</label>
+                            <input type="tel" id="trainee-phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="trainee-location">Location (City, Country) *</label>
+                            <input type="text" id="trainee-location" name="location" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainee-track">Preferred Track *</label>
+                        <select id="trainee-track" name="track" required>
+                            <option value="">Select a track...</option>
+                            <option value="stagehand">Stagehand Fundamentals (Tier 1)</option>
+                            <option value="audio">Audio Track</option>
+                            <option value="lighting">Lighting Track</option>
+                            <option value="video">Video Track</option>
+                            <option value="rigging">Rigging Track</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="trainee-experience">Tell us about your experience and why you want to join CDI</label>
+                        <textarea id="trainee-experience" name="experience" placeholder="Share your background, any relevant experience, and what you hope to gain from CDI training..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit">Submit Application</button>
+                </form>
+
+                <!-- Partner Form -->
+                <form class="form-panel" id="partner-form" data-panel="partner">
+                    <div class="form-group">
+                        <label for="partner-company">Company / Organization Name *</label>
+                        <input type="text" id="partner-company" name="company" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="partner-name">Contact Name *</label>
+                            <input type="text" id="partner-name" name="contact_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="partner-title">Title / Role</label>
+                            <input type="text" id="partner-title" name="title">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="partner-email">Email Address *</label>
+                            <input type="email" id="partner-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="partner-phone">Phone Number</label>
+                            <input type="tel" id="partner-phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="partner-type">Partnership Type *</label>
+                        <select id="partner-type" name="partnership_type" required>
+                            <option value="">Select partnership type...</option>
+                            <option value="production">Production Company</option>
+                            <option value="venue">Venue / Festival</option>
+                            <option value="equipment">Equipment Vendor</option>
+                            <option value="sponsor">Sponsor / Funder</option>
+                            <option value="university">University / Educational Institution</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="partner-message">How would you like to partner with CDI?</label>
+                        <textarea id="partner-message" name="message" placeholder="Tell us about your organization and how you'd like to work with CDI..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <div class="newsletter">
+        <div class="container">
+            <div class="newsletter-inner">
+                <div class="newsletter-text">
+                    <h3>Stay updated on CDI's progress</h3>
+                    <p>Get news about training dates, partnerships, and opportunities.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-mark">CDI</div>
+                        <div class="logo-text" style="color: white;">CREW<br>DEVELOPMENT<br>INSTITUTE</div>
+                    </a>
+                    <p>Building crews who build shows. Diaspora-driven expertise developing local talent to global standards across Africa.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="LinkedIn">💼</a>
+                        <a href="#" aria-label="Twitter">🐦</a>
+                        <a href="#" aria-label="YouTube">▶️</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Programs</h4>
+                    <ul>
+                        <li><a href="#programs">Stagehand Fundamentals</a></li>
+                        <li><a href="#programs">Audio Track</a></li>
+                        <li><a href="#programs">Lighting Track</a></li>
+                        <li><a href="#programs">Video Track</a></li>
+                        <li><a href="#programs">Rigging Track</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#about">Our Mission</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#partners">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:Erica@EndangeredLX.com">Erica@EndangeredLX.com</a></li>
+                        <li><a href="#apply">Apply for Training</a></li>
+                        <li><a href="#apply">Partner Inquiry</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Crew Development Institute. All rights reserved.</p>
+                <p>In partnership with Illumin8 Academy</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ghana Flag Stripe -->
+    <div class="ghana-stripe"></div>
+
+    <script>
+        // Navigation scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Form tabs
+        const tabs = document.querySelectorAll('.form-tab');
+        const panels = document.querySelectorAll('.form-panel');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+
+                tabs.forEach(t => t.classList.remove('active'));
+                panels.forEach(p => p.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.querySelector(`[data-panel="${target}"]`).classList.add('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submissions (placeholder - would connect to backend)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your submission! We will be in touch soon.');
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
