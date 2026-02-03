@@ -65,9 +65,9 @@
 
     ## 👥 Team
 
-    - **Erica Hayes** - Project Lead / Lighting Designer
-    - - **Keith Bernard** - Team Member
-      - - **Blake Brady** - Team Member
+    - **Erica Hayes** - Project Director
+    - - **Keith Bernard** - Project Director
+      - - **Blake Brady** - Program Director
        
         - ---
 
