@@ -4,7 +4,7 @@
 
 Official website for the Crew Development Institute, a workforce enablement program focused on strengthening live events infrastructure across Africa.
 
-🌐 **Live Site:** [cdi-global.org](https://cdi-global.org) (coming soon)
+🌐 **Live Site:** [cdi-global.org](https://cdi-global.org) (LIVE NOW)
 
 ## About CDI
 
