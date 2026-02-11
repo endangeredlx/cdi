@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDI Ghana — 40ft HC Container Layout: Chain Hoist Motors</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1a1a2e; color: #e0e0e0; padding: 24px;
+    min-height: 100vh;
+  }
+  h1 { font-size: 22px; font-weight: 600; color: #fff; margin-bottom: 4px; }
+  .subtitle { font-size: 14px; color: #8888aa; margin-bottom: 28px; }
+  .views { display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 32px; }
+  .view-card { background: #16213e; border-radius: 12px; padding: 24px; flex: 1; min-width: 340px; }
+  .view-title { font-size: 15px; font-weight: 600; color: #a0c4ff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* Top-down view */
+  .container-top {
+    position: relative;
+    width: 100%; max-width: 560px;
+    aspect-ratio: 12.03 / 2.35;
+    background: #0d1b2a;
+    border: 2px solid #445566;
+    border-radius: 4px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .container-top .door-indicator {
+    position: absolute; right: -2px; top: 50%; transform: translateY(-50%);
+    width: 8px; height: 60%; background: #556677; border-radius: 0 4px 4px 0;
+    display: flex; align-items: center; justify-content: center;
+    writing-mode: vertical-rl; font-size: 9px; color: #99aabb; letter-spacing: 1px;
+  }
+  .hoist-zone {
+    position: absolute;
+    left: 1.5%; top: 3%;
+    width: 16%;
+    height: 94%;
+    background: rgba(255, 165, 0, 0.15);
+    border: 2px dashed rgba(255, 165, 0, 0.6);
+    border-radius: 3px;
+    display: flex; flex-wrap: wrap; align-content: flex-start;
+    gap: 1px; padding: 2px;
+  }
+  .hoist-case {
+    width: 17.5%; height: 18%;
+    background: #ff8c00;
+    border-radius: 1px;
+    opacity: 0.85;
+  }
+  .free-zone {
+    position: absolute;
+    left: 19%; top: 3%;
+    width: 79.5%; height: 94%;
+    background: rgba(0, 200, 100, 0.06);
+    border: 1px dashed rgba(0, 200, 100, 0.3);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  .free-zone .label { font-size: 18px; font-weight: 700; color: rgba(0, 200, 100, 0.7); }
+  .free-zone .sublabel { font-size: 11px; color: rgba(0, 200, 100, 0.5); margin-top: 4px; }
+
+  /* Side view */
+  .container-side {
+    position: relative;
+    width: 100%; max-width: 560px;
+    aspect-ratio: 12.03 / 2.69;
+    background: #0d1b2a;
+    border: 2px solid #445566;
+    border-radius: 4px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .container-side .door-indicator {
+    position: absolute; right: -2px; top: 50%; transform: translateY(-50%);
+    width: 8px; height: 80%; background: #556677; border-radius: 0 4px 4px 0;
+    display: flex; align-items: center; justify-content: center;
+    writing-mode: vertical-rl; font-size: 9px; color: #99aabb; letter-spacing: 1px;
+  }
+  .stack-zone {
+    position: absolute;
+    left: 1.5%; bottom: 3%;
+    width: 16%; height: 92%;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    gap: 1px; padding: 2px;
+  }
+  .stack-row {
+    width: 100%;
+    height: 15%;
+    background: #ff8c00;
+    border-radius: 1px;
+    opacity: 0.85;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; color: #fff; font-weight: 600;
+  }
+  .stack-row.empty {
+    background: transparent;
+    border: 1px dashed rgba(255,140,0,0.3);
+    opacity: 0.4;
+  }
+  .side-free {
+    position: absolute;
+    left: 19%; bottom: 3%;
+    width: 79.5%; height: 92%;
+    background: rgba(0, 200, 100, 0.06);
+    border: 1px dashed rgba(0, 200, 100, 0.3);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  .side-free .label { font-size: 16px; font-weight: 700; color: rgba(0, 200, 100, 0.6); }
+  .side-free .sublabel { font-size: 11px; color: rgba(0, 200, 100, 0.4); margin-top: 4px; }
+
+  /* Dimension labels */
+  .dim-label {
+    position: absolute; font-size: 10px; color: #8899aa;
+  }
+  .dim-h-top { bottom: -20px; left: 50%; transform: translateX(-50%); }
+  .dim-h-hoist { bottom: -20px; left: 9%; }
+  .dim-v { left: -40px; top: 50%; transform: translateY(-50%) rotate(-90deg); white-space: nowrap; }
+
+  /* Stats bar */
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+  .stat-card {
+    background: #16213e; border-radius: 10px; padding: 18px 22px;
+    flex: 1; min-width: 160px; text-align: center;
+  }
+  .stat-value { font-size: 28px; font-weight: 700; color: #ff8c00; }
+  .stat-value.green { color: #00c864; }
+  .stat-label { font-size: 12px; color: #8888aa; margin-top: 4px; }
+
+  /* Capacity bar */
+  .capacity-bar-wrap { margin-top: 28px; background: #16213e; border-radius: 10px; padding: 20px 24px; }
+  .capacity-title { font-size: 13px; color: #8888aa; margin-bottom: 10px; }
+  .bar-outer { width: 100%; height: 32px; background: #0d1b2a; border-radius: 6px; overflow: hidden; position: relative; }
+  .bar-fill { height: 100%; border-radius: 6px 0 0 6px; display: flex; align-items: center; padding-left: 10px; font-size: 12px; font-weight: 600; }
+  .bar-fill.orange { background: linear-gradient(90deg, #ff8c00, #ffaa33); color: #000; width: 8.8%; min-width: 60px; }
+  .bar-remaining { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 12px; color: #00c864; font-weight: 600; }
+
+  .weight-bar .bar-fill.orange { width: 14.2%; min-width: 60px; }
+
+  .note { margin-top: 24px; font-size: 12px; color: #667788; line-height: 1.6; background: #16213e; border-radius: 8px; padding: 16px 20px; }
+  .note strong { color: #a0c4ff; }
+
+  .legend { display: flex; gap: 20px; margin-top: 12px; margin-bottom: 8px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #8899aa; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 2px; }
+  .legend-dot.orange { background: #ff8c00; }
+  .legend-dot.green { background: rgba(0,200,100,0.3); border: 1px dashed rgba(0,200,100,0.6); }
+</style>
+</head>
+<body>
+
+<h1>CDI Ghana — 40ft HC Container Load Plan</h1>
+<p class="subtitle">50× Mode Hoist 1T Chain Motors · Long Beach → Tema, Ghana</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot orange"></div>Chain Hoist Road Cases (50 units)</div>
+  <div class="legend-item"><div class="legend-dot green"></div>Available for Lighting / Audio / Video</div>
+</div>
+
+<div class="views">
+  <!-- Top-down view -->
+  <div class="view-card">
+    <div class="view-title">Top-Down View (Looking Into Container)</div>
+    <div style="position:relative; padding: 24px 8px 28px 8px;">
+      <div class="container-top">
+        <div class="hoist-zone" id="topHoists"></div>
+        <div class="free-zone">
+          <span class="label">~91% AVAILABLE</span>
+          <span class="sublabel">Lighting · Audio · Video · Truss · Cabling</span>
+        </div>
+        <div class="door-indicator">DOORS</div>
+      </div>
+      <div class="dim-label" style="bottom: -4px; left: 50%; transform: translateX(-50%);">← 12.03 m (39.5 ft) →</div>
+      <div class="dim-label" style="right:-52px; top:50%; transform:translateY(-50%) rotate(-90deg); white-space:nowrap;">2.35 m</div>
+    </div>
+  </div>
+
+  <!-- Side view -->
+  <div class="view-card">
+    <div class="view-title">Side Cross-Section View</div>
+    <div style="position:relative; padding: 24px 8px 28px 8px;">
+      <div class="container-side">
+        <div class="stack-zone" id="sideStacks"></div>
+        <div class="side-free">
+          <span class="label">REMAINING SPACE</span>
+          <span class="sublabel">~61 m³ available</span>
+        </div>
+        <div class="door-indicator">DOORS</div>
+      </div>
+      <div class="dim-label" style="bottom:-4px; left:50%; transform:translateX(-50%);">← 12.03 m (39.5 ft) →</div>
+      <div class="dim-label" style="right:-52px; top:50%; transform:translateY(-50%) rotate(-90deg); white-space:nowrap;">2.69 m (HC)</div>
+    </div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-value">50</div>
+    <div class="stat-label">Chain Hoist Units</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">5.9 m³</div>
+    <div class="stat-label">Volume Used</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value green">~61 m³</div>
+    <div class="stat-label">Volume Remaining</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value">4,000 kg</div>
+    <div class="stat-label">Hoist Weight</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-value green">24,200 kg</div>
+    <div class="stat-label">Weight Capacity Left</div>
+  </div>
+</div>
+
+<!-- Volume bar -->
+<div class="capacity-bar-wrap">
+  <div class="capacity-title">VOLUME UTILIZATION — 50 Chain Hoists</div>
+  <div class="bar-outer">
+    <div class="bar-fill orange">8.8%</div>
+    <div class="bar-remaining">91.2% available (~61 m³)</div>
+  </div>
+</div>
+
+<!-- Weight bar -->
+<div class="capacity-bar-wrap weight-bar" style="margin-top:12px;">
+  <div class="capacity-title">WEIGHT UTILIZATION — 50 Chain Hoists</div>
+  <div class="bar-outer">
+    <div class="bar-fill orange">14.2%</div>
+    <div class="bar-remaining">85.8% available (~24,200 kg)</div>
+  </div>
+</div>
+
+<!-- Packing note -->
+<div class="note">
+  <strong>Packing Notes:</strong> Each road case is 622 × 466 × 408 mm (80 kg).
+  Stacking 5 cases per column × 10 columns across the container width/depth fills roughly the first 1.5–2 meters of container length.
+  Recommend placing hoists at the back wall (opposite doors) for load stability, leaving the full remaining length accessible for lighting rigs, audio racks, video gear, truss, and cabling.
+  <br><br>
+  <strong>Quote:</strong> Mode Hoist — $1,507/unit fully landed (freight + duties) · 50 units = $75,350 · Price valid through Feb 28, 2026
+</div>
+
+<script>
+  // Populate top-down hoist cases (50 small boxes in the zone)
+  const topZone = document.getElementById('topHoists');
+  for (let i = 0; i < 50; i++) {
+    const box = document.createElement('div');
+    box.className = 'hoist-case';
+    topZone.appendChild(box);
+  }
+
+  // Populate side view stacks (6 layers, showing 5 full + 1 partial)
+  const sideZone = document.getElementById('sideStacks');
+  // 6 possible stack positions, we use ~5 full layers (50 units / 10 per layer = 5 layers)
+  const layers = [
+    { label: '', empty: true },
+    { label: 'Layer 5', empty: false },
+    { label: 'Layer 4', empty: false },
+    { label: 'Layer 3', empty: false },
+    { label: 'Layer 2', empty: false },
+    { label: 'Layer 1', empty: false },
+  ];
+  layers.forEach(l => {
+    const row = document.createElement('div');
+    row.className = 'stack-row' + (l.empty ? ' empty' : '');
+    row.textContent = l.label;
+    sideZone.appendChild(row);
+  });
+</script>
+</body>
+</html>
