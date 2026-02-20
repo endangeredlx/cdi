@@ -37,7 +37,7 @@
         .stat-number.total { color: var(--text-primary); font-size: 24px; }
         .stat-label { font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
         .progress-container { height: 3px; background: var(--border-dark); margin-top: 0; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--completed-green), var(--cdi-gold)); transition: width 0.5s; width: 34%; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--completed-green), var(--cdi-gold)); transition: width 0.5s; width: 35%; }
         .board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; min-height: calc(100vh - 140px); }
         .column { background: var(--cdi-dark); border-right: 1px solid var(--border-dark); padding: 16px; overflow-y: auto; }
         .column:last-child { border-right: none; }
@@ -93,7 +93,7 @@
                     <div class="stat-label">Completed</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number in-progress">31</div>
+                    <div class="stat-number in-progress">30</div>
                     <div class="stat-label">In Progress</div>
                 </div>
                 <div class="stat-item">
@@ -101,7 +101,7 @@
                     <div class="stat-label">Upcoming</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number total">34%</div>
+                    <div class="stat-number total">35%</div>
                     <div class="stat-label">Complete</div>
                 </div>
             </div>
@@ -209,17 +209,13 @@
             <div class="column-header">
                 <div class="column-indicator in-progress"></div>
                 <span class="column-title in-progress">IN PROGRESS</span>
-                <span class="column-count">31</span>
+                <span class="column-count">30</span>
             </div>
             <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352621', '_blank')">
                 <div class="task-name">Open AMEX Business Checking</div>
             </div>
             <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352625', '_blank')">
                 <div class="task-name">FINALIZE BUDGET (LINKED HERE)</div>
-                <div class="task-notes"><a href="https://docs.google.com/spreadsheets/d/1id94wROFlVxrljVmBKyw1VWx60nM-bZC/edit" target="_blank" onclick="event.stopPropagation()">View Budget Spreadsheet</a></div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103136636943', '_blank')">
-                <div class="task-name">Budget Finalization</div>
                 <div class="task-notes"><a href="https://docs.google.com/spreadsheets/d/1id94wROFlVxrljVmBKyw1VWx60nM-bZC/edit" target="_blank" onclick="event.stopPropagation()">View Budget Spreadsheet</a></div>
             </div>
             <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213233157961145', '_blank')">
@@ -400,281 +396,6 @@
     <div class="footer">
         <div class="footer-text">CDI &bull; Building Crews Who Build Shows &bull; <a href="https://app.asana.com/0/1213060510407649" target="_blank">View in Asana</a> &bull; Last synced: February 20, 2026</div>
         <div class="footer-text">Target Launch: Q4 2026 &bull; Accra, Ghana</div>
-    </div>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDI Project Board | Crew Development Institute</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --cdi-gold: #D4AF37;
-            --cdi-dark: #0A0A0A;
-            --completed-green: #5BAD7A;
-            --progress-gold: #D4AF37;
-            --upcoming-blue: #6BA3D6;
-            --text-primary: #E8E8E8;
-            --text-secondary: #888;
-            --text-muted: #666;
-            --border-dark: #1A1A1A;
-        }
-        body { font-family: 'Source Sans Pro', sans-serif; background: var(--cdi-dark); color: var(--text-primary); min-height: 100vh; }
-        .header { background: linear-gradient(135deg, #0D0D0D 0%, #1A1510 100%); border-bottom: 2px solid var(--cdi-gold); padding: 24px 32px; }
-        .header-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
-        .brand { display: flex; align-items: center; gap: 16px; }
-        .logo-text { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: 3px; color: #FFFFFF; }
-        .brand-divider { width: 2px; height: 80px; background: var(--cdi-gold); }
-        .brand-subtitle { font-family: 'Oswald', sans-serif; font-weight: 300; font-size: 14px; letter-spacing: 4px; color: var(--cdi-gold); text-transform: uppercase; }
-        .brand-tagline { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
-        .stats-bar { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-        .stat-item { text-align: center; }
-        .stat-number { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 600; }
-        .stat-number.completed { color: var(--completed-green); }
-        .stat-number.in-progress { color: var(--progress-gold); }
-        .stat-number.upcoming { color: var(--upcoming-blue); }
-        .stat-number.total { color: var(--text-primary); }
-        .stat-label { font-size: 10px; letter-spacing: 2px; color: var(--text-secondary); text-transform: uppercase; }
-        .progress-container { margin-top: 16px; height: 4px; background: #1A1A1A; border-radius: 2px; overflow: hidden; }
-        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--completed-green), var(--cdi-gold)); }
-        .board { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; min-height: calc(100vh - 220px); }
-        @media (max-width: 900px) { .board { grid-template-columns: 1fr; } }
-        .column { padding: 20px; border-right: 1px solid var(--border-dark); }
-        .column:last-child { border-right: none; }
-        .column-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-        .column-indicator { width: 10px; height: 10px; border-radius: 50%; }
-        .column-indicator.completed { background: var(--completed-green); }
-        .column-indicator.in-progress { background: var(--cdi-gold); box-shadow: 0 0 6px rgba(212, 175, 55, 0.4); }
-        .column-indicator.upcoming { background: var(--upcoming-blue); }
-        .column-title { font-family: 'Oswald', sans-serif; font-size: 14px; letter-spacing: 3px; font-weight: 500; }
-        .column-title.completed { color: var(--completed-green); }
-        .column-title.in-progress { color: var(--cdi-gold); }
-        .column-title.upcoming { color: var(--upcoming-blue); }
-        .column-count { font-size: 11px; color: var(--text-muted); margin-left: auto; }
-        .task-card { background: #111111; border-radius: 2px; padding: 14px; margin-bottom: 8px; border-left: 3px solid var(--cdi-gold); transition: all 0.15s; text-decoration: none; display: block; cursor: pointer; }
-        .task-card:hover { background: #1A1714; }
-        .task-card.completed { border-left-color: var(--completed-green); opacity: 0.85; }
-        .task-card.in-progress { border-left-color: var(--cdi-gold); background: #131310; }
-        .task-card.upcoming { border-left-color: var(--upcoming-blue); background: #0F1115; opacity: 0.75; }
-        .task-name { font-size: 13px; font-weight: 600; color: #E0E0E0; line-height: 1.3; }
-        .task-notes { font-size: 11px; color: #888; margin-top: 6px; line-height: 1.4; }
-        .task-notes a { color: var(--cdi-gold); text-decoration: none; }
-        .task-notes a:hover { text-decoration: underline; }
-        .footer { border-top: 1px solid var(--border-dark); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-        .footer-text { font-size: 11px; color: #444; }
-        .footer-text a { color: var(--cdi-gold); text-decoration: none; }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="header-content">
-            <div class="brand">
-                <div>
-                    <div class="logo-text">CREW</div>
-                    <div class="logo-text">DEVELOPMENT</div>
-                    <div class="logo-text">INSTITUTE</div>
-                </div>
-                <div class="brand-divider"></div>
-                <div>
-                    <div class="brand-subtitle">Project Management Board</div>
-                    <div class="brand-tagline">Ghana Partnership â¢ 2026 Roadmap</div>
-                </div>
-            </div>
-            <div class="stats-bar">
-                <div class="stat-item"><div class="stat-number completed">14</div><div class="stat-label">Completed</div></div>
-                <div class="stat-item"><div class="stat-number in-progress">17</div><div class="stat-label">In Progress</div></div>
-                <div class="stat-item"><div class="stat-number upcoming">15</div><div class="stat-label">Upcoming</div></div>
-                <div class="stat-item"><div class="stat-number total">30%</div><div class="stat-label">Complete</div></div>
-            </div>
-        </div>
-        <div class="progress-container"><div class="progress-fill" style="width: 30%;"></div></div>
-    </div>
-
-    <div class="board">
-        <!-- COMPLETED COLUMN -->
-        <div class="column">
-            <div class="column-header">
-                <div class="column-indicator completed"></div>
-                <span class="column-title completed">COMPLETED</span>
-                <span class="column-count">14</span>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248217', '_blank')">
-                <div class="task-name">Ghana Partnership Pitch (Updated)</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407654', '_blank')">
-                <div class="task-name">CDI Brand Guide</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407656', '_blank')">
-                <div class="task-name">CDI Partnership Pitch Deck</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407658', '_blank')">
-                <div class="task-name">CDI Ã Illumin8 Partnership Framework</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407660', '_blank')">
-                <div class="task-name">Condensed 4-Page Partnership Deck</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407662', '_blank')">
-                <div class="task-name">US-Adesu â CDI Rebrand Deck</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407664', '_blank')">
-                <div class="task-name">Erica Hayes Bio / Pitch Deck</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407666', '_blank')">
-                <div class="task-name">Keith Bernard Bio + Headshot</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407668', '_blank')">
-                <div class="task-name">Blake Brady Bio + Headshot</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407670', '_blank')">
-                <div class="task-name">WhatsApp Response to Nana Kwame</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407672', '_blank')">
-                <div class="task-name">MOU Terms Finalized</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407674', '_blank')">
-                <div class="task-name">Training Model Defined</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407676', '_blank')">
-                <div class="task-name">Sponsorship Tiers Structure</div>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213060510407678', '_blank')">
-                <div class="task-name">Domain & Social Handles</div>
-            </div>
-        </div>
-
-        <!-- IN PROGRESS COLUMN -->
-        <div class="column">
-            <div class="column-header">
-                <div class="column-indicator in-progress"></div>
-                <span class="column-title in-progress">IN PROGRESS</span>
-                <span class="column-count">17</span>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352635', '_blank')">
-                <div class="task-name">Get everyone's headshot</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573749', '_blank')">
-                <div class="task-name">Pitch National Urban League</div>
-                <div class="task-notes">Pitch happening 2/5/26 via Julius Walker with Epic Tech Group</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352633', '_blank')">
-                <div class="task-name">Create NDA & Sign</div>
-                <div class="task-notes">Create NDAs for Board and NDAs for Mutual Partners</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352629', '_blank')">
-                <div class="task-name">Create COI & Sign</div>
-                <div class="task-notes">Conflict of Interest Policy for Non Profit</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352619', '_blank')">
-                <div class="task-name">Create Bylaws & Sign</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352621', '_blank')">
-                <div class="task-name">Open AMEX Business Checking</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352625', '_blank')">
-                <div class="task-name">FINALIZE BUDGET (LINKED HERE)</div>
-                <div class="task-notes"><a href="https://docs.google.com/spreadsheets/d/1id94wROFlVxrljVmBKyw1VWx60nM-bZC/edit" target="_blank">View Budget Spreadsheet</a></div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352623', '_blank')">
-                <div class="task-name">Get official email addresses</div>
-                <div class="task-notes">$1.99/month each on GoDaddy â info@, partnerships@, media@cdi-global.org</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248219', '_blank')">
-                <div class="task-name">MOU Document Drafting</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103136636947', '_blank')">
-                <div class="task-name">Add functionality to Partner links on website</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103136636943', '_blank')">
-                <div class="task-name">Budget Finalization</div>
-                <div class="task-notes"><a href="https://docs.google.com/spreadsheets/d/1id94wROFlVxrljVmBKyw1VWx60nM-bZC/edit" target="_blank">View Budget Spreadsheet</a></div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248227', '_blank')">
-                <div class="task-name">Nana Kwame Follow-Up Call</div>
-                <div class="task-notes">Schedule a call presenting the new pitch decks, website, non-profit status and financial updates</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248229', '_blank')">
-                <div class="task-name">Government Outreach Strategy</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248221', '_blank')">
-                <div class="task-name">501(c)(3) Establishment</div>
-                <div class="task-notes">Set up non-profit in Michigan & pay for 501(c)(3) status - $20 + $275</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248223', '_blank')">
-                <div class="task-name">Equipment List Finalization</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248225', '_blank')">
-                <div class="task-name">Sponsorship Pitch Deck</div>
-                <div class="task-notes">Create cohesive sponsorship deck with CDI branding</div>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573748', '_blank')">
-                <div class="task-name">Non-Profit CLG in Ghana</div>
-                <div class="task-notes">Register with Registrar-General's Department - Budget $900-$1,100</div>
-            </div>
-        </div>
-
-        <!-- UPCOMING COLUMN -->
-        <div class="column">
-            <div class="column-header">
-                <div class="column-indicator upcoming"></div>
-                <span class="column-title upcoming">UPCOMING</span>
-                <span class="column-count">15</span>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573747', '_blank')">
-                <div class="task-name">CDI Project Board</div>
-                <div class="task-notes"><a href="https://www.cdi-global.org/pb/" target="_blank">View Project Board</a></div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573741', '_blank')">
-                <div class="task-name">CDI Social Media Development</div>
-                <div class="task-notes">Lock in usernames across Facebook, X, Threads, TikTok and YouTube</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573751', '_blank')">
-                <div class="task-name">Pitch Live Nation</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573752', '_blank')">
-                <div class="task-name">Pitch Elation</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573750', '_blank')">
-                <div class="task-name">Pitch Black Promoters Collective</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248231', '_blank')">
-                <div class="task-name">Vendor Partnerships / Equipment Procurement</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248233', '_blank')">
-                <div class="task-name">Container Prep & Shipping</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248235', '_blank')">
-                <div class="task-name">Illumin8 Facility Setup</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248237', '_blank')">
-                <div class="task-name">Training Cohort Recruitment</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248239', '_blank')">
-                <div class="task-name">First Training Deployment</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248241', '_blank')">
-                <div class="task-name">December in GH Event Season</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248243', '_blank')">
-                <div class="task-name">Local Staffing Hire</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248245', '_blank')">
-                <div class="task-name">Curriculum Documentation</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248247', '_blank')">
-                <div class="task-name">Secure Event Commitments</div>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248249', '_blank')">
-                <div class="task-name">Evaluation & Expansion Planning</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <div class="footer-text">CDI â¢ Building Crews Who Build Shows â¢ <a href="https://app.asana.com/0/1213060510407649" target="_blank">View in Asana</a> â¢ Last synced: February 4, 2026</div>
-        <div class="footer-text">Target Launch: Q4 2026 â¢ Accra, Ghana</div>
     </div>
 </body>
 </html>
