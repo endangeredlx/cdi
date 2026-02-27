@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization Complete | CDI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            max-width: 500px;
+        }
+        .icon { font-size: 4rem; margin-bottom: 20px; }
+        h1 { color: #C9A227; margin-bottom: 10px; }
+        p { color: #888; margin-bottom: 20px; }
+        .code-box {
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            word-break: break-all;
+            margin: 20px 0;
+            display: none;
+        }
+        .success { color: #00B4A0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">✅</div>
+        <h1>Authorization Complete!</h1>
+        <p>You have successfully connected to Crew Development Institute.</p>
+        <p class="success">You can close this window now.</p>
+        <div class="code-box" id="codeBox"></div>
+    </div>
+    <script>
+        // Capture authorization code from URL if present
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        if (code) {
+            const codeBox = document.getElementById('codeBox');
+            codeBox.style.display = 'block';
+            codeBox.textContent = 'Auth Code: ' + code;
+        }
+    </script>
+</body>
+</html>
