@@ -360,6 +360,49 @@
             max-width: 700px;
             margin: 0 auto var(--space-md);
         }
+        
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+        
+        .scroll-indicator span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+        
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--color-gold);
+            border-bottom: 2px solid var(--color-gold);
+            transform: rotate(45deg);
+            animation: scrollBounce 2s infinite;
+        }
+        
+        @keyframes scrollBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+            40% { transform: translateY(8px) rotate(45deg); }
+            60% { transform: translateY(4px) rotate(45deg); }
+        }
 
         /* ============================================
            Decorative Elements
@@ -1242,7 +1285,7 @@
 
 <!-- SLIDE 1: COVER -->
 <section class="slide cover" id="cover">
-    <img src="images/stage-lights.jpg" alt="" class="bg-image">
+    <img src="images/stage-lights.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-hero"></div>
     <div class="bg-overlay overlay-vignette"></div>
     <div class="slide-content">
@@ -1256,11 +1299,15 @@
         <p class="lead">Building Africa's Live Entertainment Workforce</p>
         <p class="tagline">"Where world-class productions meet local expertise"</p>
     </div>
+    <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+    </div>
 </section>
 
 <!-- SLIDE 2: THE MOMENT -->
 <section class="slide full-image-slide" id="moment">
-    <img src="images/stadium-setup.jpg" alt="" class="bg-image">
+    <img src="images/stadium-setup.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-bottom"></div>
     <div class="slide-content">
         <span class="eyebrow">The Opportunity</span>
@@ -1274,7 +1321,7 @@
 
 <!-- SLIDE 3: THE NUMBERS -->
 <section class="slide" id="numbers">
-    <img src="images/truss-rig.jpg" alt="" class="bg-image">
+    <img src="images/truss-rig.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-gradient"></div>
     <div class="slide-content">
         <span class="eyebrow">Market Reality</span>
@@ -1376,7 +1423,7 @@
 
 <!-- SLIDE 6: THE WORK -->
 <section class="slide full-image-slide" id="work">
-    <img src="images/crew-teamwork.jpg" alt="" class="bg-image">
+    <img src="images/crew-teamwork.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-hero"></div>
     <div class="slide-content center">
         <span class="eyebrow">In Action</span>
@@ -1436,7 +1483,7 @@
 
 <!-- SLIDE 8: IMPACT -->
 <section class="slide" id="impact">
-    <img src="images/audio-working-2.jpg" alt="" class="bg-image">
+    <img src="images/audio-working-2.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-gradient"></div>
     <div class="slide-content">
         <div class="center">
@@ -1539,7 +1586,7 @@
 
 <!-- SLIDE 10: VISION -->
 <section class="slide full-image-slide" id="vision">
-    <img src="images/stage-lights.jpg" alt="" class="bg-image">
+    <img src="images/stage-lights.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-hero"></div>
     <div class="slide-content center">
         <span class="eyebrow">Looking Ahead</span>
@@ -1553,7 +1600,7 @@
 
 <!-- SLIDE 10: CTA -->
 <section class="slide" id="partner">
-    <img src="images/stadium-setup.jpg" alt="" class="bg-image">
+    <img src="images/stadium-setup.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-gradient"></div>
     <div class="slide-content">
         <div class="center">
@@ -1609,7 +1656,7 @@
 
 <!-- SLIDE 11: CLOSING -->
 <section class="slide full-image-slide closing" id="closing">
-    <img src="images/truss-rig.jpg" alt="" class="bg-image">
+    <img src="images/truss-rig.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-hero"></div>
     <div class="slide-content center">
         <h1>The Stage Is Set.<br><span>Join the Crew.</span></h1>
