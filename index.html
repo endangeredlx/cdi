@@ -494,6 +494,13 @@
             justify-content: center;
             margin-bottom: 24px;
             font-size: 1.5rem;
+            overflow: hidden;
+        }
+
+        .pillar-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .pillar:nth-child(1) .pillar-icon { background: rgba(206, 17, 38, 0.1); }
@@ -586,8 +593,18 @@
         }
 
         .track-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin: 0 auto 12px;
+            overflow: hidden;
+            border: 2px solid var(--cdi-gold);
+        }
+
+        .track-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .track h5 {
@@ -1272,17 +1289,17 @@
             </div>
             <div class="pillars">
                 <div class="pillar">
-                    <div class="pillar-icon">📚</div>
+                    <div class="pillar-icon"><img src="sponsorship/images/erica-working.jpg" alt="Learning"></div>
                     <h3>Learning Arm</h3>
                     <p>School programs and hands-on training for local technicians in lighting, audio, and production management. University partnerships with California Baptist University, University of Ghana, and University of Nigeria.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-icon">🎯</div>
+                    <div class="pillar-icon"><img src="sponsorship/images/blake-working.jpg" alt="Technical Advisory"></div>
                     <h3>Technical Advisory</h3>
                     <p>On-site and virtual production management, implementing training to create world-class shows. Industry professionals mentoring and supporting local crews on real productions.</p>
                 </div>
                 <div class="pillar">
-                    <div class="pillar-icon">🎬</div>
+                    <div class="pillar-icon"><img src="sponsorship/images/stadium-setup.jpg" alt="Production"></div>
                     <h3>Production Arm</h3>
                     <p>Direct production support during the transition period, phasing out as local teams become self-sufficient. Goal: Build capacity so locals own and operate their own world-class events.</p>
                 </div>
@@ -1319,22 +1336,22 @@
 
                 <div class="tracks">
                     <div class="track">
-                        <div class="track-icon">🎧</div>
+                        <div class="track-icon"><img src="sponsorship/images/audio-working.jpg" alt="Audio Equipment"></div>
                         <h5>Audio</h5>
                         <p>FOH/Monitor mixing, system design, RF coordination</p>
                     </div>
                     <div class="track">
-                        <div class="track-icon">💡</div>
+                        <div class="track-icon"><img src="sponsorship/images/stage-lights.jpg" alt="Lighting Equipment"></div>
                         <h5>Lighting</h5>
                         <p>GrandMA3 programming, fixture rigging, show design</p>
                     </div>
                     <div class="track">
-                        <div class="track-icon">🎥</div>
+                        <div class="track-icon"><img src="sponsorship/images/video-production.jpg" alt="Video Production"></div>
                         <h5>Video</h5>
                         <p>LED wall systems, camera ops, Resolume servers</p>
                     </div>
                     <div class="track">
-                        <div class="track-icon">⚙️</div>
+                        <div class="track-icon"><img src="sponsorship/images/truss-rig.jpg" alt="Rigging Equipment"></div>
                         <h5>Rigging</h5>
                         <p>Rigging safety, load-in logistics, operational awareness</p>
                     </div>
