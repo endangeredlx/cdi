@@ -229,7 +229,7 @@
         }
         
         .overlay-gradient {
-            background: linear-gradient(135deg, rgba(20,22,29,0.97) 0%, rgba(8,9,10,0.85) 100%);
+            background: linear-gradient(180deg, rgba(8,9,10,0.95) 0%, rgba(20,22,29,0.92) 30%, rgba(8,9,10,0.88) 100%);
         }
 
         /* ============================================
@@ -252,6 +252,7 @@
             line-height: 1.2;
             margin-bottom: var(--space-md);
             color: var(--color-gold-light);
+            text-shadow: 0 2px 12px rgba(0,0,0,0.7);
         }
         
         h3 {
@@ -294,6 +295,7 @@
             color: var(--color-gold);
             margin-bottom: var(--space-sm);
             display: block;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
         
         .accent {
@@ -305,6 +307,26 @@
            ============================================ */
         .cover {
             text-align: center;
+        }
+        
+        /* Brand-compliant Logo Mark: Gold square with white CDI text */
+        .logo-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(120px, 20vw, 200px);
+            height: clamp(120px, 20vw, 200px);
+            background: var(--color-gold);
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(201,162,39,0.4);
+        }
+        
+        .logo-mark span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            color: #FFFFFF;
         }
         
         .cover-logo h1 {
@@ -1054,7 +1076,9 @@
     <div class="bg-overlay overlay-hero"></div>
     <div class="slide-content">
         <div class="cover-logo">
-            <h1>CDI</h1>
+            <div class="logo-mark">
+                <span>CDI</span>
+            </div>
         </div>
         <p class="subtitle">Crew Development Institute</p>
         <div class="ornament">
