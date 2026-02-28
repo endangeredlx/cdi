@@ -847,6 +847,20 @@
         .tiers-note strong {
             color: var(--color-gold);
         }
+        
+        /* ============================================
+           Scroll Reveal Animations
+           ============================================ */
+        .reveal-ready {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .reveal-ready.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* ============================================
            Full Image Slide
@@ -1617,6 +1631,113 @@
     // Initial updates
     updateProgress();
     updateNav();
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        // Find current slide
+        let currentIndex = 0;
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        slides.forEach((slide, index) => {
+            const slideTop = slide.offsetTop;
+            const slideBottom = slideTop + slide.offsetHeight;
+            if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
+                currentIndex = index;
+            }
+        });
+        
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+            e.preventDefault();
+            const nextIndex = Math.min(currentIndex + 1, slides.length - 1);
+            slides[nextIndex].scrollIntoView({ behavior: 'smooth' });
+        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            e.preventDefault();
+            const prevIndex = Math.max(currentIndex - 1, 0);
+            slides[prevIndex].scrollIntoView({ behavior: 'smooth' });
+        } else if (e.key === 'Home') {
+            e.preventDefault();
+            slides[0].scrollIntoView({ behavior: 'smooth' });
+        } else if (e.key === 'End') {
+            e.preventDefault();
+            slides[slides.length - 1].scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+    
+    // Scroll reveal animations using Intersection Observer
+    const revealElements = document.querySelectorAll(
+        '.stat-block, .pillar, .track-card, .team-card, .impact-card, .tier-card, .cta-item'
+    );
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                // Add staggered delay based on element position within its parent
+                const siblings = entry.target.parentElement.children;
+                const siblingIndex = Array.from(siblings).indexOf(entry.target);
+                entry.target.style.transitionDelay = `${siblingIndex * 100}ms`;
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    revealElements.forEach(el => {
+        el.classList.add('reveal-ready');
+        revealObserver.observe(el);
+    });
+    
+    // Animate stats numbers when they come into view
+    const statNumbers = document.querySelectorAll('.stat-value');
+    
+    const numberObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const text = el.textContent;
+                const numMatch = text.match(/[\d.]+/);
+                
+                if (numMatch) {
+                    const targetNum = parseFloat(numMatch[0]);
+                    const prefix = text.substring(0, text.indexOf(numMatch[0]));
+                    const suffix = text.substring(text.indexOf(numMatch[0]) + numMatch[0].length);
+                    const duration = 1500;
+                    const startTime = performance.now();
+                    
+                    function animate(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeOut = 1 - Math.pow(1 - progress, 3);
+                        const currentValue = targetNum * easeOut;
+                        
+                        let displayValue;
+                        if (targetNum >= 100) {
+                            displayValue = Math.round(currentValue);
+                        } else if (Number.isInteger(targetNum)) {
+                            displayValue = Math.round(currentValue);
+                        } else {
+                            displayValue = currentValue.toFixed(1);
+                        }
+                        
+                        el.textContent = prefix + displayValue + suffix;
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            el.textContent = text;
+                        }
+                    }
+                    
+                    requestAnimationFrame(animate);
+                }
+                numberObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    statNumbers.forEach(el => numberObserver.observe(el));
 </script>
 
 </body>
