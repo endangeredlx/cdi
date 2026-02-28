@@ -1002,21 +1002,19 @@
         }
         
         .cta-item::before {
-            content: '';
+            content: '◆';
             flex-shrink: 0;
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+            background: linear-gradient(135deg, rgba(201,162,39,0.15) 0%, rgba(201,162,39,0.05) 100%);
             border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1rem;
+            color: var(--color-gold);
+            border: 1px solid rgba(201,162,39,0.2);
         }
-        
-        .cta-item:nth-child(1)::before { content: '◆'; font-size: 1rem; color: var(--color-gold); }
-        .cta-item:nth-child(2)::before { content: '◆'; font-size: 1rem; color: var(--color-gold); }
-        .cta-item:nth-child(3)::before { content: '◆'; font-size: 1rem; color: var(--color-gold); }
-        .cta-item:nth-child(4)::before { content: '◆'; font-size: 1rem; color: var(--color-gold); }
         
         .cta-item:hover {
             transform: translateX(8px);
@@ -1285,17 +1283,51 @@
            ============================================ */
         @media print {
             .nav,
-            .progress-bar {
-                display: none;
+            .progress-bar,
+            .scroll-indicator {
+                display: none !important;
             }
             
             html {
                 scroll-snap-type: none;
             }
             
+            body {
+                background: var(--color-black);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
             .slide {
                 page-break-after: always;
+                page-break-inside: avoid;
                 min-height: 100vh;
+            }
+            
+            /* Disable animations for print */
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            /* Ensure backgrounds print */
+            .bg-overlay,
+            .stat-card,
+            .pillar,
+            .track-image-wrapper,
+            .tier-card,
+            .impact-card,
+            .cta-item {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            /* Better text contrast for print */
+            .stat-number,
+            .cover-logo h1,
+            h2 {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
@@ -1804,7 +1836,7 @@
     
     // Scroll reveal animations using Intersection Observer
     const revealElements = document.querySelectorAll(
-        '.stat-block, .pillar, .track-card, .team-card, .impact-card, .tier-card, .cta-item'
+        '.stat-card, .pillar, .track, .team-member, .impact-card, .tier-card, .cta-item'
     );
     
     const revealObserver = new IntersectionObserver((entries) => {
