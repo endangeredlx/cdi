@@ -68,6 +68,33 @@
 
 ---
 
+## ✅ ADDITIONAL FIXES (Session 2)
+
+### CTA Item Icons Fixed
+- **Before**: Malformed pseudo-element with conflicting `content` and `width/height`
+- **After**: Proper diamond icon with gold background border and proper sizing
+
+### JavaScript Animation Selectors Fixed
+- **Before**: `'.stat-block, .pillar, .track-card, .team-card, ...'` (wrong class names)
+- **After**: `'.stat-card, .pillar, .track, .team-member, ...'` (correct class names)
+
+### Enhanced Print Styles
+- Added scroll indicator hiding for print
+- Added proper print-color-adjust for backgrounds
+- Disabled all animations in print mode
+- Better page-break handling
+
+---
+
+## 📄 PDF GENERATED
+
+**File**: `CDI-Partnership-Deck-2026.pdf`
+**Size**: ~11MB
+**Location**: `/Users/macmini/clawd/cdi-website/partnership/CDI-Partnership-Deck-2026.pdf`
+**Also available at**: https://endangeredlx.github.io/cdi/partnership/CDI-Partnership-Deck-2026.pdf
+
+---
+
 *Updated by: Diane (Design Agent)*
 *Date: February 28, 2026*
-*Status: Brand-compliant ✅*
+*Status: Brand-compliant ✅ | PDF Ready ✅*
