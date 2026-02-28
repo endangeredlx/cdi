@@ -752,15 +752,22 @@
             transform: translateY(-5px);
         }
         
-        .tier-card.bronze { border-color: #CD7F32; }
-        .tier-card.silver { border-color: #C0C0C0; }
-        .tier-card.gold { 
-            border-color: #D4AF37;
-            background: rgba(212,175,55,0.05);
+        /* Equipment Partner - Yellow/Gold accent */
+        .tier-card.equipment { 
+            border-color: var(--ghana-yellow);
+            background: rgba(252,209,22,0.05);
         }
+        
+        /* Funding Partner - Green accent */
+        .tier-card.funding { 
+            border-color: var(--ghana-green);
+            background: rgba(0,107,63,0.05);
+        }
+        
+        /* Title Partner - Premium white/platinum */
         .tier-card.title { 
             border-color: #E5E4E2; 
-            background: rgba(229,228,226,0.05);
+            background: rgba(229,228,226,0.08);
         }
         
         .tier-badge {
@@ -778,9 +785,8 @@
             text-align: center;
         }
         
-        .tier-card.bronze .tier-name { color: #CD7F32; }
-        .tier-card.silver .tier-name { color: #C0C0C0; }
-        .tier-card.gold .tier-name { color: #D4AF37; }
+        .tier-card.equipment .tier-name { color: var(--ghana-yellow); }
+        .tier-card.funding .tier-name { color: var(--ghana-green); }
         .tier-card.title .tier-name { color: #E5E4E2; }
         
         .tier-price {
@@ -984,7 +990,11 @@
             }
             
             .tiers-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .wishlist-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
             }
             
             .working-photo-strip {
@@ -1019,7 +1029,15 @@
             .impact-row,
             .team-grid,
             .tiers-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
+            }
+            
+            .wishlist-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .equipment-wishlist {
+                padding: 20px !important;
             }
             
             .contact-grid {
@@ -1283,67 +1301,159 @@
     <img src="images/crew-teamwork.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-gradient"></div>
     <div class="slide-content">
-        <span class="eyebrow">Investment Levels</span>
-        <h2>Partnership Tiers</h2>
-        <p class="lead">Choose the level that aligns with your impact goals</p>
+        <span class="eyebrow">Partner With CDI</span>
+        <h2>Partnership Opportunities</h2>
+        <p class="lead">CDI needs <strong>equipment</strong> and <strong>funding</strong> to train the next generation. Here's how you can help.</p>
         
-        <div class="tiers-grid">
-            <div class="tier-card bronze">
-                <span class="tier-badge">🥉</span>
-                <div class="tier-name">Bronze Partner</div>
-                <div class="tier-price">$10,000/yr</div>
+        <div class="tiers-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <!-- EQUIPMENT PARTNER -->
+            <div class="tier-card equipment">
+                <span class="tier-badge">⚡</span>
+                <div class="tier-name">Equipment Partner</div>
+                <div class="tier-price">In-Kind Donation</div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; text-align: center; font-style: italic;">
+                    Donate gear. Build brand loyalty.
+                </p>
                 <ul class="tier-features">
-                    <li>Logo on CDI training materials</li>
-                    <li>Social media recognition</li>
+                    <li>"Powered by [Your Company]" branding</li>
+                    <li>Your logo on all donated equipment</li>
+                    <li>Trainees learn exclusively on YOUR gear</li>
+                    <li>Featured in training materials & curriculum</li>
+                    <li>Priority hiring access to graduates</li>
+                    <li>Graduates become lifelong users of your products</li>
+                </ul>
+                <div style="margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    <p style="font-size: 0.8rem; color: var(--ghana-yellow); margin: 0; text-align: center;">
+                        <strong>THE ROI:</strong> Train the next generation on YOUR equipment — they'll specify it for the rest of their careers.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FUNDING PARTNER -->
+            <div class="tier-card funding">
+                <span class="tier-badge">💰</span>
+                <div class="tier-name">Funding Partner</div>
+                <div class="tier-price">$10K – $50K/yr</div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; text-align: center; font-style: italic;">
+                    Fund operations. Make impact visible.
+                </p>
+                <ul class="tier-features">
+                    <li>Logo on all CDI materials</li>
                     <li>Quarterly impact reports</li>
+                    <li>Social media recognition</li>
+                    <li>Priority hiring access to graduates</li>
                     <li>Certificate of partnership</li>
+                    <li>Featured in annual report</li>
                 </ul>
+                <div style="margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    <p style="font-size: 0.8rem; color: var(--ghana-green); margin: 0; text-align: center;">
+                        <strong>YOUR IMPACT:</strong> $10K trains 10 technicians. $50K funds an entire cohort.
+                    </p>
+                </div>
             </div>
             
-            <div class="tier-card silver">
-                <span class="tier-badge">🥈</span>
-                <div class="tier-name">Silver Partner</div>
-                <div class="tier-price">$25,000/yr</div>
-                <ul class="tier-features">
-                    <li>All Bronze benefits</li>
-                    <li>Logo on graduate certifications</li>
-                    <li>Priority hiring access</li>
-                    <li>Featured in CDI content</li>
-                    <li>Equipment branding rights</li>
-                </ul>
-            </div>
-            
-            <div class="tier-card gold">
-                <span class="tier-badge">🥇</span>
-                <div class="tier-name">Gold Partner</div>
-                <div class="tier-price">$50,000/yr</div>
-                <ul class="tier-features">
-                    <li>All Silver benefits</li>
-                    <li>Named training track sponsor</li>
-                    <li>Exclusive hiring events</li>
-                    <li>Advisory board seat</li>
-                    <li>Custom impact storytelling</li>
-                    <li>On-site branding at facility</li>
-                </ul>
-            </div>
-            
+            <!-- TITLE PARTNER -->
             <div class="tier-card title">
-                <span class="tier-badge">💎</span>
+                <span class="tier-badge">👑</span>
                 <div class="tier-name">Title Partner</div>
                 <div class="tier-price">$100,000+/yr</div>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; text-align: center; font-style: italic;">
+                    Lead the movement. Shape the future.
+                </p>
                 <ul class="tier-features">
-                    <li>All Gold benefits</li>
-                    <li>Co-naming rights</li>
-                    <li>Executive immersion trip</li>
+                    <li>All Funding Partner benefits</li>
+                    <li>Co-naming rights ("CDI powered by X")</li>
+                    <li>Advisory board seat</li>
+                    <li>Executive immersion trip to Ghana</li>
                     <li>Custom curriculum input</li>
                     <li>Global media recognition</li>
-                    <li>Strategic partnership status</li>
+                    <li>Equipment donations welcome (optional)</li>
                 </ul>
+                <div style="margin-top: 15px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    <p style="font-size: 0.8rem; color: var(--cdi-white); margin: 0; text-align: center;">
+                        <strong>LEGACY:</strong> Be the name behind Africa's production workforce.
+                    </p>
+                </div>
             </div>
         </div>
         
-        <div class="tiers-note">
-            <p><strong>In-Kind Partnerships:</strong> Equipment, software, and service donations welcome. Contact us for custom packages.</p>
+        <!-- EQUIPMENT WISH LIST -->
+        <div class="equipment-wishlist" style="margin-top: 50px; padding: 35px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.15); border-radius: 16px;">
+            <h3 style="text-align: center; margin-bottom: 25px; font-size: 1.3rem;">🎯 Equipment Wish List</h3>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                These are the tools CDI needs to train world-class technicians. Donate equipment and your brand becomes part of every show our graduates touch.
+            </p>
+            
+            <div class="wishlist-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                <div class="wishlist-category" style="padding: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border-left: 4px solid var(--cdi-white);">
+                    <h4 style="font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 12px; color: var(--cdi-white);">💡 Lighting</h4>
+                    <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;">
+                        <li>• grandMA3 consoles</li>
+                        <li>• Moving lights (Elation, Robe, Martin)</li>
+                        <li>• LED fixtures & wash lights</li>
+                        <li>• DMX cables & accessories</li>
+                    </ul>
+                </div>
+                
+                <div class="wishlist-category" style="padding: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border-left: 4px solid var(--ghana-red);">
+                    <h4 style="font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 12px; color: var(--ghana-red);">🔊 Audio</h4>
+                    <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;">
+                        <li>• Digital mixing consoles (Allen & Heath, DiGiCo)</li>
+                        <li>• Wireless mic systems (Shure, Sennheiser)</li>
+                        <li>• Line array speakers</li>
+                        <li>• In-ear monitoring systems</li>
+                    </ul>
+                </div>
+                
+                <div class="wishlist-category" style="padding: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border-left: 4px solid var(--ghana-green);">
+                    <h4 style="font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 12px; color: var(--ghana-green);">📺 Video</h4>
+                    <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;">
+                        <li>• LED wall panels</li>
+                        <li>• Media servers</li>
+                        <li>• PTZ cameras</li>
+                        <li>• Video switchers & scalers</li>
+                    </ul>
+                </div>
+                
+                <div class="wishlist-category" style="padding: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border-left: 4px solid var(--ghana-yellow);">
+                    <h4 style="font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 12px; color: var(--ghana-yellow);">🏗️ Rigging & Staging</h4>
+                    <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;">
+                        <li>• Truss systems</li>
+                        <li>• Chain motors & hoists</li>
+                        <li>• Rigging hardware & clamps</li>
+                        <li>• Stage decking</li>
+                    </ul>
+                </div>
+                
+                <div class="wishlist-category" style="padding: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border-left: 4px solid rgba(255,255,255,0.5);">
+                    <h4 style="font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 12px; color: var(--text-light);">🔌 Infrastructure</h4>
+                    <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;">
+                        <li>• Power distribution</li>
+                        <li>• Road cases & flight cases</li>
+                        <li>• Cable (XLR, CAT6, power)</li>
+                        <li>• Tools & workstations</li>
+                    </ul>
+                </div>
+                
+                <div class="wishlist-category" style="padding: 20px; background: rgba(255,255,255,0.02); border-radius: 12px; border-left: 4px solid rgba(255,255,255,0.5);">
+                    <h4 style="font-family: 'Oswald', sans-serif; font-size: 1rem; margin-bottom: 12px; color: var(--text-light);">💻 Software & Training</h4>
+                    <ul style="list-style: none; font-size: 0.9rem; color: var(--text-muted); line-height: 1.8;">
+                        <li>• Vectorworks licenses</li>
+                        <li>• Resolume licenses</li>
+                        <li>• QLab licenses</li>
+                        <li>• Training materials & manuals</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 20px;">
+                    <strong>Ready to donate equipment?</strong> Contact us to discuss logistics and recognition.
+                </p>
+                <a href="mailto:mariaperkinscdi@gmail.com?subject=CDI Equipment Donation" style="display: inline-block; background: transparent; border: 2px solid var(--cdi-white); color: var(--cdi-white); font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 600; padding: 12px 30px; border-radius: 4px; text-decoration: none; transition: all 0.3s ease;">
+                    Discuss Equipment Donation →
+                </a>
+            </div>
         </div>
     </div>
 </section>
