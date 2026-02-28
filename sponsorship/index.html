@@ -282,6 +282,27 @@
             margin-bottom: 20px;
         }
 
+        .pillar-photo {
+            width: 100%;
+            height: 160px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .pillar-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .pillar:hover .pillar-photo img {
+            filter: brightness(1);
+            transform: scale(1.03);
+        }
+
         .pillar h3 {
             margin-bottom: 15px;
         }
@@ -838,16 +859,16 @@
         
         <!-- Narrative hook - EVEN-inspired storytelling -->
         <p class="narrative-hook">
-            When a global artist performs in Accra, the lights, sound, and video walls are often operated by crews flown in from abroad. Local technicians—eager, capable, but untrained in international standards—watch from the wings. CDI exists to change that equation.
+            When a global artist performs across Africa, the lights, sound, and video walls are often operated by crews flown in from abroad. Local technicians—eager, capable, but untrained in international standards—watch from the wings. CDI exists to change that equation.
         </p>
         
         <!-- Working photos showing real CDI work -->
         <div class="working-photo-strip">
             <div class="working-photo">
-                <img src="images/erica-working-2.jpg" alt="Erica pointing at colorful stage">
+                <img src="images/audio-working.jpg" alt="Audio engineer at mixing console">
             </div>
             <div class="working-photo">
-                <img src="images/erica-working.jpg" alt="Erica at the lighting console">
+                <img src="images/erica-working-2.jpg" alt="Erica pointing at colorful stage">
             </div>
             <div class="working-photo">
                 <img src="images/crew-teamwork.jpg" alt="CDI crew working together on production">
@@ -856,7 +877,7 @@
                 <img src="images/blake-working.jpg" alt="Blake working on speaker stacks">
             </div>
             <div class="working-photo">
-                <img src="images/stadium-setup.jpg" alt="Stadium production setup in Ghana">
+                <img src="images/stadium-setup.jpg" alt="Stadium production setup in Africa">
             </div>
         </div>
         
@@ -889,17 +910,23 @@
         
         <div class="solution-pillars">
             <div class="pillar">
-                <div class="pillar-icon">📚</div>
+                <div class="pillar-photo">
+                    <img src="images/crew-individual.jpg" alt="CDI trainee learning production skills">
+                </div>
                 <h3>Learning Arm</h3>
                 <p>School programs and hands-on training for local technicians in lighting, audio, video, and rigging. University partnerships across three continents.</p>
             </div>
             <div class="pillar">
-                <div class="pillar-icon">🎯</div>
+                <div class="pillar-photo">
+                    <img src="images/erica-working.jpg" alt="Technical advisory on set">
+                </div>
                 <h3>Technical Advisory</h3>
                 <p>On-site and virtual production management. Industry professionals mentoring and supporting local crews on real productions.</p>
             </div>
             <div class="pillar">
-                <div class="pillar-icon">🎬</div>
+                <div class="pillar-photo">
+                    <img src="images/audio-working-2.jpg" alt="Live production in action">
+                </div>
                 <h3>Production Arm</h3>
                 <p>Direct production support during transition, phasing out as local teams become self-sufficient. Building capacity for world-class events.</p>
             </div>
