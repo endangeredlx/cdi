@@ -1040,6 +1040,35 @@
             transform: translateX(100%);
         }
         
+        /* Pulse animation for CTA button */
+        @keyframes subtlePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 168, 83, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(212, 168, 83, 0); }
+        }
+        
+        .btn {
+            animation: subtlePulse 3s infinite;
+        }
+        
+        .btn:hover {
+            animation: none;
+        }
+        
+        /* Glow effect for featured tier */
+        @keyframes tierGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 83, 0.15); }
+            50% { box-shadow: 0 0 30px rgba(212, 168, 83, 0.25); }
+        }
+        
+        .tier-card.featured {
+            animation: tierGlow 4s ease-in-out infinite;
+        }
+        
+        .tier-card.featured:hover {
+            animation: none;
+            box-shadow: 0 20px 50px rgba(212, 168, 83, 0.3);
+        }
+        
         .nonprofit {
             font-size: 0.85rem;
             color: var(--text-subtle);
