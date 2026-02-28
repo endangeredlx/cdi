@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="400" height="180" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+<svg width="340" height="140" viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700');
-      .crew { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 72px; letter-spacing: 2px; }
-      .sub { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 32px; letter-spacing: 6px; }
+      .crew { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 64px; letter-spacing: 2px; }
+      .sub { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 28px; letter-spacing: 5px; }
     </style>
   </defs>
-  <text x="0" y="68" fill="#FFFFFF" class="crew">CREW</text>
-  <text x="0" y="110" fill="#FFFFFF" class="sub">DEVELOPMENT</text>
-  <text x="0" y="150" fill="#FFFFFF" class="sub">INSTITUTE</text>
+  <text x="0" y="52" fill="#FFFFFF" class="crew">CREW</text>
+  <text x="0" y="90" fill="#FFFFFF" class="sub">DEVELOPMENT</text>
+  <text x="0" y="125" fill="#FFFFFF" class="sub">INSTITUTE</text>
 </svg>
