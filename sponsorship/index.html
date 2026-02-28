@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDI Sponsorship Deck | Crew Development Institute</title>
+    <title>CDI Partnership Deck | Crew Development Institute</title>
+    <meta name="description" content="Partner with CDI to build Africa's live event production workforce. Training world-class crews in audio, lighting, video, and rigging.">
+    <meta name="theme-color" content="#C9A227">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* CDI Primary Brand Colors - DO NOT CHANGE */
             --cdi-gold: #C9A227;
             --cdi-gold-light: #E5C558;
-            --cdi-orange: #FF8C00;
+            --cdi-gold-pale: #FFF3CD;
+            --cdi-navy: #0D1B2A;
+            --cdi-teal: #00B4A0;           /* Secondary accent - buttons, CTAs */
             --cdi-dark: #0A0A0A;
             --cdi-darker: #050505;
             --cdi-gray-dark: #1A1A1A;
@@ -19,6 +24,7 @@
             --cdi-gray-light: #8A8A8A;
             --cdi-white: #FFFFFF;
             --cdi-text: #E0E0E0;
+            /* Ghana Heritage Colors - Exact values */
             --ghana-red: #CE1126;
             --ghana-yellow: #FCD116;
             --ghana-green: #006B3F;
@@ -155,6 +161,22 @@
             z-index: 1;
         }
 
+        /* CDI Logo Mark - Brand Standard */
+        .logo-mark {
+            width: 56px;
+            height: 56px;
+            background: var(--cdi-gold);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--cdi-white);
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
         .logo-text {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.2rem;
@@ -163,6 +185,16 @@
             letter-spacing: 0.3em;
             margin-bottom: 30px;
             text-transform: uppercase;
+        }
+
+        /* Button Variants per Brand Guide */
+        .btn-gold {
+            background: var(--cdi-gold);
+            color: var(--cdi-white);
+        }
+
+        .btn-gold:hover {
+            background: var(--cdi-gold-light);
         }
 
         .cover-title {
@@ -524,7 +556,7 @@
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--cdi-gold) 0%, var(--cdi-orange) 100%);
+            background: var(--cdi-gold);
             margin: 0 auto 25px;
             display: flex;
             align-items: center;
@@ -709,20 +741,21 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--cdi-gold) 0%, var(--cdi-orange) 100%);
-            color: var(--cdi-dark);
+            background: var(--cdi-teal);
+            color: var(--cdi-white);
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.2rem;
             font-weight: 700;
             padding: 18px 50px;
-            border-radius: 50px;
+            border-radius: 4px;
             text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(201, 162, 39, 0.3);
+            background: #009988;
+            box-shadow: 0 15px 40px rgba(0, 180, 160, 0.3);
         }
 
         .footer-note {
@@ -804,7 +837,7 @@
             }
         }
 
-        /* Print styles */
+        /* Print styles - Optimized for PDF export */
         @media print {
             body {
                 background: white;
@@ -817,16 +850,35 @@
             }
             
             h1, h2, h3, .stat-number, .tier-price, .contact-value, .partner-name {
-                color: var(--cdi-dark) !important;
+                color: var(--cdi-navy) !important;
             }
             
             .accent, h3 {
                 color: var(--cdi-gold) !important;
             }
             
+            .logo-mark {
+                background: var(--cdi-gold) !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
             .stat-card, .pillar, .tier-card, .partner-section, .impact-stat, .track-card {
                 border: 1px solid #ddd !important;
                 background: #f9f9f9 !important;
+            }
+            
+            .ghana-stripe span, .color-blocks span {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .cta-button {
+                background: var(--cdi-teal) !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             
             .nav-dots {
@@ -853,6 +905,7 @@
             <img src="images/stadium-setup.jpg" alt="Stadium production setup showcasing scale of live event work">
         </div>
         <div class="cover-content">
+            <div class="logo-mark">CDI</div>
             <div class="logo-text">Crew Development Institute</div>
             <h1 class="cover-title">CDI</h1>
             <div class="cover-subtitle">Sponsorship Partnership</div>
