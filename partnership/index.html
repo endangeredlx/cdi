@@ -19,42 +19,30 @@
     <meta name="twitter:description" content="Partner with CDI to create Africa's first world-class live event production training program.">
     <meta name="twitter:image" content="https://cdi-global.org/partnership/images/stadium-setup.jpg">
     
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#C9A227">
+    <!-- Theme Color - BLACK per brand -->
+    <meta name="theme-color" content="#000000">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://cdi-global.org/partnership/">
     
-    <!-- Fonts -->
+    <!-- Fonts: Oswald + Barlow per brand guide -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
         /* ============================================
-           CSS Custom Properties
+           CSS Custom Properties — CDI BRAND COMPLIANT
+           Black & White Only
            ============================================ */
         :root {
-            /* Core Colors */
-            --color-black: #08090a;
-            --color-dark: #0f1115;
-            --color-dark-blue: #14161d;
-            --color-navy: #1a1d28;
+            /* Core Brand Colors - BLACK & WHITE ONLY */
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
             
-            /* Gold Spectrum - CDI BRAND */
-            --color-gold: #C9A227;
-            --color-gold-light: #E5C558;
-            --color-gold-pale: #FFF3CD;
-            --color-gold-dark: #A88920;
-            
-            /* Ghana Heritage Colors */
-            --ghana-red: #CE1126;
-            --ghana-yellow: #FCD116;
-            --ghana-green: #006B3F;
-            
-            /* Accent Colors */
-            --color-copper: #c47d4e;
-            --color-teal: #00B4A0;
+            /* Background Variations */
+            --bg-dark: #0a0a0a;
+            --bg-darker: #050505;
             
             /* Text Colors */
             --text-white: #ffffff;
@@ -62,14 +50,17 @@
             --text-muted: #9ca3af;
             --text-subtle: #6b7280;
             
+            /* Ghana Heritage Colors - for accents only */
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+            
             /* Gradients */
-            --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
-            --gradient-dark: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark-blue) 100%);
-            --gradient-hero: linear-gradient(180deg, rgba(8,9,10,0.3) 0%, rgba(8,9,10,0.6) 40%, rgba(8,9,10,0.9) 100%);
+            --gradient-dark: linear-gradient(180deg, var(--cdi-black) 0%, var(--bg-dark) 100%);
+            --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.95) 100%);
             
             /* Shadows */
-            --shadow-card: 0 8px 32px rgba(0,0,0,0.4);
-            --shadow-glow: 0 0 60px rgba(201,162,39,0.15);
+            --shadow-card: 0 8px 32px rgba(0,0,0,0.6);
             
             /* Spacing */
             --space-xs: 0.5rem;
@@ -101,8 +92,8 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--color-black);
+            font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cdi-black);
             color: var(--text-white);
             line-height: 1.7;
             font-size: 16px;
@@ -158,13 +149,13 @@
         
         .nav-dot:hover,
         .nav-dot.active {
-            background: var(--color-gold);
-            border-color: var(--color-gold);
+            background: var(--cdi-white);
+            border-color: var(--cdi-white);
             transform: scale(1.2);
         }
         
         .nav-dot.active {
-            box-shadow: 0 0 20px rgba(201,162,39,0.5);
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
         }
 
         /* ============================================
@@ -175,7 +166,7 @@
             top: 0;
             left: 0;
             height: 3px;
-            background: var(--gradient-gold);
+            background: var(--cdi-white);
             z-index: 1001;
             transform-origin: left;
         }
@@ -189,7 +180,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             padding: 60px 80px;
             position: relative;
             overflow: hidden;
@@ -212,7 +203,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            filter: saturate(0.8);
+            filter: saturate(0.7) brightness(0.7);
         }
         
         .bg-overlay {
@@ -229,16 +220,16 @@
         }
         
         .overlay-gradient {
-            background: linear-gradient(180deg, rgba(8,9,10,0.95) 0%, rgba(20,22,29,0.92) 30%, rgba(8,9,10,0.88) 100%);
+            background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(10,10,10,0.92) 30%, rgba(0,0,0,0.9) 100%);
         }
 
         /* ============================================
-           Typography
+           Typography — CDI BRAND: Oswald + Barlow
            ============================================ */
         h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.02em;
         }
         
         h1 {
@@ -251,21 +242,22 @@
             font-size: clamp(1.75rem, 4vw, 2.75rem);
             line-height: 1.2;
             margin-bottom: var(--space-md);
-            color: var(--color-gold-light);
+            color: var(--cdi-white);
             text-shadow: 0 2px 12px rgba(0,0,0,0.7);
         }
         
         h3 {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: 1.125rem;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--color-gold);
+            color: var(--cdi-white);
             margin-bottom: var(--space-sm);
         }
         
         p {
+            font-family: 'Barlow', sans-serif;
             font-size: 1.125rem;
             margin-bottom: var(--space-md);
             color: var(--text-light);
@@ -273,68 +265,103 @@
         
         .lead {
             font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.8;
             color: var(--text-white);
         }
         
         .tagline {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             font-weight: 500;
             font-size: 1.375rem;
-            color: var(--color-gold);
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
             margin-top: var(--space-lg);
         }
         
         .eyebrow {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--color-gold);
+            color: var(--text-muted);
             margin-bottom: var(--space-sm);
             display: block;
             text-shadow: 0 2px 8px rgba(0,0,0,0.8);
         }
-        
-        .accent {
-            color: var(--color-gold);
+
+        /* ============================================
+           CDI Logo — Stacked Text (LEFT-ALIGNED!)
+           ============================================ */
+        .cdi-logo {
+            display: inline-block;
+            text-align: left;
         }
+        
+        .cdi-logo .crew {
+            font-family: 'Oswald', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 0.9;
+            display: block;
+            color: var(--cdi-white);
+        }
+        
+        .cdi-logo .development,
+        .cdi-logo .institute {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: 5px;
+            display: block;
+            color: var(--cdi-white);
+        }
+        
+        .cdi-logo .development {
+            margin-top: 2px;
+        }
+        
+        .cdi-logo .institute {
+            margin-top: -2px;
+        }
+        
+        /* Logo Sizes */
+        .cdi-logo.large .crew { font-size: 72px; }
+        .cdi-logo.large .development,
+        .cdi-logo.large .institute { font-size: 32px; }
+        
+        .cdi-logo.small .crew { font-size: 42px; letter-spacing: 1px; }
+        .cdi-logo.small .development,
+        .cdi-logo.small .institute { font-size: 18px; letter-spacing: 4px; }
+        
+        .cdi-logo.compact .crew { font-size: 32px; letter-spacing: 1px; }
+        .cdi-logo.compact .development,
+        .cdi-logo.compact .institute { font-size: 14px; letter-spacing: 3px; }
 
         /* ============================================
            Cover Slide
            ============================================ */
         .cover {
-            text-align: center;
+            align-items: flex-start;
         }
         
-        /* Brand-compliant Logo Mark: Uses actual image file */
-        .logo-mark-img {
-            width: clamp(120px, 20vw, 200px);
-            height: clamp(120px, 20vw, 200px);
-            border-radius: 12px;
-            box-shadow: 0 8px 40px rgba(201,162,39,0.4);
-            object-fit: contain;
+        .cover .slide-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
         
-        .cover-logo h1 {
-            font-size: clamp(4rem, 12vw, 8rem);
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            margin-bottom: 0;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 4px 30px rgba(201,162,39,0.3));
+        .cover-logo {
+            margin-bottom: var(--space-lg);
         }
         
         .cover .subtitle {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: clamp(0.875rem, 2vw, 1.125rem);
             font-weight: 500;
-            letter-spacing: 0.4em;
+            letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--text-muted);
             margin-bottom: var(--space-xl);
@@ -342,14 +369,12 @@
         
         .cover .lead {
             max-width: 700px;
-            margin: 0 auto var(--space-md);
         }
         
         /* Ornament */
         .ornament {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 1rem;
             margin: var(--space-lg) 0;
         }
@@ -359,13 +384,13 @@
             content: '';
             width: 60px;
             height: 1px;
-            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+            background: linear-gradient(90deg, transparent, var(--cdi-white), transparent);
         }
         
         .ornament-diamond {
             width: 10px;
             height: 10px;
-            background: var(--color-gold);
+            background: var(--cdi-white);
             transform: rotate(45deg);
         }
         
@@ -373,17 +398,17 @@
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 80px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
             opacity: 0.7;
             cursor: pointer;
         }
         
         .scroll-indicator span {
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 0.1em;
@@ -394,8 +419,8 @@
         .scroll-arrow {
             width: 20px;
             height: 20px;
-            border-right: 2px solid var(--color-gold);
-            border-bottom: 2px solid var(--color-gold);
+            border-right: 2px solid var(--cdi-white);
+            border-bottom: 2px solid var(--cdi-white);
             transform: rotate(45deg);
             animation: scrollBounce 2s infinite;
         }
@@ -413,7 +438,7 @@
             display: flex;
             height: 6px;
             width: 200px;
-            margin: var(--space-xl) auto 0;
+            margin: var(--space-xl) 0 0;
             border-radius: 3px;
             overflow: hidden;
         }
@@ -428,7 +453,7 @@
         .divider {
             width: 80px;
             height: 2px;
-            background: var(--gradient-gold);
+            background: var(--cdi-white);
             margin: var(--space-lg) 0;
             position: relative;
         }
@@ -441,19 +466,15 @@
             transform: translate(-50%, -50%);
             width: 8px;
             height: 8px;
-            background: var(--color-gold);
+            background: var(--cdi-white);
             border-radius: 50%;
-        }
-        
-        .center .divider {
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* ============================================
-           Narrative Hook (from sponsorship deck)
+           Narrative Hook
            ============================================ */
         .narrative-hook {
+            font-family: 'Barlow', sans-serif;
             font-size: 1.35rem;
             font-style: italic;
             color: var(--text-light);
@@ -461,11 +482,11 @@
             line-height: 1.8;
             margin: 25px 0 35px 0;
             padding-left: 25px;
-            border-left: 4px solid var(--color-gold);
+            border-left: 4px solid var(--cdi-white);
         }
 
         /* ============================================
-           Working Photo Strip (from sponsorship deck)
+           Working Photo Strip
            ============================================ */
         .working-photo-strip {
             display: grid;
@@ -484,7 +505,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.85);
+            filter: brightness(0.85) saturate(0.9);
             transition: var(--transition-smooth);
         }
         
@@ -505,9 +526,9 @@
         
         .stat-card {
             padding: 30px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.02) 100%);
+            background: rgba(255,255,255,0.03);
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
             position: relative;
             overflow: hidden;
             transition: var(--transition-smooth);
@@ -520,34 +541,32 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: var(--gradient-gold);
+            background: var(--cdi-white);
         }
         
         .stat-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(201,162,39,0.2);
+            border-color: rgba(255,255,255,0.2);
         }
         
         .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--cdi-white);
             line-height: 1;
             margin-bottom: var(--space-xs);
         }
         
         .stat-label {
+            font-family: 'Barlow', sans-serif;
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
 
         /* ============================================
-           Pillars Grid (from sponsorship deck)
+           Pillars Grid
            ============================================ */
         .pillars {
             display: grid;
@@ -557,17 +576,17 @@
         }
         
         .pillar {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            background: rgba(255,255,255,0.02);
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
             overflow: hidden;
             transition: var(--transition-smooth);
         }
         
         .pillar:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-glow);
-            border-color: rgba(201,162,39,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.15);
         }
         
         .pillar-photo {
@@ -591,7 +610,6 @@
         
         .pillar-content {
             padding: 30px;
-            text-align: center;
         }
         
         .pillar h3 {
@@ -615,15 +633,16 @@
         }
         
         .track-card {
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            background: rgba(255,255,255,0.02);
             border-radius: var(--radius-lg);
-            border: 2px solid transparent;
+            border: 2px solid rgba(255,255,255,0.15);
             overflow: hidden;
             transition: var(--transition-smooth);
         }
         
+        /* Ghana colors for track borders */
         .track-card.audio { border-color: var(--ghana-red); }
-        .track-card.lighting { border-color: var(--color-gold); }
+        .track-card.lighting { border-color: var(--cdi-white); }
         .track-card.video { border-color: var(--ghana-green); }
         .track-card.rigging { border-color: var(--ghana-yellow); }
         
@@ -655,27 +674,29 @@
         }
         
         .track-card h4 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 6px;
+            color: var(--cdi-white);
         }
         
         .track-card.audio h4 { color: var(--ghana-red); }
-        .track-card.lighting h4 { color: var(--color-gold); }
         .track-card.video h4 { color: var(--ghana-green); }
         .track-card.rigging h4 { color: var(--ghana-yellow); }
         
         .track-tagline {
+            font-family: 'Barlow', sans-serif;
             font-style: italic;
-            color: var(--color-gold-light);
+            color: var(--text-muted);
             font-size: 0.85rem;
             margin-bottom: 8px;
         }
         
         .track-skills {
+            font-family: 'Barlow', sans-serif;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: var(--text-subtle);
             line-height: 1.5;
         }
         
@@ -693,8 +714,8 @@
             text-align: center;
             padding: 24px;
             border-radius: var(--radius-lg);
-            background: rgba(201,162,39,0.05);
-            border: 1px solid rgba(201,162,39,0.2);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .impact-stat .stat-number {
@@ -702,7 +723,7 @@
         }
 
         /* ============================================
-           Partnership Tiers (matching sponsorship style)
+           Partnership Tiers
            ============================================ */
         .tiers-grid {
             display: grid;
@@ -712,14 +733,13 @@
         }
         
         .tier-card {
-            background: var(--color-dark-blue);
+            background: rgba(255,255,255,0.02);
             border-radius: var(--radius-lg);
             padding: 35px 25px;
-            border: 2px solid transparent;
+            border: 2px solid rgba(255,255,255,0.15);
             position: relative;
             overflow: hidden;
             transition: var(--transition-smooth);
-            text-align: center;
         }
         
         .tier-card:hover {
@@ -729,41 +749,41 @@
         .tier-card.bronze { border-color: #CD7F32; }
         .tier-card.silver { border-color: #C0C0C0; }
         .tier-card.gold { 
-            border-color: var(--color-gold);
-            background: linear-gradient(180deg, rgba(201,162,39,0.08) 0%, var(--color-dark-blue) 100%);
+            border-color: #D4AF37;
+            background: rgba(212,175,55,0.05);
         }
         .tier-card.title { 
             border-color: #E5E4E2; 
-            background: linear-gradient(180deg, rgba(229,228,226,0.08) 0%, var(--color-dark-blue) 100%);
+            background: rgba(229,228,226,0.05);
         }
         
         .tier-badge {
             font-size: 2.5rem;
             margin-bottom: 15px;
+            text-align: center;
+            display: block;
         }
         
         .tier-name {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 5px;
+            text-align: center;
         }
         
         .tier-card.bronze .tier-name { color: #CD7F32; }
         .tier-card.silver .tier-name { color: #C0C0C0; }
-        .tier-card.gold .tier-name { color: var(--color-gold); }
-        .tier-card.title .tier-name { 
-            background: linear-gradient(90deg, var(--color-gold), var(--color-copper), var(--color-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .tier-card.gold .tier-name { color: #D4AF37; }
+        .tier-card.title .tier-name { color: #E5E4E2; }
         
         .tier-price {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--text-white);
             margin-bottom: 20px;
+            text-align: center;
         }
         
         .tier-features {
@@ -772,6 +792,7 @@
         }
         
         .tier-features li {
+            font-family: 'Barlow', sans-serif;
             padding: 8px 0;
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -784,27 +805,27 @@
         
         .tier-features li::before {
             content: '✓';
-            color: var(--color-gold);
+            color: var(--cdi-white);
             margin-right: 8px;
         }
         
         .tiers-note {
-            background: rgba(201,162,39,0.08);
-            border: 1px solid rgba(201,162,39,0.2);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: var(--radius-md);
             padding: var(--space-md) var(--space-lg);
             margin-top: var(--space-lg);
-            text-align: center;
         }
         
         .tiers-note p {
+            font-family: 'Barlow', sans-serif;
             color: var(--text-light);
             margin: 0;
             font-size: 1rem;
         }
         
         .tiers-note strong {
-            color: var(--color-gold);
+            color: var(--cdi-white);
         }
 
         /* ============================================
@@ -818,17 +839,17 @@
         }
         
         .team-card {
-            text-align: center;
+            text-align: left;
         }
         
         .team-avatar {
             width: 140px;
             height: 140px;
             border-radius: 50%;
-            background: var(--color-gold);
-            margin: 0 auto 25px;
+            background: var(--cdi-white);
+            margin: 0 0 25px;
             overflow: hidden;
-            border: 3px solid var(--color-gold);
+            border: 3px solid var(--cdi-white);
         }
         
         .team-avatar img {
@@ -839,7 +860,7 @@
         }
         
         .team-name {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--text-white);
@@ -847,13 +868,16 @@
         }
         
         .team-role {
-            color: var(--color-gold);
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--text-muted);
             font-weight: 500;
             margin-bottom: 15px;
             font-size: 0.9rem;
+            letter-spacing: 0.05em;
         }
         
         .team-bio {
+            font-family: 'Barlow', sans-serif;
             color: var(--text-muted);
             font-size: 0.9rem;
             line-height: 1.6;
@@ -863,23 +887,22 @@
            CTA Section
            ============================================ */
         .cta-content {
-            text-align: center;
             position: relative;
             z-index: 1;
         }
         
         .cta-metaphor {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--color-gold-light);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
             margin-bottom: 20px;
             font-style: italic;
         }
         
         .contact-grid {
             display: flex;
-            justify-content: center;
             gap: 60px;
             margin: var(--space-xl) 0;
         }
@@ -889,6 +912,7 @@
         }
         
         .contact-label {
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: 0.8rem;
             color: var(--text-muted);
             margin-bottom: 5px;
@@ -897,19 +921,20 @@
         }
         
         .contact-value {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Oswald', sans-serif;
             font-size: 1.3rem;
             font-weight: 600;
-            color: var(--color-gold);
+            color: var(--cdi-white);
         }
         
         .cta-button {
             display: inline-block;
-            background: var(--color-teal);
-            color: var(--text-white);
-            font-family: 'Space Grotesk', sans-serif;
+            background: var(--cdi-white);
+            color: var(--cdi-black);
+            font-family: 'Oswald', sans-serif;
             font-size: 1.2rem;
             font-weight: 700;
+            letter-spacing: 0.05em;
             padding: 18px 50px;
             border-radius: 4px;
             text-decoration: none;
@@ -918,26 +943,14 @@
         
         .cta-button:hover {
             transform: translateY(-3px);
-            background: #009988;
-            box-shadow: 0 15px 40px rgba(0, 180, 160, 0.3);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
         }
         
         .footer-note {
+            font-family: 'Barlow', sans-serif;
             margin-top: var(--space-xl);
             font-size: 0.9rem;
             color: var(--text-muted);
-        }
-
-        /* ============================================
-           Utilities
-           ============================================ */
-        .center { text-align: center; }
-        
-        .text-gradient {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         /* ============================================
@@ -984,6 +997,10 @@
             .nav-dot::before {
                 display: none;
             }
+
+            .scroll-indicator {
+                left: 40px;
+            }
         }
         
         @media (max-width: 600px) {
@@ -1002,11 +1019,14 @@
             .contact-grid {
                 flex-direction: column;
                 gap: 24px;
-                align-items: center;
             }
-            
-            .contact-item {
-                text-align: center;
+
+            .cdi-logo .crew { font-size: 48px; }
+            .cdi-logo .development,
+            .cdi-logo .institute { font-size: 21px; letter-spacing: 4px; }
+
+            .scroll-indicator {
+                left: 24px;
             }
         }
 
@@ -1025,7 +1045,7 @@
             }
             
             body {
-                background: var(--color-black);
+                background: var(--cdi-black);
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -1064,15 +1084,22 @@
     <img src="images/stage-lights.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-hero"></div>
     <div class="slide-content">
+        <!-- CDI Logo: Stacked Text, LEFT-ALIGNED -->
         <div class="cover-logo">
-            <img src="../images/cdi-logo-mark.png" alt="CDI" class="logo-mark-img">
+            <div class="cdi-logo large">
+                <span class="crew">CREW</span>
+                <span class="development">DEVELOPMENT</span>
+                <span class="institute">INSTITUTE</span>
+            </div>
         </div>
-        <p class="subtitle">Crew Development Institute</p>
+        
         <div class="ornament">
             <div class="ornament-diamond"></div>
         </div>
+        
         <p class="lead">Building Africa's Live Entertainment Workforce</p>
         <p class="tagline">"Where world-class productions meet local expertise"</p>
+        
         <div class="ghana-stripe">
             <span class="red"></span>
             <span class="yellow"></span>
@@ -1085,7 +1112,7 @@
     </div>
 </section>
 
-<!-- SLIDE 2: THE OPPORTUNITY (Combined: The Moment + The Numbers) -->
+<!-- SLIDE 2: THE OPPORTUNITY -->
 <section class="slide" id="opportunity">
     <img src="images/stadium-setup.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-gradient"></div>
@@ -1137,13 +1164,13 @@
     </div>
 </section>
 
-<!-- SLIDE 3: WHAT CDI DOES (with photos like sponsorship deck) -->
+<!-- SLIDE 3: WHAT CDI DOES -->
 <section class="slide" id="approach">
     <img src="images/truss-rig.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-gradient"></div>
     <div class="slide-content">
         <span class="eyebrow">Our Model</span>
-        <h2>What <span class="accent">CDI</span> Does</h2>
+        <h2>What CDI Does</h2>
         <p class="lead">A comprehensive ecosystem for technical production training</p>
         
         <div class="pillars">
@@ -1178,14 +1205,12 @@
     </div>
 </section>
 
-<!-- SLIDE 4: TRAINING TRACKS + IMPACT (Combined) -->
+<!-- SLIDE 4: TRAINING TRACKS + IMPACT -->
 <section class="slide" id="impact" style="background: var(--gradient-dark);">
     <div class="slide-content">
-        <div class="center">
-            <span class="eyebrow">Curriculum & Impact</span>
-            <h2>Training <span class="accent">& Vision</span></h2>
-            <div class="divider center"></div>
-        </div>
+        <span class="eyebrow">Curriculum & Impact</span>
+        <h2>Training & Vision</h2>
+        <div class="divider"></div>
         
         <div class="tracks-grid">
             <div class="track-card audio">
@@ -1256,15 +1281,13 @@
     <img src="images/crew-teamwork.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-gradient"></div>
     <div class="slide-content">
-        <div class="center">
-            <span class="eyebrow">Investment Levels</span>
-            <h2>Partnership <span class="accent">Tiers</span></h2>
-            <p class="lead">Choose the level that aligns with your impact goals</p>
-        </div>
+        <span class="eyebrow">Investment Levels</span>
+        <h2>Partnership Tiers</h2>
+        <p class="lead">Choose the level that aligns with your impact goals</p>
         
         <div class="tiers-grid">
             <div class="tier-card bronze">
-                <div class="tier-badge">🥉</div>
+                <span class="tier-badge">🥉</span>
                 <div class="tier-name">Bronze Partner</div>
                 <div class="tier-price">$10,000/yr</div>
                 <ul class="tier-features">
@@ -1276,7 +1299,7 @@
             </div>
             
             <div class="tier-card silver">
-                <div class="tier-badge">🥈</div>
+                <span class="tier-badge">🥈</span>
                 <div class="tier-name">Silver Partner</div>
                 <div class="tier-price">$25,000/yr</div>
                 <ul class="tier-features">
@@ -1289,7 +1312,7 @@
             </div>
             
             <div class="tier-card gold">
-                <div class="tier-badge">🥇</div>
+                <span class="tier-badge">🥇</span>
                 <div class="tier-name">Gold Partner</div>
                 <div class="tier-price">$50,000/yr</div>
                 <ul class="tier-features">
@@ -1303,7 +1326,7 @@
             </div>
             
             <div class="tier-card title">
-                <div class="tier-badge">💎</div>
+                <span class="tier-badge">💎</span>
                 <div class="tier-name">Title Partner</div>
                 <div class="tier-price">$100,000+/yr</div>
                 <ul class="tier-features">
@@ -1326,11 +1349,9 @@
 <!-- SLIDE 6: TEAM -->
 <section class="slide" id="team" style="background: var(--gradient-dark);">
     <div class="slide-content">
-        <div class="center">
-            <span class="eyebrow">Who We Are</span>
-            <h2>Leadership <span class="accent">Team</span></h2>
-            <p class="lead">Seasoned professionals building Africa's technical production future</p>
-        </div>
+        <span class="eyebrow">Who We Are</span>
+        <h2>Leadership Team</h2>
+        <p class="lead">Seasoned professionals building Africa's technical production future</p>
         
         <div class="team-grid">
             <div class="team-card">
@@ -1372,17 +1393,17 @@
     </div>
 </section>
 
-<!-- SLIDE 7: CALL TO ACTION (Combined: CTA + Closing) -->
+<!-- SLIDE 7: CALL TO ACTION -->
 <section class="slide" id="cta">
     <img src="images/stadium-setup.jpg" alt="" class="bg-image" loading="lazy">
     <div class="bg-overlay overlay-hero"></div>
     <div class="slide-content">
         <div class="cta-content">
-            <h2>Join Us in Building<br><span class="text-gradient">Africa's Future</span></h2>
+            <h2>Join Us in Building<br>Africa's Future</h2>
             
             <p class="cta-metaphor">The stage is set. Join the crew.</p>
             
-            <p class="lead" style="max-width: 700px; margin: 0 auto var(--space-lg);">
+            <p class="lead" style="max-width: 700px;">
                 Your partnership directly funds equipment, training, mentorship, and sustainable infrastructure for the next generation of African production professionals.
             </p>
             
@@ -1403,7 +1424,16 @@
                 CDI is a 501(c)(3) nonprofit organization. All donations are tax-deductible to the extent allowed by law.
             </p>
             
-            <div class="ghana-stripe" style="margin-top: 40px;">
+            <!-- Footer Logo -->
+            <div style="margin-top: 40px;">
+                <div class="cdi-logo compact">
+                    <span class="crew">CREW</span>
+                    <span class="development">DEVELOPMENT</span>
+                    <span class="institute">INSTITUTE</span>
+                </div>
+            </div>
+            
+            <div class="ghana-stripe">
                 <span class="red"></span>
                 <span class="yellow"></span>
                 <span class="green"></span>
@@ -1486,20 +1516,16 @@
             }
         });
         
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
             e.preventDefault();
-            const nextIndex = Math.min(currentIndex + 1, slides.length - 1);
-            slides[nextIndex].scrollIntoView({ behavior: 'smooth' });
-        } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            if (currentIndex < slides.length - 1) {
+                slides[currentIndex + 1].scrollIntoView({ behavior: 'smooth' });
+            }
+        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
             e.preventDefault();
-            const prevIndex = Math.max(currentIndex - 1, 0);
-            slides[prevIndex].scrollIntoView({ behavior: 'smooth' });
-        } else if (e.key === 'Home') {
-            e.preventDefault();
-            slides[0].scrollIntoView({ behavior: 'smooth' });
-        } else if (e.key === 'End') {
-            e.preventDefault();
-            slides[slides.length - 1].scrollIntoView({ behavior: 'smooth' });
+            if (currentIndex > 0) {
+                slides[currentIndex - 1].scrollIntoView({ behavior: 'smooth' });
+            }
         }
     });
 </script>

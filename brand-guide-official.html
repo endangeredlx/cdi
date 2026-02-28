@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CDI Brand Identity Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      background: #000000;
+      padding: 60px 40px;
+      font-family: 'Barlow', system-ui, sans-serif;
+      color: #fff;
+    }
+    .container { max-width: 1000px; margin: 0 auto; }
+    
+    .header {
+      text-align: left;
+      margin-bottom: 80px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #222;
+    }
+    .header-logo {
+      margin-bottom: 30px;
+    }
+    .header-logo .crew {
+      font-family: 'Oswald', sans-serif;
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 0.85;
+      color: #fff;
+    }
+    .header-logo .development {
+      font-family: 'Oswald', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: 6px;
+      color: #fff;
+    }
+    .header-logo .institute {
+      font-family: 'Oswald', sans-serif;
+      font-size: 32px;
+      font-weight: 500;
+      letter-spacing: 6px;
+      color: #fff;
+    }
+    .header-subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-top: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    
+    .section {
+      margin-bottom: 80px;
+    }
+    .section-title {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 30px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #222;
+    }
+    
+    /* Logo Displays */
+    .logo-display {
+      border-radius: 8px;
+      padding: 60px 50px;
+      margin-bottom: 20px;
+    }
+    .logo-display.dark {
+      background: #000;
+      border: 1px solid #222;
+    }
+    .logo-display.light {
+      background: #ffffff;
+    }
+    .logo-label {
+      font-size: 11px;
+      color: #666;
+      margin-top: 30px;
+      letter-spacing: 1px;
+    }
+    
+    /* The Logo */
+    .cdi-logo {
+      display: inline-block;
+    }
+    .cdi-logo .crew {
+      font-family: 'Oswald', sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      line-height: 0.9;
+      display: block;
+    }
+    .cdi-logo .development {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      display: block;
+      margin-top: 2px;
+    }
+    .cdi-logo .institute {
+      font-family: 'Oswald', sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 5px;
+      display: block;
+      margin-top: -2px;
+    }
+    .cdi-logo.white .crew,
+    .cdi-logo.white .development,
+    .cdi-logo.white .institute { color: #fff; }
+    .cdi-logo.black .crew,
+    .cdi-logo.black .development,
+    .cdi-logo.black .institute { color: #000; }
+    
+    /* Small Logo */
+    .cdi-logo.small .crew { font-size: 42px; letter-spacing: 1px; }
+    .cdi-logo.small .development { font-size: 18px; letter-spacing: 4px; }
+    .cdi-logo.small .institute { font-size: 18px; letter-spacing: 4px; }
+    
+    /* Compact Logo */
+    .cdi-logo.compact .crew { font-size: 32px; letter-spacing: 1px; }
+    .cdi-logo.compact .development { font-size: 14px; letter-spacing: 3px; }
+    .cdi-logo.compact .institute { font-size: 14px; letter-spacing: 3px; }
+    
+    /* Color Swatches */
+    .colors {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .swatch {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #222;
+    }
+    .swatch-color {
+      height: 120px;
+    }
+    .swatch-info {
+      padding: 20px;
+    }
+    .swatch-info strong {
+      display: block;
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .swatch-info span {
+      display: block;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 4px;
+      font-family: 'Barlow', monospace;
+    }
+    
+    /* Typography */
+    .type-sample {
+      margin-bottom: 30px;
+      padding: 30px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      border: 1px solid #222;
+    }
+    .type-label {
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .type-preview {
+      font-family: 'Oswald', sans-serif;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .type-preview.hero { 
+      font-size: 64px; 
+      font-weight: 700; 
+      letter-spacing: 2px; 
+      line-height: 0.9;
+    }
+    .type-preview.secondary { 
+      font-size: 28px; 
+      font-weight: 500; 
+      letter-spacing: 5px; 
+    }
+    .type-specs {
+      font-size: 11px;
+      color: #555;
+      margin-top: 15px;
+    }
+    
+    /* Usage Grid */
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .usage-item {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 40px 30px;
+      border: 1px solid #222;
+    }
+    .usage-item.light-bg {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+    }
+    .usage-label {
+      font-size: 10px;
+      color: #666;
+      margin-top: 25px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .usage-item.light-bg .usage-label {
+      color: #888;
+    }
+    
+    /* Messaging */
+    .message-block {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 30px;
+      margin-bottom: 20px;
+      border: 1px solid #222;
+    }
+    .message-label {
+      font-size: 10px;
+      color: #888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .message-text {
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.6;
+    }
+    .message-text.large {
+      font-size: 28px;
+      font-weight: 600;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+    }
+    
+    /* Clear Space */
+    .clearspace-demo {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 60px;
+      border: 1px solid #222;
+      position: relative;
+    }
+    .clearspace-box {
+      border: 1px dashed #333;
+      padding: 40px;
+      display: inline-block;
+      position: relative;
+    }
+    .clearspace-label {
+      position: absolute;
+      font-size: 9px;
+      color: #555;
+      letter-spacing: 1px;
+    }
+    .clearspace-label.top { top: 10px; left: 50%; transform: translateX(-50%); }
+    .clearspace-label.bottom { bottom: 10px; left: 50%; transform: translateX(-50%); }
+    .clearspace-label.left { left: 10px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+    .clearspace-label.right { right: 10px; top: 50%; transform: translateY(-50%) rotate(90deg); }
+    
+    /* Don'ts */
+    .donts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dont-item {
+      background: rgba(255,255,255,0.02);
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid #331818;
+    }
+    .dont-example {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    .dont-label {
+      font-size: 10px;
+      color: #884444;
+      letter-spacing: 1px;
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: left;
+      padding-top: 40px;
+      border-top: 1px solid #222;
+      color: #444;
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* File formats section */
+    .formats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+    .format-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+    }
+    .format-ext {
+      font-family: 'Oswald', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .format-use {
+      font-size: 10px;
+      color: #666;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-logo">
+        <div class="crew">CREW</div>
+        <div class="development">DEVELOPMENT</div>
+        <div class="institute">INSTITUTE</div>
+      </div>
+      <div class="header-subtitle">Brand Identity Guide · 2026</div>
+    </div>
+
+    <!-- PRIMARY LOGO - DARK -->
+    <div class="section">
+      <div class="section-title">Primary Logo — Dark Background</div>
+      <div class="logo-display dark">
+        <div class="cdi-logo white">
+          <span class="crew">CREW</span>
+          <span class="development">DEVELOPMENT</span>
+          <span class="institute">INSTITUTE</span>
+        </div>
+        <div class="logo-label">Primary logo — white on black — preferred usage</div>
+      </div>
+    </div>
+
+    <!-- PRIMARY LOGO - LIGHT -->
+    <div class="section">
+      <div class="section-title">Primary Logo — Light Background</div>
+      <div class="logo-display light">
+        <div class="cdi-logo black">
+          <span class="crew">CREW</span>
+          <span class="development">DEVELOPMENT</span>
+          <span class="institute">INSTITUTE</span>
+        </div>
+        <div class="logo-label" style="color: #888;">Primary logo — black on white — for light backgrounds</div>
+      </div>
+    </div>
+
+    <!-- SIZE VARIATIONS -->
+    <div class="section">
+      <div class="section-title">Size Variations</div>
+      <div class="usage-grid">
+        <div class="usage-item">
+          <div class="cdi-logo white">
+            <span class="crew">CREW</span>
+            <span class="development">DEVELOPMENT</span>
+            <span class="institute">INSTITUTE</span>
+          </div>
+          <div class="usage-label">Large — Presentations, Banners, Signage</div>
+        </div>
+        <div class="usage-item">
+          <div class="cdi-logo white small">
+            <span class="crew">CREW</span>
+            <span class="development">DEVELOPMENT</span>
+            <span class="institute">INSTITUTE</span>
+          </div>
+          <div class="usage-label">Medium — Documents, Social Media</div>
+        </div>
+        <div class="usage-item">
+          <div class="cdi-logo white compact">
+            <span class="crew">CREW</span>
+            <span class="development">DEVELOPMENT</span>
+            <span class="institute">INSTITUTE</span>
+          </div>
+          <div class="usage-label">Small — Email Signatures, Watermarks</div>
+        </div>
+        <div class="usage-item light-bg">
+          <div class="cdi-logo black small">
+            <span class="crew">CREW</span>
+            <span class="development">DEVELOPMENT</span>
+            <span class="institute">INSTITUTE</span>
+          </div>
+          <div class="usage-label">Light Background Application</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLEAR SPACE -->
+    <div class="section">
+      <div class="section-title">Clear Space</div>
+      <div class="clearspace-demo">
+        <div class="clearspace-box">
+          <span class="clearspace-label top">MIN. CLEAR SPACE = HEIGHT OF "C"</span>
+          <span class="clearspace-label left">C HEIGHT</span>
+          <span class="clearspace-label right">C HEIGHT</span>
+          <span class="clearspace-label bottom">C HEIGHT</span>
+          <div class="cdi-logo white compact">
+            <span class="crew">CREW</span>
+            <span class="development">DEVELOPMENT</span>
+            <span class="institute">INSTITUTE</span>
+          </div>
+        </div>
+        <div class="logo-label">Maintain minimum clear space equal to the height of the "C" in CREW on all sides</div>
+      </div>
+    </div>
+
+    <!-- BRAND COLORS -->
+    <div class="section">
+      <div class="section-title">Brand Colors</div>
+      <div class="colors">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #000000;"></div>
+          <div class="swatch-info">
+            <strong>CDI Black</strong>
+            <span>HEX: #000000</span>
+            <span>RGB: 0, 0, 0</span>
+            <span>CMYK: 0, 0, 0, 100</span>
+            <span style="margin-top: 8px; color: #888;">Primary background, logo on light</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #ffffff; border-bottom: 1px solid #333;"></div>
+          <div class="swatch-info">
+            <strong>CDI White</strong>
+            <span>HEX: #FFFFFF</span>
+            <span>RGB: 255, 255, 255</span>
+            <span>CMYK: 0, 0, 0, 0</span>
+            <span style="margin-top: 8px; color: #888;">Primary text, logo on dark</span>
+          </div>
+        </div>
+      </div>
+      <div class="logo-label" style="margin-top: 20px;">The CDI brand operates in pure black and white. This creates maximum contrast, versatility, and a professional, authoritative presence.</div>
+    </div>
+
+    <!-- TYPOGRAPHY -->
+    <div class="section">
+      <div class="section-title">Typography</div>
+      
+      <div class="type-sample">
+        <div class="type-label">Primary — Oswald Bold 700</div>
+        <div class="type-preview hero">CREW</div>
+        <div class="type-specs">64px / Letter-spacing: 2px / Line-height: 0.9</div>
+      </div>
+      
+      <div class="type-sample">
+        <div class="type-label">Secondary — Oswald Medium 500</div>
+        <div class="type-preview secondary">DEVELOPMENT</div>
+        <div class="type-specs">28px / Letter-spacing: 5px</div>
+      </div>
+      
+      <div class="type-sample">
+        <div class="type-label">Tertiary — Oswald Medium 500</div>
+        <div class="type-preview secondary">INSTITUTE</div>
+        <div class="type-specs">28px / Letter-spacing: 5px</div>
+      </div>
+    </div>
+
+    <!-- TYPOGRAPHY SYSTEM -->
+    <div class="section">
+      <div class="section-title">Typography System</div>
+      <div class="message-block">
+        <div class="message-label">Logo Typeface</div>
+        <div class="message-text" style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 24px;">Oswald Bold & Medium</div>
+        <div class="logo-label" style="margin-top: 10px;">Used exclusively for the logo lockup</div>
+      </div>
+      <div class="message-block">
+        <div class="message-label">Body Typeface</div>
+        <div class="message-text" style="font-family: 'Barlow', sans-serif; font-weight: 400;">Barlow Regular & Medium</div>
+        <div class="logo-label" style="margin-top: 10px;">Used for body copy, captions, and supporting text</div>
+      </div>
+      <div class="message-block">
+        <div class="message-label">Accent Typeface</div>
+        <div class="message-text" style="font-family: 'Barlow Condensed', sans-serif; font-weight: 500; letter-spacing: 2px;">BARLOW CONDENSED MEDIUM</div>
+        <div class="logo-label" style="margin-top: 10px;">Used for taglines, labels, and accent text</div>
+      </div>
+    </div>
+
+    <!-- MESSAGING -->
+    <div class="section">
+      <div class="section-title">Brand Messaging</div>
+      
+      <div class="message-block">
+        <div class="message-label">Primary Tagline</div>
+        <div class="message-text large">Building Crews Who Build Shows</div>
+      </div>
+      
+      <div class="message-block">
+        <div class="message-label">Brand Descriptor</div>
+        <div class="message-text">Diaspora-Driven · Local Crews · Global Standards</div>
+      </div>
+      
+      <div class="message-block">
+        <div class="message-label">Mission Statement</div>
+        <div class="message-text">The Crew Development Institute builds sustainable entertainment infrastructure by training local technicians to deliver world-class live productions. We connect diaspora expertise with local talent to create lasting workforce development in underserved markets.</div>
+      </div>
+
+      <div class="message-block">
+        <div class="message-label">Boilerplate</div>
+        <div class="message-text" style="font-size: 14px;">Crew Development Institute (CDI) is a professional training organization dedicated to developing Africa's next generation of live event production professionals. Through hands-on curriculum in lighting, audio, video, and stage management, CDI equips local technicians with the skills to deliver world-class productions.</div>
+      </div>
+    </div>
+
+    <!-- FILE FORMATS -->
+    <div class="section">
+      <div class="section-title">Logo File Formats</div>
+      <div class="formats-grid">
+        <div class="format-item">
+          <div class="format-ext">.SVG</div>
+          <div class="format-use">Web, Digital, Scalable</div>
+        </div>
+        <div class="format-item">
+          <div class="format-ext">.PNG</div>
+          <div class="format-use">Digital, Presentations</div>
+        </div>
+        <div class="format-item">
+          <div class="format-ext">.EPS</div>
+          <div class="format-use">Print, Vector</div>
+        </div>
+        <div class="format-item">
+          <div class="format-ext">.PDF</div>
+          <div class="format-use">Print, Documents</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DON'TS -->
+    <div class="section">
+      <div class="section-title">Logo Misuse — Don't</div>
+      <div class="donts-grid">
+        <div class="dont-item">
+          <div class="dont-example">
+            <div class="cdi-logo compact" style="color: #ff6666;">
+              <span class="crew" style="color: #ff6666;">CREW</span>
+              <span class="development" style="color: #ff6666;">DEVELOPMENT</span>
+              <span class="institute" style="color: #ff6666;">INSTITUTE</span>
+            </div>
+          </div>
+          <div class="dont-label">Don't use colors other than black or white</div>
+        </div>
+        <div class="dont-item">
+          <div class="dont-example">
+            <div class="cdi-logo compact white" style="transform: scaleX(1.4);">
+              <span class="crew">CREW</span>
+              <span class="development">DEVELOPMENT</span>
+              <span class="institute">INSTITUTE</span>
+            </div>
+          </div>
+          <div class="dont-label">Don't stretch or distort</div>
+        </div>
+        <div class="dont-item">
+          <div class="dont-example">
+            <div class="cdi-logo compact white" style="opacity: 0.4;">
+              <span class="crew">CREW</span>
+              <span class="development">DEVELOPMENT</span>
+              <span class="institute">INSTITUTE</span>
+            </div>
+          </div>
+          <div class="dont-label">Don't reduce opacity</div>
+        </div>
+        <div class="dont-item">
+          <div class="dont-example">
+            <div class="cdi-logo compact" style="text-align: center;">
+              <span class="crew" style="color: #fff; display: block; text-align: center;">CREW</span>
+              <span class="development" style="color: #fff; display: block; text-align: center;">DEVELOPMENT</span>
+              <span class="institute" style="color: #fff; display: block; text-align: center;">INSTITUTE</span>
+            </div>
+          </div>
+          <div class="dont-label">Don't center-align the logo</div>
+        </div>
+        <div class="dont-item">
+          <div class="dont-example">
+            <div class="cdi-logo compact white" style="transform: rotate(-10deg);">
+              <span class="crew">CREW</span>
+              <span class="development">DEVELOPMENT</span>
+              <span class="institute">INSTITUTE</span>
+            </div>
+          </div>
+          <div class="dont-label">Don't rotate the logo</div>
+        </div>
+        <div class="dont-item">
+          <div class="dont-example">
+            <div style="font-family: Arial, sans-serif;">
+              <span style="font-size: 24px; font-weight: bold; color: #fff; display: block;">CREW</span>
+              <span style="font-size: 12px; color: #fff; display: block;">DEVELOPMENT</span>
+              <span style="font-size: 12px; color: #fff; display: block;">INSTITUTE</span>
+            </div>
+          </div>
+          <div class="dont-label">Don't change the typeface</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="section">
+      <div class="section-title">Brand Contact</div>
+      <div class="message-block">
+        <div class="message-text" style="font-size: 14px;">
+          For questions regarding brand usage, logo files, or partnership inquiries:<br><br>
+          <strong>Erica D. Hayes</strong><br>
+          Founder, Crew Development Institute<br>
+          <span style="color: #888;">erica@crewdevelopment.org</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="cdi-logo white compact" style="margin-bottom: 20px;">
+        <span class="crew">CREW</span>
+        <span class="development">DEVELOPMENT</span>
+        <span class="institute">INSTITUTE</span>
+      </div>
+      Building Crews Who Build Shows<br>
+      Diaspora-Driven · Local Crews · Global Standards<br><br>
+      © 2026 Crew Development Institute. All rights reserved.
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 120" width="280" height="120">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;display=swap');
+      .crew { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 64px; letter-spacing: 2px; fill: #000000; }
+      .sub { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 28px; letter-spacing: 5px; fill: #000000; }
+    </style>
+  </defs>
+  <text x="0" y="52" class="crew">CREW</text>
+  <text x="0" y="82" class="sub">DEVELOPMENT</text>
+  <text x="0" y="110" class="sub">INSTITUTE</text>
+</svg>
