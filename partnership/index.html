@@ -309,24 +309,13 @@
             text-align: center;
         }
         
-        /* Brand-compliant Logo Mark: Gold square with white CDI text */
-        .logo-mark {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        /* Brand-compliant Logo Mark: Uses actual image file */
+        .logo-mark-img {
             width: clamp(120px, 20vw, 200px);
             height: clamp(120px, 20vw, 200px);
-            background: var(--color-gold);
             border-radius: 12px;
             box-shadow: 0 8px 40px rgba(201,162,39,0.4);
-        }
-        
-        .logo-mark span {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900;
-            letter-spacing: 0.08em;
-            color: #FFFFFF;
+            object-fit: contain;
         }
         
         .cover-logo h1 {
@@ -1076,9 +1065,7 @@
     <div class="bg-overlay overlay-hero"></div>
     <div class="slide-content">
         <div class="cover-logo">
-            <div class="logo-mark">
-                <span>CDI</span>
-            </div>
+            <img src="../images/cdi-logo-mark.png" alt="CDI" class="logo-mark-img">
         </div>
         <p class="subtitle">Crew Development Institute</p>
         <div class="ornament">
