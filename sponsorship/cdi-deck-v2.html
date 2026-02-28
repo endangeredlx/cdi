@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDI Partnership Deck | Crew Development Institute</title>
+    <meta name="description" content="Building Africa's Live Entertainment Workforce. Partner with CDI to transform the African entertainment industry.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           CSS Custom Properties
+           ============================================ */
+        :root {
+            /* Core Colors */
+            --color-black: #08090a;
+            --color-dark: #0f1115;
+            --color-dark-blue: #14161d;
+            --color-navy: #1a1d28;
+            
+            /* Gold Spectrum */
+            --color-gold: #d4a853;
+            --color-gold-light: #e8c87a;
+            --color-gold-pale: #f5e6c3;
+            --color-gold-dark: #b8923d;
+            --color-gold-deep: #8b6914;
+            
+            /* Accent Colors */
+            --color-copper: #c47d4e;
+            --color-bronze: #a67c52;
+            --color-cream: #faf6f0;
+            
+            /* Text Colors */
+            --text-white: #ffffff;
+            --text-light: #e8e9ec;
+            --text-muted: #9ca3af;
+            --text-subtle: #6b7280;
+            
+            /* Gradients */
+            --gradient-gold: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+            --gradient-dark: linear-gradient(180deg, var(--color-black) 0%, var(--color-dark-blue) 100%);
+            --gradient-hero: linear-gradient(180deg, 
+                rgba(8,9,10,0.3) 0%, 
+                rgba(8,9,10,0.6) 40%, 
+                rgba(8,9,10,0.9) 100%);
+            
+            /* Shadows */
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.3);
+            --shadow-card: 0 8px 32px rgba(0,0,0,0.4);
+            --shadow-glow: 0 0 60px rgba(212,168,83,0.15);
+            --shadow-text: 0 2px 20px rgba(0,0,0,0.5);
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        /* ============================================
+           Reset & Base Styles
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--color-black);
+            color: var(--text-white);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           Navigation
+           ============================================ */
+        .nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        
+        .nav-dot::before {
+            content: attr(data-label);
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            opacity: 0;
+            transition: var(--transition-fast);
+            pointer-events: none;
+        }
+        
+        .nav-dot:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-dot:hover,
+        .nav-dot.active {
+            background: var(--color-gold);
+            border-color: var(--color-gold);
+            transform: scale(1.2);
+        }
+        
+        .nav-dot.active {
+            box-shadow: 0 0 20px rgba(212,168,83,0.5);
+        }
+
+        /* ============================================
+           Progress Bar
+           ============================================ */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            z-index: 1001;
+            transform-origin: left;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* ============================================
+           Slide Structure
+           ============================================ */
+        .slide {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+        
+        .slide-content {
+            max-width: 1280px;
+            width: 100%;
+            z-index: 10;
+            position: relative;
+        }
+        
+        /* Background Layers */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            filter: saturate(0.8);
+        }
+        
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .overlay-hero {
+            background: var(--gradient-hero);
+        }
+        
+        .overlay-gradient {
+            background: linear-gradient(135deg, 
+                rgba(20,22,29,0.97) 0%, 
+                rgba(8,9,10,0.85) 100%);
+        }
+        
+        .overlay-bottom {
+            background: linear-gradient(0deg, 
+                rgba(8,9,10,0.98) 0%, 
+                rgba(8,9,10,0.7) 30%,
+                rgba(8,9,10,0.3) 60%,
+                transparent 100%);
+        }
+        
+        .overlay-vignette {
+            background: radial-gradient(ellipse at center, 
+                transparent 0%, 
+                rgba(8,9,10,0.4) 100%);
+        }
+
+        /* ============================================
+           Typography
+           ============================================ */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: var(--space-md);
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            color: var(--color-gold-light);
+        }
+        
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: var(--space-sm);
+        }
+        
+        p {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-md);
+            color: var(--text-light);
+        }
+        
+        .lead {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--text-white);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.375rem;
+            color: var(--color-gold);
+            margin-top: var(--space-lg);
+        }
+        
+        .eyebrow {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+
+        /* ============================================
+           Cover Slide
+           ============================================ */
+        .cover {
+            text-align: center;
+        }
+        
+        .cover-logo {
+            margin-bottom: var(--space-md);
+        }
+        
+        .cover-logo h1 {
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            margin-bottom: 0;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+            filter: drop-shadow(0 4px 30px rgba(212,168,83,0.3));
+        }
+        
+        .cover .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.875rem, 2vw, 1.125rem);
+            font-weight: 500;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .cover .lead {
+            max-width: 700px;
+            margin: 0 auto var(--space-md);
+        }
+
+        /* ============================================
+           Decorative Elements
+           ============================================ */
+        .divider {
+            width: 80px;
+            height: 2px;
+            background: var(--gradient-gold);
+            margin: var(--space-lg) 0;
+            position: relative;
+        }
+        
+        .divider::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--color-gold);
+            border-radius: 50%;
+        }
+        
+        .center .divider {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: var(--space-lg) 0;
+        }
+        
+        .ornament::before,
+        .ornament::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+        
+        .ornament-diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--color-gold);
+            transform: rotate(45deg);
+        }
+
+        /* ============================================
+           Split Layout
+           ============================================ */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .split-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card);
+        }
+
+        /* ============================================
+           Stats Grid
+           ============================================ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: var(--space-xl) 0;
+        }
+        
+        .stat-card {
+            padding: 36px;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.04) 0%, 
+                rgba(255,255,255,0.02) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.06);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-gold);
+        }
+        
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212,168,83,0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition-smooth);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212,168,83,0.2);
+        }
+        
+        .stat-card:hover::after {
+            opacity: 1;
+        }
+        
+        .stat-number {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           Pillars Grid
+           ============================================ */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: var(--space-xl) 0;
+        }
+        
+        .pillar {
+            padding: 40px 32px;
+            background: linear-gradient(180deg, 
+                rgba(255,255,255,0.03) 0%, 
+                rgba(255,255,255,0.01) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .pillar:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+            border-color: rgba(212,168,83,0.15);
+        }
+        
+        .pillar h3 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .pillar p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* ============================================
+           Training Tracks
+           ============================================ */
+        .tracks {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: var(--space-xl) 0;
+        }
+        
+        .track {
+            text-align: center;
+            position: relative;
+        }
+        
+        .track-image-wrapper {
+            position: relative;
+            margin-bottom: var(--space-md);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .track-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .track-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(8,9,10,0.8) 100%);
+            transition: var(--transition-smooth);
+        }
+        
+        .track:hover .track-image {
+            transform: scale(1.05);
+        }
+        
+        .track:hover .track-image-wrapper::after {
+            background: linear-gradient(180deg, transparent 30%, rgba(212,168,83,0.3) 100%);
+        }
+        
+        .track h3 {
+            font-size: 1rem;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .track p {
+            font-size: 0.9rem;
+            color: var(--text-subtle);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           Team Grid
+           ============================================ */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin: var(--space-xl) 0;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-photo-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .team-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            background: linear-gradient(var(--color-dark), var(--color-dark)) padding-box,
+                        var(--gradient-gold) border-box;
+            transition: var(--transition-smooth);
+        }
+        
+        .team-photo-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            opacity: 0;
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+        
+        .team-member:hover .team-photo-wrapper::before {
+            opacity: 0.3;
+            inset: -12px;
+        }
+        
+        .team-member:hover .team-photo {
+            transform: scale(1.02);
+        }
+        
+        .team-member h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--text-white);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .team-member .role {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .team-member p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           Impact Grid
+           ============================================ */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: var(--space-xl) 0;
+        }
+        
+        .impact-card {
+            text-align: center;
+            padding: 48px 32px;
+            background: linear-gradient(180deg, 
+                rgba(212,168,83,0.08) 0%, 
+                rgba(212,168,83,0.02) 100%);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(212,168,83,0.15);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+        
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-gold);
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(180deg, 
+                rgba(212,168,83,0.12) 0%, 
+                rgba(212,168,83,0.04) 100%);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .impact-card h3 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .impact-card p {
+            font-size: 1rem;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .impact-card strong {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            color: var(--color-gold-light);
+        }
+
+        /* ============================================
+           Full Image Slide
+           ============================================ */
+        .full-image-slide {
+            padding: 0;
+        }
+        
+        .full-image-slide .slide-content {
+            text-align: center;
+            padding: 80px 60px;
+        }
+        
+        .full-image-slide h1 {
+            text-shadow: var(--shadow-text);
+        }
+
+        /* ============================================
+           CTA Grid
+           ============================================ */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: var(--space-xl) 0;
+        }
+        
+        .cta-item {
+            padding: 28px 32px;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.04) 0%, 
+                rgba(255,255,255,0.02) 100%);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .cta-item::before {
+            content: '';
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cta-item:nth-child(1)::before { content: '💡'; font-size: 1.25rem; }
+        .cta-item:nth-child(2)::before { content: '🤝'; font-size: 1.25rem; }
+        .cta-item:nth-child(3)::before { content: '🏗️'; font-size: 1.25rem; }
+        .cta-item:nth-child(4)::before { content: '🚀'; font-size: 1.25rem; }
+        
+        .cta-item:hover {
+            transform: translateX(8px);
+            border-color: rgba(212,168,83,0.2);
+            background: linear-gradient(135deg, 
+                rgba(212,168,83,0.08) 0%, 
+                rgba(255,255,255,0.02) 100%);
+        }
+        
+        .cta-item h3 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        
+        .cta-item p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        /* ============================================
+           Contact Section
+           ============================================ */
+        .contact {
+            text-align: center;
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .contact-link {
+            text-decoration: none;
+        }
+        
+        .contact-link span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+            margin-bottom: 4px;
+        }
+        
+        .contact-link strong {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--color-gold);
+            transition: var(--transition-fast);
+        }
+        
+        .contact-link:hover strong {
+            color: var(--color-gold-light);
+        }
+
+        /* ============================================
+           Button
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 48px;
+            background: var(--gradient-gold);
+            color: var(--color-black);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            margin-top: var(--space-md);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition-slow);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212,168,83,0.4);
+        }
+        
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .nonprofit {
+            font-size: 0.85rem;
+            color: var(--text-subtle);
+            margin-top: var(--space-lg);
+            font-style: italic;
+        }
+
+        /* ============================================
+           Closing Slide
+           ============================================ */
+        .closing h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            line-height: 1.3;
+        }
+        
+        .closing h1 span {
+            display: block;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================
+           Utilities
+           ============================================ */
+        .center {
+            text-align: center;
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .text-gradient {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============================================
+           Responsive Design
+           ============================================ */
+        @media (max-width: 1200px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .tracks {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .slide {
+                padding: 60px 40px;
+            }
+            
+            .split {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                right: 1rem;
+            }
+            
+            .nav-dot::before {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .slide {
+                padding: 40px 24px;
+            }
+            
+            .team-grid,
+            .tracks {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .team-photo-wrapper {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* ============================================
+           Print Styles
+           ============================================ */
+        @media print {
+            .nav,
+            .progress-bar {
+                display: none;
+            }
+            
+            html {
+                scroll-snap-type: none;
+            }
+            
+            .slide {
+                page-break-after: always;
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progress"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+    <a href="#cover" class="nav-dot active" data-label="Cover"></a>
+    <a href="#moment" class="nav-dot" data-label="The Moment"></a>
+    <a href="#numbers" class="nav-dot" data-label="The Numbers"></a>
+    <a href="#approach" class="nav-dot" data-label="Our Approach"></a>
+    <a href="#tracks" class="nav-dot" data-label="Training"></a>
+    <a href="#work" class="nav-dot" data-label="The Work"></a>
+    <a href="#team" class="nav-dot" data-label="Leadership"></a>
+    <a href="#impact" class="nav-dot" data-label="Impact"></a>
+    <a href="#vision" class="nav-dot" data-label="Vision"></a>
+    <a href="#partner" class="nav-dot" data-label="Partner"></a>
+    <a href="#closing" class="nav-dot" data-label="Join Us"></a>
+</nav>
+
+<!-- SLIDE 1: COVER -->
+<section class="slide cover" id="cover">
+    <img src="images/stage-lights.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-hero"></div>
+    <div class="bg-overlay overlay-vignette"></div>
+    <div class="slide-content">
+        <div class="cover-logo">
+            <h1>CDI</h1>
+        </div>
+        <p class="subtitle">Crew Development Institute</p>
+        <div class="ornament">
+            <div class="ornament-diamond"></div>
+        </div>
+        <p class="lead">Building Africa's Live Entertainment Workforce</p>
+        <p class="tagline">"Where world-class productions meet local expertise"</p>
+    </div>
+</section>
+
+<!-- SLIDE 2: THE MOMENT -->
+<section class="slide full-image-slide" id="moment">
+    <img src="images/stadium-setup.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-bottom"></div>
+    <div class="slide-content">
+        <span class="eyebrow">The Opportunity</span>
+        <h2>The Stage Is Set</h2>
+        <div class="divider center"></div>
+        <p class="lead">When global artists bring their world tours to Africa, they bring everything with them—including the people who build the show.</p>
+        <p>Local technicians stand in the wings, watching foreign crews assemble stages they could build themselves, if only they had the training.</p>
+        <h1 style="margin-top: var(--space-xl);">CDI exists to change that story.</h1>
+    </div>
+</section>
+
+<!-- SLIDE 3: THE NUMBERS -->
+<section class="slide" id="numbers">
+    <img src="images/truss-rig.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-gradient"></div>
+    <div class="slide-content">
+        <span class="eyebrow">Market Reality</span>
+        <h2>A Continent Ready for Change</h2>
+        <div class="divider"></div>
+        <p class="lead">The African live entertainment industry is exploding. The infrastructure is not keeping pace.</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">of African live events rely on imported technical crews</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$5B+</div>
+                <div class="stat-label">projected African music industry value by 2026</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$2B+</div>
+                <div class="stat-label">annual production spending leaves the continent</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Zero</div>
+                <div class="stat-label">formal production training programs in most West African markets</div>
+            </div>
+        </div>
+        
+        <p class="tagline center">The talent is here. The infrastructure is not—yet.</p>
+    </div>
+</section>
+
+<!-- SLIDE 4: OUR APPROACH -->
+<section class="slide" id="approach">
+    <img src="images/crew-teamwork.jpg" alt="" class="bg-image" style="object-position: left center;">
+    <div class="bg-overlay overlay-gradient"></div>
+    <div class="slide-content">
+        <span class="eyebrow">Our Model</span>
+        <h2>How We Build the Future</h2>
+        <div class="divider"></div>
+        <p>CDI operates through three interconnected programs, each designed to create sustainable change:</p>
+        
+        <div class="pillars">
+            <div class="pillar">
+                <h3>Learning</h3>
+                <p>School-based programs and hands-on training for local technicians. University partnerships across three continents bring academic rigor to real-world skills.</p>
+            </div>
+            <div class="pillar">
+                <h3>Advisory</h3>
+                <p>Industry professionals working alongside local crews on actual productions. Not just teaching—mentoring through live experience.</p>
+            </div>
+            <div class="pillar">
+                <h3>Production</h3>
+                <p>Direct production support during the transition period, gradually stepping back as local teams gain confidence and capability.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 5: TRAINING TRACKS -->
+<section class="slide" id="tracks" style="background: var(--gradient-dark);">
+    <div class="slide-content">
+        <div class="center">
+            <span class="eyebrow">Curriculum</span>
+            <h2>The Technical Arts</h2>
+            <div class="divider center"></div>
+        </div>
+        
+        <div class="tracks">
+            <div class="track">
+                <div class="track-image-wrapper">
+                    <img src="images/audio-working.jpg" alt="Audio Engineering" class="track-image">
+                </div>
+                <h3>Audio</h3>
+                <p>FOH and monitor engineering, system design, RF coordination. The invisible foundation of every performance.</p>
+            </div>
+            <div class="track">
+                <div class="track-image-wrapper">
+                    <img src="images/stage-lights.jpg" alt="Lighting Design" class="track-image">
+                </div>
+                <h3>Lighting</h3>
+                <p>GrandMA3 programming, rigging, show design. Transforming darkness into visual narrative.</p>
+            </div>
+            <div class="track">
+                <div class="track-image-wrapper">
+                    <img src="images/video-production.jpg" alt="Video Production" class="track-image">
+                </div>
+                <h3>Video</h3>
+                <p>LED wall systems, camera operation, Resolume, content management. The screens that define modern entertainment.</p>
+            </div>
+            <div class="track">
+                <div class="track-image-wrapper">
+                    <img src="images/truss-rig.jpg" alt="Rigging" class="track-image">
+                </div>
+                <h3>Rigging</h3>
+                <p>Load calculations, safety protocols, truss systems. Where physics meets precision.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 6: THE WORK -->
+<section class="slide full-image-slide" id="work">
+    <img src="images/crew-teamwork.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-hero"></div>
+    <div class="slide-content center">
+        <span class="eyebrow">In Action</span>
+        <h1>The Work</h1>
+        <div class="ornament">
+            <div class="ornament-diamond"></div>
+        </div>
+        <p class="tagline">Real production. Real training. Real results.</p>
+    </div>
+</section>
+
+<!-- SLIDE 7: LEADERSHIP -->
+<section class="slide" id="team" style="background: var(--gradient-dark);">
+    <div class="slide-content">
+        <div class="center">
+            <span class="eyebrow">Who We Are</span>
+            <h2>Leadership</h2>
+            <div class="divider center"></div>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-photo-wrapper">
+                    <img src="images/erica-hayes.jpg" alt="Erica D. Hayes" class="team-photo">
+                </div>
+                <h3>Erica D. Hayes</h3>
+                <p class="role">Founder & Executive Director</p>
+                <p>Fifteen years across concert touring, television, and film. IATSE Local 728. CBU Professor.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-photo-wrapper">
+                    <img src="images/keith-bernard.jpg" alt="Keith Bernard" class="team-photo">
+                </div>
+                <h3>Keith Bernard</h3>
+                <p class="role">Lighting Designer & Visual Director</p>
+                <p>Career spanning film, television, national events, and concert touring.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-photo-wrapper">
+                    <img src="images/blake-brady.jpg" alt="Blake Brady" class="team-photo">
+                </div>
+                <h3>Blake Brady</h3>
+                <p class="role">Producer & Operations Leader</p>
+                <p>A decade of technical direction, stage management, and live event production.</p>
+            </div>
+            <div class="team-member">
+                <div class="team-photo-wrapper">
+                    <img src="images/nana-kwame.jpg" alt="Nana Kwame Adu-Gyamfi" class="team-photo">
+                </div>
+                <h3>Nana Kwame Adu-Gyamfi</h3>
+                <p class="role">Local Operations Partner</p>
+                <p>Founder of Illumin8 Academy. On-the-ground presence in Ghana.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 8: IMPACT -->
+<section class="slide" id="impact">
+    <img src="images/audio-working-2.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-gradient"></div>
+    <div class="slide-content">
+        <div class="center">
+            <span class="eyebrow">Outcomes</span>
+            <h2>Measuring What Matters</h2>
+            <div class="divider center"></div>
+        </div>
+        
+        <div class="impact-grid">
+            <div class="impact-card">
+                <h3>Training Scale</h3>
+                <p><strong>100+</strong> stagehands trained per quarter</p>
+                <p><strong>60–120</strong> specialist technicians per cohort</p>
+            </div>
+            <div class="impact-card">
+                <h3>Economic Impact</h3>
+                <p><strong>3–5×</strong> wage increase for certified technicians</p>
+                <p><strong>85%</strong> target graduate employment rate</p>
+            </div>
+            <div class="impact-card">
+                <h3>Multiplier Effect</h3>
+                <p>Each trained technician supports <strong>5+</strong> additional jobs</p>
+                <p>Revenue stays on the continent</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 9: VISION -->
+<section class="slide full-image-slide" id="vision">
+    <img src="images/stage-lights.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-hero"></div>
+    <div class="slide-content center">
+        <span class="eyebrow">Looking Ahead</span>
+        <h2>The Vision</h2>
+        <div class="divider center"></div>
+        <p class="lead">A future where African events are produced by African professionals.</p>
+        <p>Where world-class technical expertise is homegrown, not imported.</p>
+        <p>Where the next generation of stagehands, engineers, and designers builds careers—and an industry—on their own continent.</p>
+    </div>
+</section>
+
+<!-- SLIDE 10: CTA -->
+<section class="slide" id="partner">
+    <img src="images/stadium-setup.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-gradient"></div>
+    <div class="slide-content">
+        <div class="center">
+            <span class="eyebrow">Get Involved</span>
+            <h2>Partner With Us</h2>
+            <div class="divider center"></div>
+            <p class="lead">Your investment creates lasting infrastructure for Africa's creative economy.</p>
+        </div>
+        
+        <div class="cta-grid">
+            <div class="cta-item">
+                <div class="cta-content">
+                    <h3>Fund Equipment</h3>
+                    <p>State-of-the-art gear that trains the next generation</p>
+                </div>
+            </div>
+            <div class="cta-item">
+                <div class="cta-content">
+                    <h3>Support Mentorship</h3>
+                    <p>Programs that transfer decades of expertise</p>
+                </div>
+            </div>
+            <div class="cta-item">
+                <div class="cta-content">
+                    <h3>Build Facilities</h3>
+                    <p>Infrastructure that anchors sustainable programs</p>
+                </div>
+            </div>
+            <div class="cta-item">
+                <div class="cta-content">
+                    <h3>Enable Careers</h3>
+                    <p>Opportunities that transform communities</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact">
+            <div class="contact-links">
+                <a href="mailto:mariaperkinscdi@gmail.com" class="contact-link">
+                    <span>Email</span>
+                    <strong>mariaperkinscdi@gmail.com</strong>
+                </a>
+                <a href="https://cdi-global.org" class="contact-link" target="_blank">
+                    <span>Website</span>
+                    <strong>cdi-global.org</strong>
+                </a>
+            </div>
+            <a href="https://forms.gle/LTKnY36yAkjj1bBz9" class="btn" target="_blank">Partner With CDI</a>
+            <p class="nonprofit">CDI is a registered 501(c)(3) nonprofit organization. All donations are tax-deductible.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 11: CLOSING -->
+<section class="slide full-image-slide closing" id="closing">
+    <img src="images/truss-rig.jpg" alt="" class="bg-image">
+    <div class="bg-overlay overlay-hero"></div>
+    <div class="slide-content center">
+        <h1>The Stage Is Set.<br><span>Join the Crew.</span></h1>
+        <div class="ornament">
+            <div class="ornament-diamond"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Progress bar
+    const progressBar = document.getElementById('progress');
+    
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = (scrollTop / docHeight) * 100;
+        progressBar.style.transform = `scaleX(${progress / 100})`;
+    }
+    
+    // Navigation dots
+    const navDots = document.querySelectorAll('.nav-dot');
+    const slides = document.querySelectorAll('.slide');
+    
+    function updateNav() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        slides.forEach((slide, index) => {
+            const slideTop = slide.offsetTop;
+            const slideBottom = slideTop + slide.offsetHeight;
+            
+            if (scrollPosition >= slideTop && scrollPosition < slideBottom) {
+                navDots.forEach(dot => dot.classList.remove('active'));
+                navDots[index].classList.add('active');
+            }
+        });
+    }
+    
+    // Smooth scroll for nav dots
+    navDots.forEach(dot => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = dot.getAttribute('href');
+            const target = document.querySelector(targetId);
+            target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    
+    // Throttle function for performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            if (!inThrottle) {
+                func.apply(this, arguments);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        }
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', throttle(() => {
+        updateProgress();
+        updateNav();
+    }, 50));
+    
+    // Initial updates
+    updateProgress();
+    updateNav();
+</script>
+
+</body>
+</html>
