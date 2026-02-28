@@ -22,11 +22,11 @@
             --ghana-red: #CE1126;
             --ghana-yellow: #FCD116;
             --ghana-green: #006B3F;
-            /* EVEN-inspired color blocks */
-            --block-blue: #3B82F6;
-            --block-pink: #EC4899;
-            --block-purple: #8B5CF6;
-            --block-teal: #14B8A6;
+            /* CDI Training Track Colors (Ghana-inspired) */
+            --track-audio: #CE1126;      /* Ghana Red */
+            --track-lighting: #C9A227;   /* CDI Gold */
+            --track-video: #006B3F;      /* Ghana Green */
+            --track-rigging: #FCD116;    /* Ghana Yellow */
         }
 
         * {
@@ -127,10 +127,10 @@
             border-radius: 6px;
         }
 
-        .color-blocks .blue { background: var(--block-blue); }
-        .color-blocks .pink { background: var(--block-pink); }
-        .color-blocks .purple { background: var(--block-purple); }
-        .color-blocks .teal { background: var(--block-teal); }
+        .color-blocks .red { background: var(--ghana-red); }
+        .color-blocks .gold { background: var(--cdi-gold); }
+        .color-blocks .green { background: var(--ghana-green); }
+        .color-blocks .yellow { background: var(--ghana-yellow); }
 
         /* Slide 1: Cover */
         .slide-cover {
@@ -349,10 +349,10 @@
             transform: translateY(-3px);
         }
 
-        .track-card.audio { border-color: var(--block-blue); }
-        .track-card.lighting { border-color: var(--block-pink); }
-        .track-card.video { border-color: var(--block-purple); }
-        .track-card.rigging { border-color: var(--block-teal); }
+        .track-card.audio { border-color: var(--track-audio); }
+        .track-card.lighting { border-color: var(--track-lighting); }
+        .track-card.video { border-color: var(--track-video); }
+        .track-card.rigging { border-color: var(--track-rigging); }
 
         .track-card .track-icon {
             font-size: 2rem;
@@ -367,10 +367,10 @@
             margin-bottom: 8px;
         }
 
-        .track-card.audio h4 { color: var(--block-blue); }
-        .track-card.lighting h4 { color: var(--block-pink); }
-        .track-card.video h4 { color: var(--block-purple); }
-        .track-card.rigging h4 { color: var(--block-teal); }
+        .track-card.audio h4 { color: var(--track-audio); }
+        .track-card.lighting h4 { color: var(--track-lighting); }
+        .track-card.video h4 { color: var(--track-video); }
+        .track-card.rigging h4 { color: var(--track-rigging); }
 
         .track-card .track-tagline {
             font-style: italic;
@@ -760,12 +760,12 @@
             <p class="cover-tagline">
                 Building Africa's live event production workforce through world-class training, mentorship, and real-world experience.
             </p>
-            <!-- Color blocks representing 4 training tracks -->
+            <!-- Color blocks representing 4 training tracks (Ghana colors) -->
             <div class="color-blocks large" style="justify-content: center;">
-                <span class="blue"></span>
-                <span class="pink"></span>
-                <span class="purple"></span>
-                <span class="teal"></span>
+                <span class="red"></span>
+                <span class="gold"></span>
+                <span class="green"></span>
+                <span class="yellow"></span>
             </div>
             <div class="ghana-stripe">
                 <span class="red"></span>
@@ -860,10 +860,10 @@
         <!-- Training tracks with EVEN-inspired personality -->
         <h3 style="margin-top: 50px; margin-bottom: 10px;">Training Tracks</h3>
         <div class="color-blocks small">
-            <span class="blue"></span>
-            <span class="pink"></span>
-            <span class="purple"></span>
-            <span class="teal"></span>
+            <span class="red"></span>
+            <span class="gold"></span>
+            <span class="green"></span>
+            <span class="yellow"></span>
         </div>
         
         <div class="training-tracks">
@@ -1020,14 +1020,8 @@
                 CDI is a 501(c)(3) nonprofit organization. All donations are tax-deductible to the extent allowed by law.
             </p>
             
-            <!-- Color blocks + Ghana stripe combo -->
-            <div class="color-blocks" style="justify-content: center; margin-top: 30px;">
-                <span class="blue"></span>
-                <span class="pink"></span>
-                <span class="purple"></span>
-                <span class="teal"></span>
-            </div>
-            <div class="ghana-stripe" style="margin-top: 15px;">
+            <!-- Ghana-inspired signature stripe -->
+            <div class="ghana-stripe" style="margin-top: 40px;">
                 <span class="red"></span>
                 <span class="yellow"></span>
                 <span class="green"></span>
