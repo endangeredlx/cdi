@@ -2,8 +2,8 @@
   <defs>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&amp;display=swap');
-      .crew { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 64px; letter-spacing: 2px; fill: #FFFFFF; }
-      .sub { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 28px; letter-spacing: 5px; fill: #FFFFFF; }
+      .crew { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 64px; letter-spacing: 2px; fill: #000000; }
+      .sub { font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 28px; letter-spacing: 5px; fill: #000000; }
     </style>
   </defs>
   <text x="0" y="52" class="crew">CREW</text>
