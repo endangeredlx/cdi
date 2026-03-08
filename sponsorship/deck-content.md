@@ -64,7 +64,7 @@ Load calculations, safety protocols, truss systems, load-in/out operations
 
 ## Erica D. Hayes
 **Founder & Executive Director**
-15+ years across concert touring, television, and film. IATSE 728 member. CBU Professor. Designed for Fantasia, Amaarae, The Isley Brothers, Anita Baker, and Ledisi.
+15+ years across concert touring, television, and film. IATSE 728 member. CBU Professor. Designed for Fantasia, Amaarae, The Isley Brothers, Anita Baker, Jason Derulo, and more.
 
 ## Keith Bernard
 **Lighting Designer & Visual Director**
