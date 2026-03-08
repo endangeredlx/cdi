@@ -75,7 +75,7 @@ Experience spanning film, television, high-profile national events, and concert 
 10+ years specializing in technical direction, stage management, and live event production. Expert in LED wall systems and sustainable infrastructure.
 
 ## Nana Kwame Adu-Gyamfi
-**Local Operations Partner • Illumin8 Academy**
+**Local Operations Partner • LiveX Africa**
 On-the-ground partner providing facilities, equipment storage, local recruitment, and ongoing crew deployment across West Africa.
 
 ---

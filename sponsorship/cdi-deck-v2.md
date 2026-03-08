@@ -124,7 +124,7 @@ A decade of technical direction, stage management, and live event production. Bl
 **Nana Kwame Adu-Gyamfi**
 *Local Operations Partner*
 
-Founder of Illumin8 Academy. Nana provides on-the-ground presence in Ghana: facilities, equipment storage, and local recruitment networks.
+Founder of LiveX Africa. Nana provides on-the-ground presence in Ghana: facilities, equipment storage, and local recruitment networks.
 
 ![nana-kwame.jpg]
 

@@ -52,7 +52,7 @@ What We Do:
 • Build sustainable entertainment infrastructure
 • Deploy quarterly in Accra, Ghana
 
-Founded by industry veterans with 15+ years of concert touring, TV, and film experience. In partnership with Illumin8 Academy.
+Founded by industry veterans with 15+ years of concert touring, TV, and film experience. In partnership with LiveX Africa.
 
 📍 Based in Ghana | Operating globally
 🌐 cdi-global.org
@@ -85,7 +85,7 @@ CDI deploys quarterly to Accra, Ghana with 6 senior U.S.-based production profes
 LEADERSHIP
 Founded by Erica D. Hayes (Lighting Designer/Educator, IATSE 728, CBU Professor), Keith Bernard (Lighting Designer/Visual Director), and Blake Brady (Producer/Operations Leader) — with combined 40+ years of concert touring, TV, and film experience.
 
-In partnership with Illumin8 Academy, Accra, Ghana.
+In partnership with LiveX Africa, Accra, Ghana.
 
 🌐 cdi-global.org
 📧 partnerships@cdi-global.org

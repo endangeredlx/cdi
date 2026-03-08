@@ -8,7 +8,7 @@ Official website for the Crew Development Institute, a workforce enablement prog
 
 ## About CDI
 
-The Crew Development Institute (CDI), in partnership with Illumin8 Academy, delivers free, high-volume stagehand training combined with specialized technical tracks across all core production departments. By liberating crews with knowledge, safety awareness, and real show experience, CDI builds a dependable labor pool that promoters, festivals, and vendors can trust.
+The Crew Development Institute (CDI), in partnership with LiveX Africa, delivers free, high-volume stagehand training combined with specialized technical tracks across all core production departments. By liberating crews with knowledge, safety awareness, and real show experience, CDI builds a dependable labor pool that promoters, festivals, and vendors can trust.
 
 ### Training Programs
 
@@ -67,4 +67,4 @@ Email: Erica@EndangeredLX.com
 
 ---
 
-*In partnership with Illumin8 Academy*
+*In partnership with LiveX Africa*

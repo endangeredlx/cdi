@@ -34,7 +34,7 @@
 | Day | Platform | Content | Pillar | Notes |
 |-----|----------|---------|--------|-------|
 | Mon | Instagram | Ghana venue/location photo | Ghana | Beautiful production venue |
-| Thu | LinkedIn | Partnership with Illumin8 announcement | Impact | Tag partners |
+| Thu | LinkedIn | Partnership with LiveX Africa announcement | Impact | Tag partners |
 
 ### Week 4 (Mar 23-29)
 | Day | Platform | Content | Pillar | Notes |
