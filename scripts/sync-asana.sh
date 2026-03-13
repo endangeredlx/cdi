@@ -3,10 +3,7 @@
 # Usage: ./sync-asana.sh
 #
 # Prerequisites:
-#   1. Generate a Personal Access Token at https://app.asana.com/0/my-apps
-#   2. Set: export ASANA_TOKEN="your_token_here"
-#
-# This script fetches tasks from the CDI Asana project and regenerates pb/index.html
+#   export ASANA_TOKEN="your_token_here"
 
 set -e
 
@@ -15,82 +12,83 @@ WEBSITE_DIR="$(dirname "$SCRIPT_DIR")"
 PROJECT_ID="1213060510407649"
 OUTPUT_FILE="$WEBSITE_DIR/pb/index.html"
 
-# Check for token
+# Section mappings (customize as needed)
+# "Completed" section = completed tasks shown
+# Active sections = In Progress
+# Future sections = Upcoming
+COMPLETED_SECTION="1213060510407650"
+IN_PROGRESS_SECTIONS="1213060510407652|1213060510407653|1213258988346181|1213303633422773|1213303633422776"
+UPCOMING_SECTIONS="1213258988346184"
+
 if [ -z "$ASANA_TOKEN" ]; then
     echo "❌ ASANA_TOKEN not set"
-    echo ""
-    echo "To set up:"
-    echo "  1. Go to https://app.asana.com/0/my-apps"
-    echo "  2. Click 'Create new token'"
-    echo "  3. Name it 'CDI Sync' and copy the token"
-    echo "  4. Run: export ASANA_TOKEN='your_token_here'"
-    echo "  5. Re-run this script"
+    echo "Run: export ASANA_TOKEN='your_token'"
     exit 1
 fi
 
 echo "🔄 Fetching tasks from Asana..."
 
-# Fetch all tasks with sections
-TASKS=$(curl -s "https://app.asana.com/api/1.0/projects/$PROJECT_ID/tasks?opt_fields=name,notes,completed,memberships.section.name,permalink_url" \
-    -H "Authorization: Bearer $ASANA_TOKEN")
+# Fetch all tasks (handling pagination)
+ALL_TASKS="[]"
+OFFSET=""
+while true; do
+    URL="https://app.asana.com/api/1.0/projects/$PROJECT_ID/tasks?opt_fields=name,notes,completed,memberships.section.gid,memberships.section.name,permalink_url&limit=100"
+    if [ -n "$OFFSET" ]; then
+        URL="$URL&offset=$OFFSET"
+    fi
+    
+    RESPONSE=$(curl -s "$URL" -H "Authorization: Bearer $ASANA_TOKEN")
+    
+    if echo "$RESPONSE" | grep -q '"errors"'; then
+        echo "❌ API error:"
+        echo "$RESPONSE" | jq '.errors'
+        exit 1
+    fi
+    
+    PAGE_TASKS=$(echo "$RESPONSE" | jq '.data')
+    ALL_TASKS=$(echo "$ALL_TASKS $PAGE_TASKS" | jq -s 'add')
+    
+    OFFSET=$(echo "$RESPONSE" | jq -r '.next_page.offset // empty')
+    if [ -z "$OFFSET" ]; then
+        break
+    fi
+done
 
-# Check for errors
-if echo "$TASKS" | grep -q '"errors"'; then
-    echo "❌ Asana API error:"
-    echo "$TASKS" | jq '.errors'
-    exit 1
-fi
+echo "📊 Processing $(echo "$ALL_TASKS" | jq 'length') tasks..."
 
-# Parse into sections
-echo "📊 Processing tasks..."
+# Categorize tasks:
+# COMPLETED: tasks marked completed=true
+# IN PROGRESS: incomplete tasks in active sections (not in Completed section, not in Program Launch)
+# UPCOMING: incomplete tasks in Program Launch section
 
-COMPLETED=$(echo "$TASKS" | jq '[.data[] | select(.memberships[0].section.name == "Completed" or .completed == true)]')
-IN_PROGRESS=$(echo "$TASKS" | jq '[.data[] | select(.memberships[0].section.name == "In Progress" and .completed == false)]')
-UPCOMING=$(echo "$TASKS" | jq '[.data[] | select(.memberships[0].section.name == "Upcoming" and .completed == false)]')
+COMPLETED=$(echo "$ALL_TASKS" | jq '[.[] | select(.completed == true)]')
+IN_PROGRESS=$(echo "$ALL_TASKS" | jq --arg sections "$IN_PROGRESS_SECTIONS" '[.[] | select(.completed == false and (.memberships[0].section.gid | test($sections)))]')
+UPCOMING=$(echo "$ALL_TASKS" | jq --arg sections "$UPCOMING_SECTIONS" '[.[] | select(.completed == false and (.memberships[0].section.gid | test($sections)))]')
+
+# Also add incomplete tasks from Completed section to In Progress (they're active work)
+ACTIVE_IN_COMPLETED=$(echo "$ALL_TASKS" | jq --arg sec "$COMPLETED_SECTION" '[.[] | select(.completed == false and .memberships[0].section.gid == $sec)]')
+IN_PROGRESS=$(echo "$IN_PROGRESS $ACTIVE_IN_COMPLETED" | jq -s 'add | unique_by(.gid)')
 
 COMPLETED_COUNT=$(echo "$COMPLETED" | jq 'length')
 IN_PROGRESS_COUNT=$(echo "$IN_PROGRESS" | jq 'length')
 UPCOMING_COUNT=$(echo "$UPCOMING" | jq 'length')
 TOTAL=$((COMPLETED_COUNT + IN_PROGRESS_COUNT + UPCOMING_COUNT))
-PROGRESS=$((COMPLETED_COUNT * 100 / TOTAL))
+if [ $TOTAL -gt 0 ]; then
+    PROGRESS=$((COMPLETED_COUNT * 100 / TOTAL))
+else
+    PROGRESS=0
+fi
 
 echo "  ✅ Completed: $COMPLETED_COUNT"
 echo "  🔄 In Progress: $IN_PROGRESS_COUNT"
 echo "  📅 Upcoming: $UPCOMING_COUNT"
 echo "  📈 Progress: $PROGRESS%"
 
-# Generate task cards function
-generate_cards() {
-    local tasks="$1"
-    local status="$2"
-    
-    echo "$tasks" | jq -r '.[] | @base64' | while read -r task; do
-        _jq() {
-            echo "$task" | base64 --decode | jq -r "$1"
-        }
-        
-        name=$(_jq '.name')
-        notes=$(_jq '.notes // ""' | head -c 200 | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g')
-        url=$(_jq '.permalink_url')
-        
-        # Escape name for HTML
-        name_escaped=$(echo "$name" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g')
-        
-        echo "            <div class=\"task-card $status\" onclick=\"window.open('$url', '_blank')\" style=\"cursor: pointer;\">"
-        echo "                <div class=\"task-name\">$name_escaped</div>"
-        if [ -n "$notes" ] && [ "$notes" != "null" ] && [ "$notes" != "" ]; then
-            echo "                <div class=\"task-notes\">$notes</div>"
-        fi
-        echo "                <a href=\"$url\" class=\"task-link\" onclick=\"event.stopPropagation()\">View in Asana &gt;</a>"
-        echo "            </div>"
-    done
-}
-
-SYNC_DATE=$(date "+%B %d, %Y")
+SYNC_DATE=$(date "+%B %-d, %Y")
 
 echo "📝 Generating HTML..."
 
-# Generate new HTML (keeping exact same styling)
+# Generate the HTML
 cat > "$OUTPUT_FILE" << 'HTMLHEADER'
 <!DOCTYPE html>
 <html lang="en">
@@ -108,7 +106,6 @@ cat > "$OUTPUT_FILE" << 'HTMLHEADER'
             --upcoming-blue: #6BA3D6;
             --text-primary: #E8E8E8;
             --text-secondary: #888;
-            --text-muted: #666;
             --border-dark: #1A1A1A;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -138,12 +135,9 @@ cat > "$OUTPUT_FILE" << 'HTMLHEADER'
         .task-name { font-weight: 600; margin-bottom: 8px; font-size: 14px; line-height: 1.4; }
         .task-notes { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.4; }
         .task-notes a { color: var(--cdi-gold); text-decoration: none; }
-        .task-notes a:hover { color: #FFD700; }
         .task-link { font-size: 11px; color: var(--cdi-gold); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; }
-        .task-link:hover { color: #FFD700; }
         .footer { background-color: #0F0F0F; padding: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-dark); }
         .footer a { color: var(--cdi-gold); text-decoration: none; }
-        .footer a:hover { color: #FFD700; }
         @media (max-width: 900px) { .board { grid-template-columns: 1fr; } .column { border-right: none; border-bottom: 1px solid var(--border-dark); } }
     </style>
 </head>
@@ -158,7 +152,7 @@ cat > "$OUTPUT_FILE" << 'HTMLHEADER'
         <div class="header-stats">
 HTMLHEADER
 
-# Add dynamic stats
+# Stats section
 cat >> "$OUTPUT_FILE" << EOF
             <div class="stat-box">
                 <span class="stat-number">$COMPLETED_COUNT</span>
@@ -178,7 +172,28 @@ cat >> "$OUTPUT_FILE" << EOF
             </div>
 EOF
 
-# Add completed tasks
+# Generate task cards
+generate_cards() {
+    local tasks="$1"
+    local status="$2"
+    
+    echo "$tasks" | jq -r '.[] | @base64' | while read -r task; do
+        name=$(echo "$task" | base64 --decode | jq -r '.name // ""' | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g')
+        notes=$(echo "$task" | base64 --decode | jq -r '.notes // ""' | head -c 200 | tr '\n' ' ' | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g; s/"/\&quot;/g')
+        url=$(echo "$task" | base64 --decode | jq -r '.permalink_url // ""')
+        
+        [ -z "$name" ] && continue
+        
+        echo "            <div class=\"task-card $status\" onclick=\"window.open('$url', '_blank')\" style=\"cursor: pointer;\">"
+        echo "                <div class=\"task-name\">$name</div>"
+        if [ -n "$notes" ] && [ "$notes" != "null" ]; then
+            echo "                <div class=\"task-notes\">$notes</div>"
+        fi
+        echo "                <a href=\"$url\" class=\"task-link\" onclick=\"event.stopPropagation()\">View in Asana &gt;</a>"
+        echo "            </div>"
+    done
+}
+
 generate_cards "$COMPLETED" "completed" >> "$OUTPUT_FILE"
 
 cat >> "$OUTPUT_FILE" << EOF
@@ -190,7 +205,6 @@ cat >> "$OUTPUT_FILE" << EOF
             </div>
 EOF
 
-# Add in-progress tasks
 generate_cards "$IN_PROGRESS" "in-progress" >> "$OUTPUT_FILE"
 
 cat >> "$OUTPUT_FILE" << EOF
@@ -202,7 +216,6 @@ cat >> "$OUTPUT_FILE" << EOF
             </div>
 EOF
 
-# Add upcoming tasks
 generate_cards "$UPCOMING" "upcoming" >> "$OUTPUT_FILE"
 
 cat >> "$OUTPUT_FILE" << EOF
@@ -222,10 +235,6 @@ cat >> "$OUTPUT_FILE" << EOF
 </html>
 EOF
 
-echo "✅ Generated: $OUTPUT_FILE"
+echo "✅ Done! Generated: $OUTPUT_FILE"
 echo ""
-echo "To deploy:"
-echo "  cd $WEBSITE_DIR"
-echo "  git add pb/index.html"
-echo "  git commit -m 'Sync project board from Asana'"
-echo "  git push"
+echo "To deploy: git add pb/index.html && git commit -m 'Sync from Asana' && git push"
