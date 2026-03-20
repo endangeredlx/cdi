@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | CDI - Crew Development Institute</title>
+    <meta name="description" content="Insights, updates, and stories from CDI's mission to build Africa's production workforce.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cdi-global.org/blog/">
+    <meta property="og:title" content="CDI Blog | Crew Development Institute">
+    <meta property="og:description" content="Insights, updates, and stories from CDI's mission to build Africa's production workforce.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cdi-gold: #C9A227;
+            --cdi-gold-light: #E5C555;
+            --cdi-navy: #0D1B2A;
+            --cdi-navy-light: #1B3A5F;
+            --cdi-teal: #00B4A0;
+            --white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --gray-100: #F1F3F5;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-family); font-size: 16px; line-height: 1.6; color: var(--gray-900); background: var(--white); }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--cdi-navy);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-logo {
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .nav-logo span { color: var(--cdi-gold); }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        .nav-links a:hover { opacity: 1; }
+        .nav-links .btn-apply {
+            background: var(--cdi-gold);
+            color: var(--cdi-navy);
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            padding: 140px 40px 80px;
+            text-align: center;
+            color: var(--white);
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .hero h1 span { color: var(--cdi-gold); }
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        .blog-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        .blog-card-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-teal) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .blog-card-image span {
+            font-size: 48px;
+        }
+        .blog-card-content {
+            padding: 25px;
+        }
+        .blog-card-tag {
+            display: inline-block;
+            background: var(--cdi-gold);
+            color: var(--cdi-navy);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .blog-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--cdi-navy);
+        }
+        .blog-card h3 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .blog-card h3 a:hover {
+            color: var(--cdi-teal);
+        }
+        .blog-card p {
+            color: var(--gray-600);
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--gray-600);
+        }
+        .read-more {
+            color: var(--cdi-teal);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .read-more:hover { text-decoration: underline; }
+
+        /* Footer */
+        .footer {
+            background: var(--cdi-navy);
+            color: var(--white);
+            padding: 40px;
+            text-align: center;
+        }
+        .footer a { color: var(--cdi-gold); text-decoration: none; }
+
+        /* Ghana stripe */
+        .ghana-stripe {
+            height: 6px;
+            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-logo">CDI<span>.</span></a>
+        <div class="nav-links">
+            <a href="/#programs">Programs</a>
+            <a href="/#team">Team</a>
+            <a href="/blog/">Blog</a>
+            <a href="/pb/">Project Board</a>
+            <a href="/#apply" class="btn-apply">Apply Now</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>CDI <span>Blog</span></h1>
+        <p>Insights, updates, and stories from our mission to build Africa's production workforce</p>
+    </section>
+
+    <section class="blog-section">
+        <div class="blog-grid">
+            
+            <article class="blog-card">
+                <div class="blog-card-image">
+                    <span>🌍</span>
+                </div>
+                <div class="blog-card-content">
+                    <span class="blog-card-tag">Industry</span>
+                    <h3><a href="/blog/why-africa-needs-local-crews/">Why Africa's Live Entertainment Industry Needs Local Crews</a></h3>
+                    <p>With a $5B+ market growing at 13% annually, Africa's entertainment industry faces a critical shortage of trained production technicians.</p>
+                    <div class="blog-card-meta">
+                        <span>March 20, 2026</span>
+                        <a href="/blog/why-africa-needs-local-crews/" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-card-image">
+                    <span>🎓</span>
+                </div>
+                <div class="blog-card-content">
+                    <span class="blog-card-tag">Announcement</span>
+                    <h3><a href="/blog/cdi-launches-2026/">CDI Launches: Building Crews Who Build Shows</a></h3>
+                    <p>Introducing the Crew Development Institute — free, world-class production training for African technicians.</p>
+                    <div class="blog-card-meta">
+                        <span>March 20, 2026</span>
+                        <a href="/blog/cdi-launches-2026/" class="read-more">Read More →</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <div class="ghana-stripe"></div>
+    <footer class="footer">
+        <p>© 2026 Crew Development Institute. <a href="/">cdi-global.org</a></p>
+    </footer>
+</body>
+</html>

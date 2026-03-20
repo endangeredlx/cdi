@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDI Launches: Building Crews Who Build Shows | CDI Blog</title>
+    <meta name="description" content="Introducing the Crew Development Institute — free, world-class production training for African technicians. Our mission, model, and 2026 roadmap.">
+    
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://cdi-global.org/blog/cdi-launches-2026/">
+    <meta property="og:title" content="CDI Launches: Building Crews Who Build Shows">
+    <meta property="og:description" content="Introducing the Crew Development Institute — free, world-class production training for African technicians.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cdi-gold: #C9A227;
+            --cdi-gold-light: #E5C555;
+            --cdi-navy: #0D1B2A;
+            --cdi-navy-light: #1B3A5F;
+            --cdi-teal: #00B4A0;
+            --white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --gray-100: #F1F3F5;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-family); font-size: 16px; line-height: 1.6; color: var(--gray-900); background: var(--white); }
+
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: var(--cdi-navy); padding: 15px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo { font-weight: 800; font-size: 20px; color: var(--white); text-decoration: none; }
+        .nav-logo span { color: var(--cdi-gold); }
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-size: 14px; font-weight: 500; opacity: 0.9; }
+        .nav-links a:hover { opacity: 1; }
+        .nav-links .btn-apply { background: var(--cdi-gold); color: var(--cdi-navy); padding: 10px 20px; border-radius: 6px; font-weight: 600; }
+
+        .article-header {
+            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            padding: 140px 40px 80px; text-align: center; color: var(--white);
+        }
+        .article-tag {
+            display: inline-block; background: var(--cdi-gold); color: var(--cdi-navy);
+            padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;
+            text-transform: uppercase; margin-bottom: 20px;
+        }
+        .article-header h1 {
+            font-size: 42px; font-weight: 800; margin-bottom: 20px;
+            max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+        .article-meta { font-size: 14px; opacity: 0.8; }
+        .article-meta span { margin: 0 10px; }
+
+        .article-content { max-width: 750px; margin: 0 auto; padding: 60px 40px; }
+        .article-content p { margin-bottom: 24px; font-size: 18px; line-height: 1.8; color: var(--gray-700); }
+        .article-content h2 { font-size: 28px; font-weight: 700; color: var(--cdi-navy); margin: 48px 0 24px; }
+        .article-content h3 { font-size: 22px; font-weight: 600; color: var(--cdi-navy); margin: 36px 0 16px; }
+        .article-content ul, .article-content ol { margin: 0 0 24px 24px; font-size: 18px; line-height: 1.8; color: var(--gray-700); }
+        .article-content li { margin-bottom: 12px; }
+        .article-content strong { color: var(--cdi-navy); }
+
+        .highlight-box {
+            background: var(--off-white); border-radius: 12px; padding: 30px; margin: 32px 0;
+            border-left: 4px solid var(--cdi-gold);
+        }
+        .highlight-box h4 { color: var(--cdi-navy); margin-bottom: 12px; }
+
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0; }
+        .team-card { background: var(--off-white); border-radius: 12px; padding: 24px; text-align: center; }
+        .team-card h4 { color: var(--cdi-navy); margin-bottom: 4px; }
+        .team-card p { color: var(--gray-600); font-size: 14px; margin: 0; }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            border-radius: 12px; padding: 40px; margin: 48px 0; text-align: center; color: var(--white);
+        }
+        .cta-box h3 { color: var(--white); margin-bottom: 16px; }
+        .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 24px; }
+        .cta-box a { display: inline-block; background: var(--cdi-gold); color: var(--cdi-navy); padding: 14px 28px; border-radius: 6px; font-weight: 600; text-decoration: none; margin: 5px; }
+
+        .back-link { display: inline-block; margin-bottom: 20px; color: var(--cdi-teal); text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+
+        .footer { background: var(--cdi-navy); color: var(--white); padding: 40px; text-align: center; }
+        .footer a { color: var(--cdi-gold); text-decoration: none; }
+        .ghana-stripe { height: 6px; background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%); }
+
+        @media (max-width: 768px) {
+            .article-header h1 { font-size: 28px; }
+            .article-content { padding: 40px 20px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="/" class="nav-logo">CDI<span>.</span></a>
+        <div class="nav-links">
+            <a href="/#programs">Programs</a>
+            <a href="/#team">Team</a>
+            <a href="/blog/">Blog</a>
+            <a href="/pb/">Project Board</a>
+            <a href="/#apply" class="btn-apply">Apply Now</a>
+        </div>
+    </nav>
+
+    <header class="article-header">
+        <span class="article-tag">Announcement</span>
+        <h1>CDI Launches: Building Crews Who Build Shows</h1>
+        <div class="article-meta">
+            <span>By CDI Team</span>
+            <span>•</span>
+            <span>March 20, 2026</span>
+            <span>•</span>
+            <span>4 min read</span>
+        </div>
+    </header>
+
+    <article class="article-content">
+        <a href="/blog/" class="back-link">← Back to Blog</a>
+
+        <p>Today, we're officially introducing the <strong>Crew Development Institute (CDI)</strong> — a nonprofit organization dedicated to building Africa's production workforce through free, professional-grade training.</p>
+
+        <p>Our mission is simple: train local technicians to international standards so Africa's booming entertainment industry can grow sustainably, with local crews running world-class productions.</p>
+
+        <h2>Why We Started CDI</h2>
+
+        <p>Africa's live entertainment industry is exploding. Afrobeats is a global phenomenon. Major artists are touring the continent. Festivals are expanding across West Africa. But there's a critical gap: <strong>trained local crews</strong>.</p>
+
+        <p>When major productions come to Africa, they typically fly in technical crews from Europe or North America. That means:</p>
+
+        <ul>
+            <li>Production dollars leave local economies</li>
+            <li>Local workers get labor jobs, not technical careers</li>
+            <li>No skills transfer happens</li>
+            <li>The cycle repeats</li>
+        </ul>
+
+        <p>CDI exists to break this cycle.</p>
+
+        <h2>Our Training Model</h2>
+
+        <div class="highlight-box">
+            <h4>Two-Tier Program</h4>
+            <p><strong>Tier 1: Stagehand Fundamentals</strong> — 2-day intensive covering load-in/load-out, stage etiquette, safety, and basic production workflow. Free. 100+ trainees per deployment.</p>
+            <p><strong>Tier 2: Specialist Tracks</strong> — 3-day deep dives in Audio, Lighting, Video, or Rigging. Professional equipment. Working industry instructors. 15-30 participants per track.</p>
+        </div>
+
+        <p>Every deployment culminates in a <strong>real live production</strong> — a concert or festival stage crewed entirely by trainees under professional supervision. This isn't simulation; it's hands-on experience that translates directly to employment.</p>
+
+        <h2>Our Team</h2>
+
+        <p>CDI is led by working professionals with decades of combined experience in touring, television, and live events:</p>
+
+        <div class="team-grid">
+            <div class="team-card">
+                <h4>Erica D. Hayes</h4>
+                <p>Founder & Executive Director</p>
+                <p>15+ years touring LD</p>
+            </div>
+            <div class="team-card">
+                <h4>Keith Bernard</h4>
+                <p>Board Member</p>
+                <p>Visual Director</p>
+            </div>
+            <div class="team-card">
+                <h4>Blake Brady</h4>
+                <p>Board Member</p>
+                <p>Producer & Ops Lead</p>
+            </div>
+        </div>
+
+        <p>Our instructors aren't academics — they're working professionals who design and operate shows for major artists. They bring real-world expertise directly to trainees.</p>
+
+        <h2>Partnership with Illumin8 Academy</h2>
+
+        <p>CDI operates in partnership with <strong>Illumin8 Academy</strong> in Accra, Ghana. Illumin8 is one of West Africa's premier production companies, with deep relationships across Ghana's entertainment industry.</p>
+
+        <p>This partnership provides:</p>
+        <ul>
+            <li>Local facility and equipment storage</li>
+            <li>Trainee recruitment through established networks</li>
+            <li>Festival placements for graduates</li>
+            <li>On-ground logistics and coordination</li>
+        </ul>
+
+        <h2>2026 Roadmap</h2>
+
+        <p>This year is about building the foundation:</p>
+
+        <ul>
+            <li><strong>Q1-Q2:</strong> Secure partnerships, finalize curriculum, establish 501(c)(3)</li>
+            <li><strong>Q3:</strong> Ship equipment container to Accra, soft launch training</li>
+            <li><strong>Q4:</strong> First official cohort, December in Ghana festival season</li>
+        </ul>
+
+        <p>By the end of 2026, we aim to have trained <strong>400+ stagehands</strong> and <strong>120+ specialists</strong> — with many already working professional events.</p>
+
+        <h2>Get Involved</h2>
+
+        <p>CDI succeeds through community. Here's how you can help:</p>
+
+        <div class="cta-box">
+            <h3>Join the Movement</h3>
+            <p>Whether you want to train, teach, partner, or support — there's a place for you.</p>
+            <a href="/#apply">Apply as Trainee</a>
+            <a href="/sponsorship/">Become a Partner</a>
+        </div>
+
+        <p>This is just the beginning. Africa's entertainment industry is ready to scale — and we're building the crews to make it happen.</p>
+
+        <p><strong>Welcome to CDI. Let's build something.</strong></p>
+
+    </article>
+
+    <div class="ghana-stripe"></div>
+    <footer class="footer">
+        <p>© 2026 Crew Development Institute. <a href="/">cdi-global.org</a></p>
+    </footer>
+</body>
+</html>
