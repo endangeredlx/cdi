@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Track | CDI - Crew Development Institute</title>
+    <meta name="description" content="CDI's Video Track: 3-day intensive training in LED wall systems, media servers, camera operation, and IMAG for aspiring video professionals.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cdi-global.org/programs/video/">
+    <meta property="og:title" content="Video Track | CDI - Crew Development Institute">
+    <meta property="og:description" content="3-day intensive training in live event video. Learn LED systems, media servers, camera operation, and IMAG.">
+    <meta property="og:image" content="https://cdi-global.org/images/cdi-social-share.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --gray-100: #F1F3F5;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-400: #CED4DA;
+            --gray-500: #ADB5BD;
+            --gray-600: #6C757D;
+            --gray-700: #495057;
+            --gray-800: #343A40;
+            --gray-900: #212529;
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --section-padding: 80px 0;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--cdi-black);
+            background: var(--cdi-white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+        h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+        h4 { font-size: 1.125rem; }
+
+        p {
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--cdi-white);
+            border-bottom: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 44px;
+            height: 44px;
+            background: var(--cdi-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--cdi-white);
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--cdi-black);
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cdi-black);
+        }
+
+        .nav-cta {
+            background: var(--cdi-black);
+            color: var(--cdi-white) !important;
+            padding: 12px 24px;
+            border-radius: 0;
+            transition: background 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gray-800) !important;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--cdi-black);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--cdi-black);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--cdi-white);
+            padding: 8px 16px;
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero h1 {
+            color: var(--cdi-white);
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            color: var(--gray-400);
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            color: var(--cdi-white);
+            font-weight: 600;
+        }
+
+        .hero-meta-item span {
+            color: var(--gray-500);
+            font-weight: 400;
+            display: block;
+            font-size: 0.875rem;
+            margin-bottom: 4px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--gray-800);
+        }
+
+        .btn-white {
+            background: var(--cdi-white);
+            color: var(--cdi-black);
+        }
+
+        .btn-white:hover {
+            background: var(--gray-100);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--cdi-white);
+            border: 2px solid var(--cdi-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--cdi-white);
+            color: var(--cdi-black);
+        }
+
+        /* Section Styles */
+        section {
+            padding: var(--section-padding);
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--cdi-black);
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '✦';
+        }
+
+        /* Overview Section */
+        .overview {
+            background: var(--cdi-white);
+        }
+
+        .overview-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .overview h2 {
+            margin-bottom: 24px;
+        }
+
+        .overview p {
+            margin-bottom: 20px;
+        }
+
+        /* Curriculum Section */
+        .curriculum {
+            background: var(--off-white);
+        }
+
+        .curriculum-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .curriculum-header h2 {
+            margin-bottom: 16px;
+        }
+
+        .day-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .day-card {
+            background: var(--cdi-white);
+            padding: 40px 32px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--cdi-black);
+        }
+
+        .day-number {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .day-card h3 {
+            margin-bottom: 24px;
+            color: var(--cdi-black);
+        }
+
+        .day-card ul {
+            list-style: none;
+        }
+
+        .day-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+            color: var(--gray-700);
+            font-size: 1rem;
+        }
+
+        .day-card li:last-child {
+            border-bottom: none;
+        }
+
+        .day-card li strong {
+            color: var(--cdi-black);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Equipment Section */
+        .equipment {
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+        }
+
+        .equipment h2 {
+            color: var(--cdi-white);
+            margin-bottom: 40px;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .equipment-item {
+            background: rgba(255,255,255,0.05);
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .equipment-item h4 {
+            color: var(--cdi-white);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .equipment-item p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+        }
+
+        /* Prerequisites & Careers */
+        .info-section {
+            background: var(--cdi-white);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .info-block h2 {
+            margin-bottom: 24px;
+        }
+
+        .info-block p {
+            margin-bottom: 16px;
+        }
+
+        .career-list {
+            list-style: none;
+        }
+
+        .career-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 1.125rem;
+            color: var(--cdi-black);
+            font-weight: 500;
+        }
+
+        .career-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--off-white);
+            text-align: center;
+        }
+
+        .cta h2 {
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo .logo-mark {
+            background: var(--cdi-white);
+            color: var(--cdi-black);
+        }
+
+        .footer-logo .logo-text {
+            color: var(--cdi-white);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--cdi-white);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Ghana Stripe */
+        .ghana-stripe {
+            height: 4px;
+            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
+        }
+
+        /* Note Box */
+        .note-box {
+            background: var(--off-white);
+            padding: 24px;
+            border-left: 4px solid var(--cdi-black);
+            margin-top: 32px;
+        }
+
+        .note-box p {
+            font-style: italic;
+            color: var(--gray-700);
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .day-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .hero-meta {
+                gap: 24px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ghana-stripe"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="container nav-inner">
+            <a href="../../" class="logo">
+                <div class="logo-mark">CDI</div>
+                <div class="logo-text">Crew<br>Development<br>Institute</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="../../">Home</a></li>
+                <li><a href="../">Programs</a></li>
+                <li><a href="../../#team">Team</a></li>
+                <li><a href="../../blog/">Blog</a></li>
+                <li><a href="../../sponsorship/">Partners</a></li>
+                <li><a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="nav-cta">Apply Now</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Specialized Track</div>
+                <h1>Video Track</h1>
+                <p>Video has transformed live entertainment. What used to be a stage with some lights is now an immersive visual environment with LED walls, projection mapping, IMAG, and real time content.</p>
+                <div class="hero-meta">
+                    <div class="hero-meta-item">
+                        <span>Duration</span>
+                        3 Day Intensive
+                    </div>
+                    <div class="hero-meta-item">
+                        <span>Class Size</span>
+                        15 to 30 Participants
+                    </div>
+                    <div class="hero-meta-item">
+                        <span>Level</span>
+                        Entry to Intermediate
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="overview">
+        <div class="container">
+            <div class="overview-content">
+                <span class="section-label">Overview</span>
+                <h2>The Demand for Video Professionals Has Exploded</h2>
+                <p>The skillset required goes far beyond knowing how to press play. This track covers the core competencies for working in live event video: LED systems, media servers, camera operation, and signal distribution.</p>
+                <p>You'll learn how to build, operate, and troubleshoot the video systems that power modern productions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section class="curriculum">
+        <div class="container">
+            <div class="curriculum-header">
+                <span class="section-label">Curriculum</span>
+                <h2>What You'll Learn</h2>
+                <p>Three days of intensive, hands on training covering every aspect of live event video production.</p>
+            </div>
+            <div class="day-grid">
+                <div class="day-card">
+                    <div class="day-number">Day 1</div>
+                    <h3>Display Technology</h3>
+                    <ul>
+                        <li>
+                            <strong>LED Wall Systems</strong>
+                            Different pixel pitches, panel types, and processing methods. Learn how LED walls are built, hung, and configured.
+                        </li>
+                        <li>
+                            <strong>Signal Flow and Processing</strong>
+                            Trace the path through switchers, scalers, processors. Understanding your signal chain is critical to troubleshooting.
+                        </li>
+                        <li>
+                            <strong>Resolution and Refresh Rates</strong>
+                            Learn to read a signal, understand genlock, and why 59.94 and 60 are not the same thing.
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <div class="day-number">Day 2</div>
+                    <h3>Content and Servers</h3>
+                    <ul>
+                        <li>
+                            <strong>Media Server Fundamentals</strong>
+                            Resolume, Disguise, Notch. Learn basic server operation, content playback, and console integration.
+                        </li>
+                        <li>
+                            <strong>Content Preparation</strong>
+                            Receive, check, and prepare content for playback. Codec considerations, resolution, and output mapping.
+                        </li>
+                        <li>
+                            <strong>Show Control Integration</strong>
+                            How video systems integrate with lighting, audio, and automation through timecode, MIDI, and network protocols.
+                        </li>
+                    </ul>
+                </div>
+                <div class="day-card">
+                    <div class="day-number">Day 3</div>
+                    <h3>Camera and IMAG</h3>
+                    <ul>
+                        <li>
+                            <strong>Camera Operation</strong>
+                            IMAG puts the artist on the big screen. Learn basic camera operation, framing, and live performance discipline.
+                        </li>
+                        <li>
+                            <strong>Switching and Directing</strong>
+                            Understanding what the director needs. See the switching side and learn how a multicam show comes together.
+                        </li>
+                        <li>
+                            <strong>System Deployment</strong>
+                            Participate in a full video system load in and load out, understanding workflow and physical demands.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment -->
+    <section class="equipment">
+        <div class="container">
+            <span class="section-label" style="color: var(--cdi-white);">Equipment</span>
+            <h2>What You'll Train On</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item">
+                    <h4>ROE Visual LED Panels</h4>
+                    <p>Industry standard LED display panels used on major tours and events</p>
+                </div>
+                <div class="equipment-item">
+                    <h4>Absen LED Panels</h4>
+                    <p>Professional grade LED wall systems for touring and installations</p>
+                </div>
+                <div class="equipment-item">
+                    <h4>Brompton LED Processors</h4>
+                    <p>Premium video processing for high end LED displays</p>
+                </div>
+                <div class="equipment-item">
+                    <h4>Novastar LED Processors</h4>
+                    <p>Widely deployed LED control and processing systems</p>
+                </div>
+                <div class="equipment-item">
+                    <h4>Resolume Arena</h4>
+                    <p>Industry leading media server software for live events</p>
+                </div>
+                <div class="equipment-item">
+                    <h4>Blackmagic ATEM Switchers</h4>
+                    <p>Professional broadcast video switchers for live production</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prerequisites & Careers -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-block">
+                    <span class="section-label">Prerequisites</span>
+                    <h2>What You Need</h2>
+                    <p>Comfort with computers and technology is essential. Prior video experience is not required, but you should be someone who can learn software quickly and troubleshoot logically. Video work involves both creative and technical thinking.</p>
+                    <div class="note-box">
+                        <p>Video technology evolves constantly. CDI's curriculum reflects current industry practice and is updated regularly to keep pace with new systems and workflows.</p>
+                    </div>
+                </div>
+                <div class="info-block">
+                    <span class="section-label">Career Pathways</span>
+                    <h2>Where This Leads</h2>
+                    <p>Graduates of this track are prepared for entry level positions as:</p>
+                    <ul class="career-list">
+                        <li>LED Technician</li>
+                        <li>Video Playback Operator</li>
+                        <li>Camera Operator</li>
+                        <li>Video Engineer Assistant</li>
+                        <li>Media Server Technician</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <span class="section-label">Get Started</span>
+            <h2>Ready to Work in Live Event Video?</h2>
+            <p>Apply now for CDI's Video Track and learn to operate the visual systems that power modern productions.</p>
+            <div class="cta-buttons">
+                <a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="btn btn-primary">Apply Now</a>
+                <a href="../" class="btn btn-outline" style="color: var(--cdi-black); border-color: var(--cdi-black);">View All Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-mark">CDI</div>
+                    <div class="logo-text">Crew<br>Development<br>Institute</div>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="../../">Home</a></li>
+                    <li><a href="../">Programs</a></li>
+                    <li><a href="../../#team">Team</a></li>
+                    <li><a href="../../blog/">Blog</a></li>
+                    <li><a href="../../sponsorship/">Partners</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Crew Development Institute. Building Crews Who Build Shows.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
