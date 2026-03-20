@@ -323,24 +323,15 @@
             overflow: hidden;
         }
 
-        .featured-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                linear-gradient(45deg, transparent 48%, var(--white) 48%, var(--white) 52%, transparent 52%),
-                linear-gradient(-45deg, transparent 48%, var(--white) 48%, var(--white) 52%, transparent 52%);
-            background-size: 30px 30px;
-            opacity: 0.05;
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
         }
 
         .featured-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 80px;
-            filter: grayscale(1) brightness(2);
+            display: none;
         }
 
         .featured-content {
@@ -458,26 +449,19 @@
             transition: transform 0.3s ease;
         }
 
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
         .blog-card:hover .blog-card-image {
             transform: scale(1.02);
         }
 
-        .blog-card-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: 
-                linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,0.1) 60%, transparent 60%);
-            pointer-events: none;
-        }
-
         .blog-card-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 48px;
-            filter: grayscale(1) brightness(2);
+            display: none;
         }
 
         .blog-card-content h3 {
@@ -833,7 +817,7 @@
             <!-- Featured Post -->
             <article class="featured-post">
                 <div class="featured-image">
-                    <div class="featured-icon">🌍</div>
+                    <img src="/blog/images/festival-crowd.jpg" alt="Concert crowd at a live music festival">
                 </div>
                 <div class="featured-content">
                     <span class="post-tag">Industry Insights</span>
@@ -862,7 +846,7 @@
             <div class="blog-grid">
                 <article class="blog-card">
                     <div class="blog-card-image">
-                        <div class="blog-card-icon">🎓</div>
+                        <img src="/blog/images/stage-lights.jpg" alt="Stage lighting at a concert">
                     </div>
                     <div class="blog-card-content">
                         <span class="post-tag">Announcement</span>
@@ -882,7 +866,7 @@
                 <!-- Placeholder for future posts -->
                 <article class="blog-card" style="opacity: 0.4; pointer-events: none;">
                     <div class="blog-card-image">
-                        <div class="blog-card-icon">📅</div>
+                        <img src="/blog/images/concert-stage.jpg" alt="Concert stage">
                     </div>
                     <div class="blog-card-content">
                         <span class="post-tag" style="background: var(--gray-400);">Coming Soon</span>
