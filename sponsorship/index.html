@@ -786,6 +786,89 @@
             color: var(--cdi-gray-light);
         }
 
+        /* Top Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--cdi-white);
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .top-nav-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .top-nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .top-nav-logo-mark {
+            width: 44px;
+            height: 44px;
+            background: var(--cdi-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--cdi-white);
+        }
+
+        .top-nav-logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--cdi-black);
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .top-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .top-nav-links a {
+            text-decoration: none;
+            color: #404040;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .top-nav-links a:hover,
+        .top-nav-links a.active {
+            color: var(--cdi-black);
+        }
+
+        .top-nav-cta {
+            background: var(--cdi-black) !important;
+            color: var(--cdi-white) !important;
+            padding: 12px 24px !important;
+        }
+
+        @media (max-width: 768px) {
+            .top-nav-links {
+                display: none;
+            }
+        }
+
         /* Navigation dots */
         .nav-dots {
             position: fixed;
@@ -910,7 +993,25 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-inner">
+            <a href="/" class="top-nav-logo">
+                <div class="top-nav-logo-mark">CDI</div>
+                <div class="top-nav-logo-text">Crew<br>Development<br>Institute</div>
+            </a>
+            <ul class="top-nav-links">
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#programs">Programs</a></li>
+                <li><a href="/#team">Team</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/sponsorship/" class="active">Sponsors</a></li>
+                <li><a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="top-nav-cta">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Side Navigation -->
     <nav class="nav-dots">
         <a href="#cover" class="nav-dot active"></a>
         <a href="#problem" class="nav-dot"></a>

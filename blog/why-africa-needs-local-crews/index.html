@@ -68,7 +68,8 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: var(--black);
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
             transition: all 0.3s ease;
         }
 
@@ -93,7 +94,7 @@
             font-weight: 700;
             font-size: 28px;
             letter-spacing: 2px;
-            color: var(--white);
+            color: var(--black);
             line-height: 0.9;
         }
 
@@ -102,7 +103,7 @@
             font-weight: 500;
             font-size: 9px;
             letter-spacing: 3px;
-            color: var(--white);
+            color: var(--black);
             opacity: 0.7;
             text-transform: uppercase;
         }
@@ -114,19 +115,18 @@
         }
 
         .nav-links a {
-            color: var(--white);
+            color: var(--gray-700);
             text-decoration: none;
             font-family: 'Barlow', sans-serif;
             font-size: 14px;
             font-weight: 500;
             letter-spacing: 0.5px;
-            opacity: 0.85;
-            transition: opacity 0.2s ease;
+            transition: color 0.2s ease;
             position: relative;
         }
 
         .nav-links a:hover {
-            opacity: 1;
+            color: var(--black);
         }
 
         .nav-links a.active::after {
@@ -136,24 +136,23 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: var(--white);
+            background: var(--black);
         }
 
         .nav-apply {
-            background: var(--white) !important;
-            color: var(--black) !important;
+            background: var(--black) !important;
+            color: var(--white) !important;
             padding: 12px 28px !important;
             font-weight: 600 !important;
             letter-spacing: 1px !important;
             text-transform: uppercase;
             font-size: 12px !important;
-            opacity: 1 !important;
             transition: transform 0.2s ease, box-shadow 0.2s ease !important;
         }
 
         .nav-apply:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* Mobile Menu */
@@ -174,7 +173,7 @@
             display: block;
             width: 24px;
             height: 2px;
-            background: var(--white);
+            background: var(--black);
             transition: all 0.3s ease;
             margin: 3px 0;
         }
