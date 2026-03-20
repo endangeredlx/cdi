@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDI Los Angeles | North Hollywood Training Hub</title>
-    <meta name="description" content="CDI Los Angeles brings professional production training to North Hollywood in partnership with TUMO LA. Opening soon.">
+    <title>CDI Lagos | Nigeria Training Hub</title>
+    <meta name="description" content="CDI Lagos brings professional production training to Nigeria's entertainment capital. Free stagehand and specialist track programs launching 2027.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,9 +18,7 @@
             --gray-200: #E5E5E5;
             --gray-500: #737373;
             --gray-700: #404040;
-            --ghana-red: #CE1126;
-            --ghana-yellow: #FCD116;
-            --ghana-green: #006B3F;
+            --nigeria-green: #008751;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -31,11 +29,13 @@
             line-height: 1.6;
         }
 
-        .ghana-stripe {
+        /* Nigeria Stripe */
+        .nigeria-stripe {
             height: 6px;
-            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
+            background: linear-gradient(90deg, var(--nigeria-green) 33.33%, var(--cdi-white) 33.33%, var(--cdi-white) 66.66%, var(--nigeria-green) 66.66%);
         }
 
+        /* Navigation */
         .nav {
             background: var(--cdi-white);
             border-bottom: 1px solid var(--gray-200);
@@ -105,11 +105,13 @@
             padding: 12px 24px !important;
         }
 
+        /* Hero */
         .hero {
             background: var(--cdi-black);
             color: var(--cdi-white);
             padding: 100px 40px;
             text-align: center;
+            position: relative;
         }
 
         .hero-flag {
@@ -144,17 +146,17 @@
 
         .status-badge {
             display: inline-block;
-            background: var(--cdi-white);
-            color: var(--cdi-black);
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            background: var(--nigeria-green);
+            color: var(--cdi-white);
             padding: 8px 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-top: 24px;
         }
 
+        /* Content Sections */
         .section {
             padding: 80px 40px;
             max-width: 1000px;
@@ -176,6 +178,7 @@
             margin-bottom: 20px;
         }
 
+        /* Partner Box */
         .partner-box {
             background: var(--gray-100);
             padding: 40px;
@@ -189,6 +192,7 @@
             margin-bottom: 16px;
         }
 
+        /* Info Grid */
         .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -214,6 +218,34 @@
             margin: 0;
         }
 
+        /* Market Stats */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+            padding: 32px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* CTA */
         .cta-section {
             background: var(--cdi-black);
             color: var(--cdi-white);
@@ -231,6 +263,9 @@
         .cta-section p {
             opacity: 0.9;
             margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .btn {
@@ -244,8 +279,16 @@
             text-decoration: none;
             background: var(--cdi-white);
             color: var(--cdi-black);
+            margin: 8px;
         }
 
+        .btn-outline {
+            background: transparent;
+            color: var(--cdi-white);
+            border: 2px solid var(--cdi-white);
+        }
+
+        /* Footer */
         .footer {
             background: var(--gray-100);
             padding: 40px;
@@ -266,13 +309,13 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .info-grid { grid-template-columns: 1fr; }
+            .info-grid, .stat-grid { grid-template-columns: 1fr; }
             .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="ghana-stripe"></div>
+    <div class="nigeria-stripe"></div>
     
     <nav class="nav">
         <div class="nav-inner">
@@ -292,43 +335,48 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-flag">🌴</div>
+        <div class="hero-flag">🇳🇬</div>
         <div class="hero-label">CDI Location</div>
-        <h1>Los Angeles</h1>
-        <p>Bringing CDI training to the entertainment capital of the world. North Hollywood, California.</p>
-        <span class="status-badge">Coming Soon</span>
+        <h1>Lagos, Nigeria</h1>
+        <p>Expanding to Africa's largest entertainment market. CDI Lagos will bring professional production training to the heart of Afrobeats.</p>
+        <div class="status-badge">Coming 2027</div>
     </section>
 
     <section class="section">
-        <h2>About CDI Los Angeles</h2>
-        <p>Los Angeles is the heart of the American entertainment industry. CDI LA will bring our proven training model to aspiring production professionals in Southern California, providing a pathway into the live events industry.</p>
+        <h2>Why Lagos</h2>
+        <p>Lagos is the epicenter of Africa's entertainment explosion. Home to Afrobeats, Nollywood, and a live events scene that's growing faster than anywhere else on the continent. Yet the same problem exists here as everywhere: local crews lack access to professional training, so productions import technicians from abroad.</p>
         
-        <p>Our LA program will maintain the same high standards and hands-on curriculum that defines CDI, adapted for the unique opportunities and requirements of the US market.</p>
+        <p>CDI's expansion to Lagos represents our commitment to meeting the industry where it lives. With Nigeria's entertainment sector worth billions and growing at double digits, the demand for skilled local technicians has never been higher.</p>
+
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">$5B+</div>
+                <div class="stat-label">Nigerian Music Industry Value</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">13%</div>
+                <div class="stat-label">Annual Growth Rate</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">200M+</div>
+                <div class="stat-label">Population</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">#1</div>
+                <div class="stat-label">African Entertainment Hub</div>
+            </div>
+        </div>
 
         <div class="partner-box">
-            <h3>Potential Partner: TUMO Los Angeles</h3>
-            <p>We are in discussions with TUMO Los Angeles in North Hollywood as a potential venue partner. TUMO's state-of-the-art facility and commitment to creative education make them an ideal partner for CDI's expansion into Southern California.</p>
-        </div>
-
-        <div class="info-grid">
-            <div class="info-card">
-                <h4>Location</h4>
-                <p>North Hollywood, CA</p>
-            </div>
-            <div class="info-card">
-                <h4>Training Schedule</h4>
-                <p>To Be Announced</p>
-            </div>
-            <div class="info-card">
-                <h4>Status</h4>
-                <p>In Development</p>
-            </div>
+            <h3>Partnership Opportunities</h3>
+            <p>We're actively seeking local partners to help launch CDI Lagos. If you're a production company, venue, event organizer, or educational institution in Nigeria interested in partnering with CDI, we want to hear from you.</p>
+            <p>Our model relies on local expertise and relationships. The right partners will help us understand Lagos's unique production landscape, connect with emerging technicians, and place trained crews on real shows.</p>
         </div>
     </section>
 
     <section class="section">
-        <h2>Programs Planned</h2>
-        <p>CDI Los Angeles will offer:</p>
+        <h2>Planned Programs</h2>
+        <p>CDI Lagos will offer the same curriculum that's proven successful in Ghana:</p>
         <div class="info-grid">
             <div class="info-card">
                 <h4>Tier 1</h4>
@@ -339,16 +387,35 @@
                 <p>Specialist Tracks<br>Audio, Lighting, Video, Rigging</p>
             </div>
             <div class="info-card">
-                <h4>Focus</h4>
-                <p>Entry points to<br>union careers</p>
+                <h4>Cost</h4>
+                <p>Free<br>All programs</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Timeline</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h4>2026</h4>
+                <p>Partner Development<br>Market Research</p>
+            </div>
+            <div class="info-card">
+                <h4>Early 2027</h4>
+                <p>Venue Selection<br>Instructor Prep</p>
+            </div>
+            <div class="info-card">
+                <h4>2027</h4>
+                <p>First Training<br>Deployment</p>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
-        <h2>Stay Updated</h2>
-        <p>Be the first to know when CDI Los Angeles opens applications.</p>
-        <a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="btn">Join Interest List</a>
+        <h2>Get Involved</h2>
+        <p>Whether you're a potential partner, sponsor, or future trainee, there are ways to be part of CDI Lagos before we launch.</p>
+        <a href="/sponsorship/" class="btn">Partner With Us</a>
+        <a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="btn btn-outline">Join Waitlist</a>
     </section>
 
     <footer class="footer">
@@ -362,6 +429,6 @@
         </div>
     </footer>
 
-    <div class="ghana-stripe"></div>
+    <div class="nigeria-stripe"></div>
 </body>
 </html>
