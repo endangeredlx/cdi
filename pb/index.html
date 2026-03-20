@@ -4,28 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CDI Project Board | Crew Development Institute</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cdi-gold: #D4AF37;
+            /* CDI Brand Colors - BLACK & WHITE ONLY */
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
             --cdi-dark: #0A0A0A;
+            
+            /* Status Colors */
             --completed-green: #5BAD7A;
-            --progress-gold: #D4AF37;
-            --upcoming-blue: #6BA3D6;
+            --progress-white: #FFFFFF;
+            --upcoming-gray: #6B6B6B;
+            
+            /* Text Colors */
             --text-primary: #E8E8E8;
             --text-secondary: #888;
             --border-dark: #1A1A1A;
+            
+            /* Ghana Heritage Colors (footer stripe only) */
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--cdi-dark); color: var(--text-primary); font-family: 'Source Sans Pro', sans-serif; line-height: 1.6; }
-        .header { background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%); padding: 40px 20px; border-bottom: 3px solid var(--cdi-gold); display: flex; justify-content: space-between; align-items: flex-start; }
+        body { background-color: var(--cdi-dark); color: var(--text-primary); font-family: 'Barlow', sans-serif; line-height: 1.6; }
+        .header { background: var(--cdi-black); padding: 40px 20px; border-bottom: 3px solid var(--cdi-white); display: flex; justify-content: space-between; align-items: flex-start; }
         .header-left { flex: 1; }
         .header-title { font-family: 'Oswald', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; line-height: 1.2; }
-        .header-divider { width: 40px; height: 3px; background-color: var(--cdi-gold); margin: 15px 0; }
+        .header-divider { width: 40px; height: 3px; background-color: var(--cdi-white); margin: 15px 0; }
         .header-subtitle, .header-tagline { font-size: 14px; color: var(--text-secondary); margin-bottom: 5px; }
         .header-stats { text-align: right; min-width: 200px; }
         .stat-box { display: inline-block; margin-left: 30px; }
-        .stat-number { font-size: 32px; font-weight: 700; color: var(--cdi-gold); display: block; }
+        .stat-number { font-size: 32px; font-weight: 700; color: var(--cdi-white); display: block; }
         .stat-label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
         .board { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; }
         .column { border-right: 1px solid var(--border-dark); padding: 20px; min-height: 600px; }
@@ -33,23 +44,25 @@
         .column-header { display: flex; align-items: center; margin-bottom: 20px; font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .column-dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 10px; }
         .completed .column-dot { background-color: var(--completed-green); }
-        .in-progress .column-dot { background-color: var(--progress-gold); }
-        .upcoming .column-dot { background-color: var(--upcoming-blue); }
-        .task-card { border-left: 3px solid; padding: 15px; margin-bottom: 15px; background-color: #0F0F0F; border-radius: 2px; cursor: pointer; transition: all 0.2s ease; }
+        .in-progress .column-dot { background-color: var(--progress-white); }
+        .upcoming .column-dot { background-color: var(--upcoming-gray); }
+        .task-card { border-left: 3px solid; padding: 15px; margin-bottom: 15px; background-color: #0F0F0F; border-radius: 0; cursor: pointer; transition: all 0.2s ease; }
         .task-card:hover { background-color: #1A1A1A; transform: translateX(5px); }
         .task-card.completed { border-left-color: var(--completed-green); }
-        .task-card.in-progress { border-left-color: var(--progress-gold); }
-        .task-card.upcoming { border-left-color: var(--upcoming-blue); }
+        .task-card.in-progress { border-left-color: var(--progress-white); }
+        .task-card.upcoming { border-left-color: var(--upcoming-gray); }
         .task-name { font-weight: 600; margin-bottom: 8px; font-size: 14px; line-height: 1.4; }
         .task-notes { font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.4; }
-        .task-notes a { color: var(--cdi-gold); text-decoration: none; }
-        .task-link { font-size: 11px; color: var(--cdi-gold); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; }
+        .task-notes a { color: var(--cdi-white); text-decoration: none; }
+        .task-link { font-size: 11px; color: var(--cdi-white); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; }
         .footer { background-color: #0F0F0F; padding: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-secondary); border-top: 1px solid var(--border-dark); }
-        .footer a { color: var(--cdi-gold); text-decoration: none; }
+        .footer a { color: var(--cdi-white); text-decoration: none; }
+        .ghana-stripe { height: 4px; background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%); }
         @media (max-width: 900px) { .board { grid-template-columns: 1fr; } .column { border-right: none; border-bottom: 1px solid var(--border-dark); } }
     </style>
 </head>
 <body>
+    <div class="ghana-stripe"></div>
     <div class="header">
         <div class="header-left">
             <div class="header-title">Crew Development<br>Institute</div>
@@ -81,7 +94,7 @@
             </div>
             <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213615210519571', '_blank')" style="cursor: pointer;">
                 <div class="task-name">🎤 LDI 2026 Speaker Submissions - SUBMITTED</div>
-                <div class="task-notes">✅ SUBMITTED - March 9, 2026  2 Sessions Applied: 1. &quot;Building Local Crews: A Model for African Production Technicians Development&quot; 2. &quot;Ready for the Call: What It Takes to Tour Africa&quot;  Deadline: Ap</div>
+                <div class="task-notes">✅ SUBMITTED - March 9, 2026  2 Sessions Applied: 1. "Building Local Crews: A Model for African Production Technicians Development" 2. "Ready for the Call: What It Takes to Tour Africa"  Deadline: Ap</div>
                 <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213615210519571" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
             <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213574699159155', '_blank')" style="cursor: pointer;">
@@ -106,7 +119,7 @@
             </div>
             <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213219489099706', '_blank')" style="cursor: pointer;">
                 <div class="task-name">Pitch Timothy Walker re Audio Track</div>
-                <div class="task-notes">Timothy &quot;Tech&quot; Walker confirmed as Audio Program Lead via iMessage on 2/11/2026. He said &quot;Absolutely. I'm in.&quot; Pay structure: his current day rate for any days away from home. Email: Techlyfeinc@gmail</div>
+                <div class="task-notes">Timothy "Tech" Walker confirmed as Audio Program Lead via iMessage on 2/11/2026. He said "Absolutely. I'm in." Pay structure: his current day rate for any days away from home. Email: Techlyfeinc@gmail</div>
                 <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213219489099706" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
             <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213252546172526', '_blank')" style="cursor: pointer;">
@@ -204,81 +217,6 @@
                 <div class="task-notes">CDI Social Media Development — STRATEGY DOC COMPLETED 2/25/2026  Deliverable: CDI_SocialMediaStrategy.docx Covers: • Username Availability Matrix (all major platforms) • Recommended primary hand</div>
                 <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573741" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248229', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Government Outreach Strategy</div>
-                <div class="task-notes">Draft completed by Claude — saved as CDI_GovernmentOutreachStrategy_Ghana.docx in CDI NAMM CLAUDE folder. Covers 3-phase engagement targeting Ministry of Tourism, Culture and Creative Arts. Ready fo</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248229" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573749', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Pitch National Urban League</div>
-                <div class="task-notes">Pitched National Urban League. Result: Need a new pitch deck. Follow up required. </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573749" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213243923668266', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Apply to Speak at GAWSC 2.0 — Global African Women's Sustainability Conference</div>
-                <div class="task-notes">DEADLINE: February 20, 2026 (NEXT WEEK)  Apply to speak at the Global African Women's Sustainability Conference (GAWSC) 2.0, hosted by ImpactHER in partnership with the African Union.  EVENT DETAILS: </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213243923668266" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213254636402120', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Apply to Impact Hub</div>
-                <div class="task-notes">CANCELLED — Team decided Impact Hub is not a good fit for CDI at this time. The application fee structure (€5,000 non-refundable + €14,000-35,000 joining fee) does not align with CDI's current b</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213254636402120" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303633422777', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P1: Confirm NAMM Grant Requirements [NAMM Grant]</div>
-                <div class="task-notes">Owner: Admin | Duration: 2 days | Phase 1 – Research\n\n    Download full NAMM Foundation Global Grantmaking guidelines PDF\n    • Confirm CDI eligibility under Career Mobility track\n    • Extr</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303633422777" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303633422779', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P1: Create Master Application Draft Doc [NAMM Grant]</div>
-                <div class="task-notes">Owner: Admin | Duration: 1 day | Phase 1 – Research      Copy all application questions into a shared Google Doc     • Insert character/word limits for each section     • Share &quot;NAMM 2026 Applic</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303633422779" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303633422781', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P2: Draft Executive Summary (300 words) [NAMM Grant]</div>
-                <div class="task-notes">Draft completed by Claude — saved as CDI_NAMM_P2_ExecutiveSummary_300Words.docx in CDI NAMM CLAUDE folder. Ready for Erica's review. </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303633422781" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223473', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P2: Draft Problem + Need Statement [NAMM Grant]</div>
-                <div class="task-notes">Draft completed by Claude — saved as CDI_NAMM_P2_ProblemNeedStatement.docx in CDI NAMM CLAUDE folder. Ready for Erica's review. </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223473" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223475', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P2: Draft Audio Pilot Program Description [NAMM Grant]</div>
-                <div class="task-notes">Draft completed by Claude — saved as CDI_NAMM_P2_AudioPilotProgramDescription.docx in CDI NAMM CLAUDE folder. Ready for Erica's review. </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223475" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223477', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P2: Draft Outcomes &amp; Evaluation Plan [NAMM Grant]</div>
-                <div class="task-notes">Draft completed by Claude — saved as CDI_NAMM_P2_OutcomesEvaluationPlan.docx in CDI NAMM CLAUDE folder. Ready for Erica's review. </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223477" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223520', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P3: Build $25K Budget Sheet [NAMM Grant]</div>
-                <div class="task-notes">Owner: Erica | Duration: 3 days | Phase 3 – Budget + Docs      Create line-item budget totaling $25,000 using NAMM template or CDI format     • Include categories: personnel, equipment, travel, cu</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223520" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223481', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P3: Draft Budget Narrative [NAMM Grant]</div>
-                <div class="task-notes">Draft completed by Claude — saved as CDI_NAMM_P3_BudgetNarrative.docx in CDI NAMM CLAUDE folder. Ready for Erica's review. </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223481" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223483', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P3: Assemble Organizational Documents PDF [NAMM Grant]</div>
-                <div class="task-notes">Compiled by Claude — saved as CDI_NAMM_P3_OrganizationalDocuments.pdf (11 pages) in CDI NAMM CLAUDE folder. Includes cover page, Board of Directors, Governance Overview, and Financial Statement. </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223483" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223485', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P4: Create 1-Page Audio Pilot Brief (Branded PDF) [NAMM Grant]</div>
-                <div class="task-notes">Owner: Keith | Duration: 3 days | Phase 4 – Design + Letters\n\n    Design branded 1-page PDF summarizing the Audio Pilot program\n    • Include CDI logo, mission statement, pilot overview, and ke</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223485" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card completed" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223497', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P6: Create Post-Submission Tracker [NAMM Grant]</div>
-                <div class="task-notes">Owner: Erica | Duration: 2 days | Phase 6 – Submission\n\n    Create shared tracking doc with submission date, grant ID, and portal login\n    • Log expected notification timeline and NAMM contact</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223497" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
         </div>
         <div class="column in-progress">
             <div class="column-header">
@@ -312,7 +250,7 @@
             </div>
             <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573748', '_blank')" style="cursor: pointer;">
                 <div class="task-name">Non-Profit Company Limited by Guarantee (CLG) in Ghana</div>
-                <div class="task-notes">Registered with Registrar-General’s Department Budget USD $900–$1,100 This is the closest Ghanaian equivalent to a U.S. 501(c)(3). It is purpose-built for education, training, and public-benefit w</div>
+                <div class="task-notes">Registered with Registrar-General's Department Budget USD $900–$1,100 This is the closest Ghanaian equivalent to a U.S. 501(c)(3). It is purpose-built for education, training, and public-benefit w</div>
                 <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573748" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
             <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213102181573750', '_blank')" style="cursor: pointer;">
@@ -355,21 +293,6 @@
                 <div class="task-notes">Schedule a call with Nana presenting the new pitch decks, website, non-profit status and any financial updates.\n\nAGENDA ITEMS:\n• CDI nonprofit status (Michigan Corp filed, EIN assigned, 1023-EZ p</div>
                 <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248227" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248231', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Vendor Partnerships / Equipment Procurement</div>
-                <div class="task-notes">STATUS: Pending — dependent on partnership confirmations.\n\nKNOWN VENDORS/TARGETS:\n• Rigging: Mode Hoist — 50× 1T Chain Motors CONFIRMED\n• Audio: Pending Timothy Walker specifications\n•</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248231" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248233', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Container Prep &amp; Shipping</div>
-                <div class="task-notes">CONTAINER PREP &amp; SHIPPING — MASTER TASK ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  CONTAINER SPECS: • Type: 40ft High Cu</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248233" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248235', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Illumin8 Facility Setup</div>
-                <div class="task-notes"> </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248235" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
             <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213121021352621', '_blank')" style="cursor: pointer;">
                 <div class="task-name">Open AMEX Business Checking</div>
                 <div class="task-notes"> </div>
@@ -395,108 +318,53 @@
                 <div class="task-notes">NAMM Foundation Global Grantmaking — Career Mobility Track Amount: $25,000 | Audio Production Fundamentals Pilot — Accra, Ghana  SUBMISSION CHECKLIST STATUS (as of 2/26/2026): ━━━━━━�</div>
                 <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303633422774" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223487', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P4: Secure Ghana Partner Letter (Illumin8) [NAMM Grant]</div>
-                <div class="task-notes">Owner: Erica | Duration: 5 days | Phase 4 – Design + Letters      Request formal letter of support from Illumin8 Academy (Ghana)     • Letter should confirm partnership, venue access, and trainee </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223487" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223489', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P4: Secure University Letter (If Required) [NAMM Grant]</div>
-                <div class="task-notes">Owner: Erica | Duration: 3 days | Phase 4 – Design + Letters      Identify relevant university or academic partner if required by NAMM     • Request letter confirming academic alignment or researc</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223489" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223491', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P5: Internal Grant Review Meeting [NAMM Grant]</div>
-                <div class="task-notes">Owner: Erica | Duration: 1 day | Phase 5 – Review      Schedule 60-min internal review with CDI team and fiscal sponsor     • Walk through full application: narrative, budget, letters, and attachm</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223491" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223493', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P5: Revise Final Draft [NAMM Grant]</div>
-                <div class="task-notes">Owner: Erica | Duration: 2 days | Phase 5 – Review      Incorporate all feedback from internal review meeting     • Proofread narrative for clarity, grammar, and word count compliance     • Veri</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223493" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223495', '_blank')" style="cursor: pointer;">
-                <div class="task-name">P6: Final Upload &amp; Submit [NAMM Grant]</div>
-                <div class="task-notes">Owner: Erica | Duration: 1 day | Phase 6 – Submission  **DEADLINE: April 1, 2026** (corrected from March 23)      Log into NAMM Foundation grant portal and create application     • Upload all requ</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223495" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213457422513380', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Secure CDI Social Media Handles Across All Platforms</div>
-                <div class="task-notes">Register and secure CDI social media handles across all major platforms.  RECOMMENDED PRIMARY HANDLE: @crewdevelopmentinstitute  PLATFORMS TO SECURE (Priority Order): ━━━━━━━━━━━</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213457422513380" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213468804990581', '_blank')" style="cursor: pointer;">
-                <div class="task-name">NAMM Foundation $25K Grant Application</div>
-                <div class="task-notes">**DEADLINE CORRECTED:** April 1, 2026 (not March 23)  NAMM Foundation Pro Audio &amp; Lighting grant - explicitly funds CDI-type programs.  This is the priority grant for CDI. Track progress and requireme</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213468804990581" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213576214696021', '_blank')" style="cursor: pointer;">
-                <div class="task-name">🇳🇬 Nigeria Outreach - April/May Trip</div>
-                <div class="task-notes">Erica will be in Nigeria late April 2026.  **CONFIRMED:** 🎬 Joseph Bala (tsadojb@gmail.com) - Location Manager in Abuja - KrystallBoy &quot;Lamba&quot; Music Video shoot - Rates: $500/day - NDA signed ✅ - </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213576214696021" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213615245279904', '_blank')" style="cursor: pointer;">
-                <div class="task-name">📋 Complete ImpactHER Conference Registration</div>
-                <div class="task-notes">Global African Womens Sustainability Conference - Abuja, Nigeria  Status: Registration incomplete (multiple reminder emails received)  Relevance to CDI: - Network with African women leaders - Green te</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213615245279904" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card in-progress" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213636328119867', '_blank')" style="cursor: pointer;">
-                <div class="task-name">🤝 Nigerian Female Gaffer Collaboration — Flora</div>
-                <div class="task-notes">Active email thread with Nigerian Female Gaffer (Flora) re: Introduction and Gaffers Lab Initiative Nigeria.  Status: Flora responded March 12 re: timeline. Erica already engaged.  Potential CDI partn</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213636328119867" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
         </div>
         <div class="column upcoming">
             <div class="column-header">
                 <div class="column-dot"></div>
                 UPCOMING • 7 tasks
             </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248249', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Evaluation &amp; Expansion Planning</div>
-                <div class="task-notes"> </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248249" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
+            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248231', '_blank')" style="cursor: pointer;">
+                <div class="task-name">Vendor Partnerships / Equipment Procurement</div>
+                <div class="task-notes">STATUS: Pending — dependent on partnership confirmations.\n\nKNOWN VENDORS/TARGETS:\n• Rigging: Mode Hoist — 50× 1T Chain Motors CONFIRMED\n• Audio: Pending Timothy Walker specifications\n•</div>
+                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248231" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248247', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Secure Event Commitments</div>
-                <div class="task-notes"> </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248247" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
+            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248233', '_blank')" style="cursor: pointer;">
+                <div class="task-name">Container Prep &amp; Shipping</div>
+                <div class="task-notes">CONTAINER PREP &amp; SHIPPING — MASTER TASK ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  CONTAINER SPECS: • Type: 40ft High Cu</div>
+                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248233" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248245', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Curriculum Documentation</div>
-                <div class="task-notes">Draft completed by Claude — saved as CDI_CurriculumDocumentation_AudioPilot.docx in CDI NAMM CLAUDE folder. Covers full 12-week Audio Pilot curriculum: 4 phases (Foundation, Applied Skills, Producti</div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248245" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
-            </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248243', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Local Staffing Hire</div>
+            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248235', '_blank')" style="cursor: pointer;">
+                <div class="task-name">Illumin8 Facility Setup</div>
                 <div class="task-notes"> </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248243" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
+                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248235" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248241', '_blank')" style="cursor: pointer;">
-                <div class="task-name">December in GH Event Season</div>
-                <div class="task-notes"> </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248241" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
+            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223487', '_blank')" style="cursor: pointer;">
+                <div class="task-name">P4: Secure Ghana Partner Letter (Illumin8) [NAMM Grant]</div>
+                <div class="task-notes">Owner: Erica | Duration: 5 days | Phase 4 – Design + Letters      Request formal letter of support from Illumin8 Academy (Ghana)     • Letter should confirm partnership, venue access, and trainee </div>
+                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223487" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248239', '_blank')" style="cursor: pointer;">
-                <div class="task-name">First Training Deployment</div>
-                <div class="task-notes"> </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248239" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
+            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223489', '_blank')" style="cursor: pointer;">
+                <div class="task-name">P4: Secure University Letter (If Required) [NAMM Grant]</div>
+                <div class="task-notes">Owner: Erica | Duration: 3 days | Phase 4 – Design + Letters      Identify relevant university or academic partner if required by NAMM     • Request letter confirming academic alignment or researc</div>
+                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223489" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
-            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248237', '_blank')" style="cursor: pointer;">
-                <div class="task-name">Training Cohort Recruitment</div>
-                <div class="task-notes"> </div>
-                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213103355248237" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
+            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223491', '_blank')" style="cursor: pointer;">
+                <div class="task-name">P5: Internal Grant Review Meeting [NAMM Grant]</div>
+                <div class="task-notes">Owner: Erica | Duration: 1 day | Phase 5 – Review      Schedule 60-min internal review with CDI team and fiscal sponsor     • Walk through full application: narrative, budget, letters, and attachm</div>
+                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223491" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
+            </div>
+            <div class="task-card upcoming" onclick="window.open('https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223495', '_blank')" style="cursor: pointer;">
+                <div class="task-name">P6: Final Upload &amp; Submit [NAMM Grant]</div>
+                <div class="task-notes">Owner: Erica | Duration: 1 day | Phase 6 – Submission      Upload all finalized materials to NAMM grant portal     • Verify all required fields and attachments are complete     • Submit applica</div>
+                <a href="https://app.asana.com/1/1213102172791988/project/1213060510407649/task/1213303636223495" class="task-link" onclick="event.stopPropagation()">View in Asana &gt;</a>
             </div>
         </div>
     </div>
     <div class="footer">
-        <div class="footer-left">
-            <div>CDI • Building Crews Who Build Shows</div>
-            <div><a href="https://app.asana.com/0/1213060510407649" target="_blank">View in Asana</a></div>
-            <div>Last synced: March 13, 2026</div>
-        </div>
-        <div class="footer-right">
-            Target Launch: Q4 2026 • Accra, Ghana
-        </div>
+        <span>© 2026 Crew Development Institute</span>
+        <a href="https://cdi-global.org">cdi-global.org</a>
     </div>
+    <div class="ghana-stripe"></div>
 </body>
 </html>

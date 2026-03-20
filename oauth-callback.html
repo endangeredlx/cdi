@@ -4,41 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authorization Complete | CDI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* CDI Brand Colors - BLACK & WHITE ONLY */
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
+            --cdi-gray: #888;
+            --cdi-gray-light: #ccc;
+            
+            /* Ghana Heritage Colors (stripe only) */
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%);
+            font-family: 'Barlow', system-ui, sans-serif;
+            background: var(--cdi-black);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: var(--cdi-white);
+        }
+        .ghana-stripe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
+            z-index: 1000;
         }
         .container {
             text-align: center;
             padding: 40px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
-            border: 1px solid rgba(201, 162, 39, 0.3);
+            background: rgba(255,255,255,0.03);
+            border-radius: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             max-width: 500px;
         }
         .icon { font-size: 4rem; margin-bottom: 20px; }
-        h1 { color: #C9A227; margin-bottom: 10px; }
-        p { color: #888; margin-bottom: 20px; }
+        h1 { 
+            font-family: 'Oswald', sans-serif;
+            color: var(--cdi-white); 
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        p { color: var(--cdi-gray); margin-bottom: 20px; }
         .code-box {
-            background: rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.05);
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 0;
             font-family: monospace;
             word-break: break-all;
             margin: 20px 0;
             display: none;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .success { color: #00B4A0; }
+        .success { color: var(--cdi-white); font-weight: 600; }
     </style>
 </head>
 <body>
+    <div class="ghana-stripe"></div>
     <div class="container">
         <div class="icon">✅</div>
         <h1>Authorization Complete!</h1>

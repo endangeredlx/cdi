@@ -23,20 +23,14 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* CDI Hybrid Color Palette */
-            --cdi-gold: #C9A227;
-            --cdi-gold-light: #E5C555;
-            --cdi-navy: #0D1B2A;
-            --cdi-navy-light: #1B3A5F;
-            --cdi-teal: #00B4A0;
-            --cdi-teal-light: #00D4BC;
-            --cdi-teal-dark: #008B7A;
-
+            /* CDI Brand Colors - BLACK & WHITE ONLY */
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
+            
             /* Neutrals */
-            --white: #FFFFFF;
             --off-white: #F8F9FA;
             --gray-100: #F1F3F5;
             --gray-200: #E9ECEF;
@@ -48,13 +42,14 @@
             --gray-800: #343A40;
             --gray-900: #212529;
 
-            /* Ghana Flag Colors (for accents) */
+            /* Ghana Flag Colors (for cultural accents ONLY) */
             --ghana-red: #CE1126;
             --ghana-yellow: #FCD116;
             --ghana-green: #006B3F;
 
             /* Typography */
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
             /* Spacing */
             --section-padding: 100px 0;
@@ -72,17 +67,20 @@
         }
 
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-body);
             font-size: 16px;
             line-height: 1.6;
-            color: var(--gray-900);
-            background: var(--white);
+            color: var(--cdi-black);
+            background: var(--cdi-white);
         }
 
         /* Typography */
         h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
             font-weight: 700;
             line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
@@ -108,7 +106,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: var(--white);
+            background: var(--cdi-white);
             border-bottom: 1px solid var(--gray-200);
             transition: all 0.3s ease;
         }
@@ -134,20 +132,24 @@
         .logo-mark {
             width: 44px;
             height: 44px;
-            background: var(--cdi-gold);
+            background: var(--cdi-black);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 900;
+            font-family: var(--font-heading);
+            font-weight: 700;
             font-size: 1rem;
-            color: var(--white);
+            color: var(--cdi-white);
         }
 
         .logo-text {
+            font-family: var(--font-heading);
             font-weight: 700;
-            font-size: 0.85rem;
-            color: var(--cdi-navy);
+            font-size: 0.75rem;
+            color: var(--cdi-black);
             line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .nav-links {
@@ -166,19 +168,19 @@
         }
 
         .nav-links a:hover {
-            color: var(--cdi-teal);
+            color: var(--cdi-black);
         }
 
         .nav-cta {
-            background: var(--cdi-teal);
-            color: var(--white) !important;
+            background: var(--cdi-black);
+            color: var(--cdi-white) !important;
             padding: 12px 24px;
-            border-radius: 4px;
+            border-radius: 0;
             transition: background 0.2s !important;
         }
 
         .nav-cta:hover {
-            background: var(--cdi-teal-dark) !important;
+            background: var(--gray-800) !important;
         }
 
         .mobile-menu-btn {
@@ -193,7 +195,7 @@
             display: block;
             width: 24px;
             height: 2px;
-            background: var(--cdi-navy);
+            background: var(--cdi-black);
             margin: 5px 0;
             transition: 0.3s;
         }
@@ -220,7 +222,7 @@
                 top: 72px;
                 left: 0;
                 right: 0;
-                background: var(--white);
+                background: var(--cdi-white);
                 padding: 24px;
                 gap: 16px;
                 box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -244,48 +246,51 @@
             align-items: center;
             justify-content: center;
             padding: 16px 32px;
+            font-family: var(--font-heading);
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 0;
             transition: all 0.2s;
             cursor: pointer;
             border: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .btn-primary {
-            background: var(--cdi-teal);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
         }
 
         .btn-primary:hover {
-            background: var(--cdi-teal-dark);
+            background: var(--gray-800);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--cdi-navy);
-            border: 2px solid var(--cdi-navy);
+            color: var(--cdi-black);
+            border: 2px solid var(--cdi-black);
         }
 
         .btn-secondary:hover {
-            background: var(--cdi-navy);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
         }
 
-        .btn-gold {
-            background: var(--cdi-gold);
-            color: var(--white);
+        .btn-white {
+            background: var(--cdi-white);
+            color: var(--cdi-black);
         }
 
-        .btn-gold:hover {
-            background: var(--cdi-gold-light);
+        .btn-white:hover {
+            background: var(--gray-100);
         }
 
         /* Hero Section */
         .hero {
             padding: 160px 0 100px;
-            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            background: var(--cdi-black);
             position: relative;
             overflow: hidden;
         }
@@ -297,7 +302,7 @@
             right: 0;
             width: 50%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A227' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             opacity: 0.5;
         }
 
@@ -311,15 +316,17 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(201, 162, 39, 0.2);
-            color: var(--cdi-gold);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--cdi-white);
             padding: 8px 16px;
-            border-radius: 50px;
+            border-radius: 0;
+            font-family: var(--font-heading);
             font-size: 0.875rem;
             font-weight: 600;
             margin-bottom: 24px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         .hero-label::before {
@@ -327,16 +334,16 @@
         }
 
         .hero h1 {
-            color: var(--white);
+            color: var(--cdi-white);
             margin-bottom: 24px;
         }
 
         .hero h1 span {
-            color: var(--cdi-gold);
+            color: var(--gray-400);
         }
 
         .hero p {
-            color: var(--gray-300);
+            color: var(--gray-400);
             font-size: 1.25rem;
             margin-bottom: 40px;
             max-width: 600px;
@@ -350,7 +357,7 @@
 
         /* Stats Bar */
         .stats-bar {
-            background: var(--white);
+            background: var(--cdi-white);
             padding: 40px 0;
             border-bottom: 1px solid var(--gray-200);
         }
@@ -372,15 +379,16 @@
         }
 
         .stat-number {
+            font-family: var(--font-heading);
             font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--cdi-navy);
+            font-weight: 700;
+            color: var(--cdi-black);
             line-height: 1;
             margin-bottom: 8px;
         }
 
         .stat-number span {
-            color: var(--cdi-teal);
+            color: var(--gray-500);
         }
 
         .stat-label {
@@ -398,11 +406,12 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--cdi-teal);
+            color: var(--cdi-black);
+            font-family: var(--font-heading);
             font-size: 0.875rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             margin-bottom: 16px;
         }
 
@@ -412,8 +421,8 @@
 
         /* Problem Section */
         .problem {
-            background: var(--cdi-navy);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
         }
 
         .problem-grid {
@@ -424,16 +433,16 @@
         }
 
         .problem h2 {
-            color: var(--white);
+            color: var(--cdi-white);
             margin-bottom: 24px;
         }
 
         .problem h2 span {
-            color: var(--cdi-gold);
+            color: var(--gray-400);
         }
 
         .problem p {
-            color: var(--gray-300);
+            color: var(--gray-400);
             margin-bottom: 32px;
         }
 
@@ -446,20 +455,22 @@
         .problem-stat {
             background: rgba(255,255,255,0.05);
             padding: 32px 24px;
-            border-radius: 8px;
+            border-radius: 0;
             text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .problem-stat-number {
+            font-family: var(--font-heading);
             font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--cdi-teal);
+            font-weight: 700;
+            color: var(--cdi-white);
             margin-bottom: 8px;
         }
 
         .problem-stat-label {
             font-size: 0.9rem;
-            color: var(--gray-400);
+            color: var(--gray-500);
         }
 
         /* Solution Section */
@@ -474,7 +485,7 @@
         }
 
         .solution-header h2 span {
-            color: var(--cdi-teal);
+            color: var(--gray-600);
         }
 
         .pillars {
@@ -484,16 +495,17 @@
         }
 
         .pillar {
-            background: var(--white);
+            background: var(--cdi-white);
             padding: 40px 32px;
-            border-radius: 8px;
+            border-radius: 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--cdi-teal);
+            border-top: 4px solid var(--cdi-black);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
+        /* Ghana colors for pillar accents - culturally relevant */
         .pillar:nth-child(1) { border-top-color: var(--ghana-red); }
-        .pillar:nth-child(2) { border-top-color: var(--cdi-gold); }
+        .pillar:nth-child(2) { border-top-color: var(--ghana-yellow); }
         .pillar:nth-child(3) { border-top-color: var(--ghana-green); }
 
         .pillar:hover {
@@ -511,6 +523,7 @@
             margin-bottom: 24px;
             font-size: 1.5rem;
             overflow: hidden;
+            background: var(--gray-100);
         }
 
         .pillar-icon img {
@@ -519,13 +532,9 @@
             object-fit: cover;
         }
 
-        .pillar:nth-child(1) .pillar-icon { background: rgba(206, 17, 38, 0.1); }
-        .pillar:nth-child(2) .pillar-icon { background: rgba(201, 162, 39, 0.1); }
-        .pillar:nth-child(3) .pillar-icon { background: rgba(0, 107, 63, 0.1); }
-
         .pillar h3 {
             margin-bottom: 16px;
-            color: var(--cdi-navy);
+            color: var(--cdi-black);
         }
 
         .pillar p {
@@ -535,7 +544,7 @@
 
         /* Training Section */
         .training {
-            background: var(--white);
+            background: var(--cdi-white);
         }
 
         .training-grid {
@@ -546,15 +555,15 @@
         }
 
         .training h2 span {
-            color: var(--cdi-gold);
+            color: var(--gray-600);
         }
 
         .tier {
             background: var(--off-white);
             padding: 32px;
-            border-radius: 8px;
+            border-radius: 0;
             margin-bottom: 24px;
-            border-left: 4px solid var(--cdi-teal);
+            border-left: 4px solid var(--cdi-black);
         }
 
         .tier-header {
@@ -565,22 +574,24 @@
         }
 
         .tier-badge {
-            background: var(--cdi-teal);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
             padding: 4px 12px;
-            border-radius: 4px;
+            border-radius: 0;
+            font-family: var(--font-heading);
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .tier h4 {
-            color: var(--cdi-navy);
+            color: var(--cdi-black);
         }
 
         .tier-meta {
             font-size: 0.9rem;
-            color: var(--cdi-teal);
+            color: var(--gray-600);
             font-weight: 600;
             margin-bottom: 12px;
         }
@@ -597,9 +608,9 @@
         }
 
         .track {
-            background: var(--cdi-navy);
+            background: var(--cdi-black);
             padding: 24px;
-            border-radius: 8px;
+            border-radius: 0;
             text-align: center;
             transition: transform 0.2s;
         }
@@ -614,7 +625,7 @@
             border-radius: 50%;
             margin: 0 auto 12px;
             overflow: hidden;
-            border: 2px solid var(--cdi-gold);
+            border: 2px solid var(--cdi-white);
         }
 
         .track-icon img {
@@ -624,13 +635,15 @@
         }
 
         .track h5 {
-            color: var(--white);
+            font-family: var(--font-heading);
+            color: var(--cdi-white);
             font-size: 1rem;
             margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
         .track p {
-            color: var(--gray-400);
+            color: var(--gray-500);
             font-size: 0.85rem;
         }
 
@@ -646,7 +659,7 @@
         }
 
         .team-header h2 span {
-            color: var(--cdi-teal);
+            color: var(--gray-600);
         }
 
         .team-grid {
@@ -656,8 +669,8 @@
         }
 
         .team-card {
-            background: var(--white);
-            border-radius: 8px;
+            background: var(--cdi-white);
+            border-radius: 0;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             transition: transform 0.3s;
@@ -669,7 +682,7 @@
 
         .team-photo {
             height: 280px;
-            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            background: var(--cdi-black);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -679,13 +692,14 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            background: var(--cdi-gold);
+            background: var(--cdi-white);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: var(--font-heading);
             font-size: 2rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--cdi-black);
         }
 
         .team-info {
@@ -693,7 +707,8 @@
         }
 
         .team-role {
-            color: var(--cdi-teal);
+            color: var(--gray-600);
+            font-family: var(--font-heading);
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
@@ -702,7 +717,7 @@
         }
 
         .team-info h4 {
-            color: var(--cdi-navy);
+            color: var(--cdi-black);
             margin-bottom: 12px;
         }
 
@@ -712,8 +727,8 @@
 
         /* Timeline Section */
         .timeline {
-            background: var(--cdi-navy);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
         }
 
         .timeline-header {
@@ -723,15 +738,15 @@
         }
 
         .timeline-header h2 {
-            color: var(--white);
+            color: var(--cdi-white);
         }
 
         .timeline-header h2 span {
-            color: var(--cdi-gold);
+            color: var(--gray-400);
         }
 
         .timeline-header p {
-            color: var(--gray-400);
+            color: var(--gray-500);
         }
 
         .timeline-track {
@@ -747,7 +762,7 @@
             left: 5%;
             right: 5%;
             height: 2px;
-            background: var(--cdi-gold);
+            background: var(--cdi-white);
         }
 
         .timeline-item {
@@ -760,30 +775,31 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background: var(--cdi-gold);
+            background: var(--cdi-white);
             margin: 0 auto 24px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: var(--font-heading);
             font-weight: 700;
-            color: var(--cdi-navy);
+            color: var(--cdi-black);
             position: relative;
             z-index: 1;
         }
 
         .timeline-date {
-            color: var(--cdi-teal);
+            color: var(--gray-400);
             font-weight: 600;
             margin-bottom: 8px;
         }
 
         .timeline-item h4 {
-            color: var(--white);
+            color: var(--cdi-white);
             margin-bottom: 8px;
         }
 
         .timeline-item p {
-            color: var(--gray-400);
+            color: var(--gray-500);
             font-size: 0.9rem;
         }
 
@@ -798,23 +814,25 @@
         }
 
         .cta-trainees {
-            background: var(--cdi-navy);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
         }
 
         .cta-partners {
-            background: var(--cdi-teal);
-            color: var(--white);
+            background: var(--cdi-white);
+            color: var(--cdi-black);
+            border: 1px solid var(--gray-200);
         }
 
         .cta-label {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            font-family: var(--font-heading);
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             margin-bottom: 16px;
             opacity: 0.8;
         }
@@ -828,19 +846,24 @@
             margin-bottom: 16px;
         }
 
-        .cta-box p {
-            color: rgba(255,255,255,0.8);
+        .cta-trainees p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 32px;
+        }
+
+        .cta-partners p {
+            color: var(--gray-600);
             margin-bottom: 32px;
         }
 
         .cta-trainees .btn {
-            background: var(--cdi-gold);
-            color: var(--cdi-navy);
+            background: var(--cdi-white);
+            color: var(--cdi-black);
         }
 
         .cta-partners .btn {
-            background: var(--white);
-            color: var(--cdi-teal);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
         }
 
         /* Forms Section */
@@ -856,7 +879,7 @@
         }
 
         .forms-header h2 span {
-            color: var(--cdi-teal);
+            color: var(--gray-600);
         }
 
         .forms-tabs {
@@ -868,27 +891,32 @@
 
         .form-tab {
             padding: 12px 24px;
-            background: var(--white);
+            background: var(--cdi-white);
             border: 2px solid var(--gray-200);
-            border-radius: 50px;
+            border-radius: 0;
+            font-family: var(--font-heading);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            color: var(--cdi-black);
         }
 
         .form-tab.active,
         .form-tab:hover {
-            background: var(--cdi-teal);
-            border-color: var(--cdi-teal);
-            color: var(--white);
+            background: var(--cdi-black);
+            border-color: var(--cdi-black);
+            color: var(--cdi-white);
         }
 
         .form-container {
             max-width: 640px;
             margin: 0 auto;
-            background: var(--white);
+            background: var(--cdi-white);
             padding: 48px;
-            border-radius: 12px;
+            border-radius: 0;
             box-shadow: 0 8px 40px rgba(0,0,0,0.08);
         }
 
@@ -908,7 +936,7 @@
             display: block;
             font-weight: 600;
             margin-bottom: 8px;
-            color: var(--cdi-navy);
+            color: var(--cdi-black);
         }
 
         .form-group input,
@@ -917,7 +945,7 @@
             width: 100%;
             padding: 14px 16px;
             border: 2px solid var(--gray-200);
-            border-radius: 8px;
+            border-radius: 0;
             font-size: 1rem;
             font-family: inherit;
             transition: border-color 0.2s;
@@ -927,7 +955,7 @@
         .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--cdi-teal);
+            border-color: var(--cdi-black);
         }
 
         .form-group textarea {
@@ -949,7 +977,7 @@
 
         /* Newsletter */
         .newsletter {
-            background: var(--cdi-gold);
+            background: var(--cdi-black);
             padding: 60px 0;
         }
 
@@ -961,13 +989,14 @@
         }
 
         .newsletter-text h3 {
-            color: var(--cdi-navy);
+            font-family: var(--font-heading);
+            color: var(--cdi-white);
             margin-bottom: 8px;
+            text-transform: uppercase;
         }
 
         .newsletter-text p {
-            color: var(--cdi-navy);
-            opacity: 0.8;
+            color: var(--gray-500);
         }
 
         .newsletter-form {
@@ -978,30 +1007,32 @@
         .newsletter-form input {
             padding: 14px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 0;
             font-size: 1rem;
             width: 300px;
         }
 
         .newsletter-form button {
-            background: var(--cdi-navy);
-            color: var(--white);
+            background: var(--cdi-white);
+            color: var(--cdi-black);
             padding: 14px 28px;
             border: none;
-            border-radius: 4px;
+            border-radius: 0;
+            font-family: var(--font-heading);
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
+            text-transform: uppercase;
         }
 
         .newsletter-form button:hover {
-            background: var(--cdi-navy-light);
+            background: var(--gray-200);
         }
 
         /* Footer */
         .footer {
-            background: var(--cdi-navy);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
             padding: 80px 0 40px;
         }
 
@@ -1013,7 +1044,7 @@
         }
 
         .footer-brand p {
-            color: var(--gray-400);
+            color: var(--gray-500);
             margin: 24px 0;
             font-size: 0.95rem;
         }
@@ -1031,19 +1062,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--white);
+            color: var(--cdi-white);
             text-decoration: none;
             transition: background 0.2s;
         }
 
         .footer-social a:hover {
-            background: var(--cdi-teal);
+            background: var(--cdi-white);
+            color: var(--cdi-black);
         }
 
         .footer-column h4 {
-            color: var(--white);
+            font-family: var(--font-heading);
+            color: var(--cdi-white);
             font-size: 1rem;
             margin-bottom: 24px;
+            text-transform: uppercase;
         }
 
         .footer-column ul {
@@ -1055,13 +1089,13 @@
         }
 
         .footer-column a {
-            color: var(--gray-400);
+            color: var(--gray-500);
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .footer-column a:hover {
-            color: var(--cdi-teal);
+            color: var(--cdi-white);
         }
 
         .footer-bottom {
@@ -1073,10 +1107,11 @@
         }
 
         .footer-bottom p {
-            color: var(--gray-500);
+            color: var(--gray-600);
             font-size: 0.9rem;
         }
 
+        /* Ghana Stripe - Cultural element preserved */
         .ghana-stripe {
             height: 4px;
             background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
@@ -1205,12 +1240,15 @@
     </style>
 </head>
 <body>
+    <!-- Ghana Stripe at top -->
+    <div class="ghana-stripe"></div>
+    
     <!-- Navigation -->
     <nav class="nav" id="navbar">
         <div class="container nav-inner">
             <a href="#" class="logo">
                 <div class="logo-mark">CDI</div>
-                <div class="logo-text">CREW<br>DEVELOPMENT<br>INSTITUTE</div>
+                <div class="logo-text">Crew<br>Development<br>Institute</div>
             </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -1237,7 +1275,7 @@
                 <h1>Building Crews Who <span>Build Shows</span></h1>
                 <p>Free, world-class production training for Africa's live entertainment industry. Developing local talent to global standards through hands-on experience and industry mentorship.</p>
                 <div class="hero-buttons">
-                    <a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="btn btn-primary">Apply for Training</a>
+                    <a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="btn btn-white">Apply for Training</a>
                     <a href="#partners" class="btn btn-secondary" style="color: white; border-color: white;">Partner With Us</a>
                 </div>
             </div>
@@ -1273,7 +1311,7 @@
         <div class="container">
             <div class="problem-grid">
                 <div>
-                    <span class="section-label" style="color: var(--cdi-gold);">The Opportunity</span>
+                    <span class="section-label" style="color: var(--cdi-white);">The Opportunity</span>
                     <h2>Africa's stages are ready to <span>shine</span></h2>
                     <p>Africa's live entertainment industry is booming, but the technical infrastructure and trained crews haven't kept pace. International productions fly in crews at massive cost while local talent remains untrained and underemployed.</p>
                     <p>CDI exists to bridge this gap. We're not just training technicians—we're building the foundation for world-class productions across the diaspora.</p>
@@ -1343,7 +1381,7 @@
 
                     <div class="tier">
                         <div class="tier-header">
-                            <span class="tier-badge" style="background: var(--cdi-gold);">Tier 2</span>
+                            <span class="tier-badge">Tier 2</span>
                             <h4>Specialized Technical Tracks</h4>
                         </div>
                         <div class="tier-meta">3-Day Intensives • 15-30 Participants Per Track</div>
@@ -1424,7 +1462,7 @@
     <section class="timeline" id="timeline">
         <div class="container">
             <div class="timeline-header">
-                <span class="section-label" style="color: var(--cdi-gold);">2026 Roadmap</span>
+                <span class="section-label" style="color: var(--cdi-white);">2026 Roadmap</span>
                 <h2>Our path to <span>transforming African production</span></h2>
                 <p>A strategic timeline from foundation to sustainable operations.</p>
             </div>
@@ -1584,11 +1622,11 @@
         <div class="container">
             <div class="newsletter-inner">
                 <div class="newsletter-text">
-                    <h3>Stay updated on CDI's progress</h3>
-                    <p>Get news about training dates, partnerships, and opportunities.</p>
+                    <h3>Stay Updated</h3>
+                    <p>Get the latest news on CDI programs, training dates, and partnership opportunities.</p>
                 </div>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" required>
+                    <input type="email" placeholder="Enter your email" required>
                     <button type="submit">Subscribe</button>
                 </form>
             </div>
@@ -1602,9 +1640,8 @@
                 <div class="footer-brand">
                     <a href="#" class="logo">
                         <div class="logo-mark">CDI</div>
-                        <div class="logo-text" style="color: white;">CREW<br>DEVELOPMENT<br>INSTITUTE</div>
                     </a>
-                    <p>Building crews who build shows. Diaspora-driven expertise developing local talent to global standards across Africa.</p>
+                    <p>Building Crews Who Build Shows. Free, world-class production training for Africa's live entertainment industry.</p>
                     <div class="footer-social">
                         <a href="#" aria-label="Instagram">📷</a>
                         <a href="#" aria-label="LinkedIn">💼</a>
@@ -1615,7 +1652,7 @@
                 <div class="footer-column">
                     <h4>Programs</h4>
                     <ul>
-                        <li><a href="#programs">Stagehand Fundamentals</a></li>
+                        <li><a href="#programs">Stagehand Training</a></li>
                         <li><a href="#programs">Audio Track</a></li>
                         <li><a href="#programs">Lighting Track</a></li>
                         <li><a href="#programs">Video Track</a></li>
@@ -1623,46 +1660,37 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>About</h4>
+                    <h4>Organization</h4>
                     <ul>
-                        <li><a href="#about">Our Mission</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="#about">About CDI</a></li>
+                        <li><a href="#team">Our Team</a></li>
                         <li><a href="#timeline">Timeline</a></li>
-                        <li><a href="#partners">Partners</a></li>
-                        <li><a href="sponsorship/">Sponsorship Deck</a></li>
+                        <li><a href="sponsorship/">Partnerships</a></li>
+                        <li><a href="/blog/">Blog</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Contact</h4>
+                    <h4>Connect</h4>
                     <ul>
-                        <li><a href="mailto:Erica@EndangeredLX.com">Erica@EndangeredLX.com</a></li>
-                        <li><a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank">Apply for Training</a></li>
-                        <li><a href="https://forms.gle/LTKnY36yAkjj1bBz9" target="_blank">Partner Inquiry</a></li>
+                        <li><a href="#apply">Apply Now</a></li>
+                        <li><a href="#partners">Partner With Us</a></li>
+                        <li><a href="mailto:erica@endangeredlx.com">Contact</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Crew Development Institute. All rights reserved.</p>
-                <p>In partnership with LiveX Africa</p>
+                <p>© 2026 Crew Development Institute. All rights reserved.</p>
+                <p>A 501(c)(3) nonprofit organization</p>
             </div>
         </div>
     </footer>
 
-    <!-- Ghana Flag Stripe -->
+    <!-- Ghana Stripe at bottom -->
     <div class="ghana-stripe"></div>
 
     <script>
-        // Navigation scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
@@ -1672,50 +1700,30 @@
             navLinks.classList.toggle('active');
         });
 
-        // Close mobile menu when clicking a link
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // Form tabs
-        const tabs = document.querySelectorAll('.form-tab');
-        const panels = document.querySelectorAll('.form-panel');
+        // Form tab switching
+        const formTabs = document.querySelectorAll('.form-tab');
+        const formPanels = document.querySelectorAll('.form-panel');
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const target = tab.dataset.tab;
+        formTabs.forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                if (tab.dataset.tab) {
+                    e.preventDefault();
+                    formTabs.forEach(t => t.classList.remove('active'));
+                    formPanels.forEach(p => p.classList.remove('active'));
 
-                tabs.forEach(t => t.classList.remove('active'));
-                panels.forEach(p => p.classList.remove('active'));
-
-                tab.classList.add('active');
-                document.querySelector(`[data-panel="${target}"]`).classList.add('active');
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    tab.classList.add('active');
+                    document.querySelector(`[data-panel="${tab.dataset.tab}"]`).classList.add('active');
                 }
-            });
-        });
-
-        // Form submissions (placeholder - would connect to backend)
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Thank you for your submission! We will be in touch soon.');
-                form.reset();
             });
         });
     </script>

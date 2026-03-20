@@ -4,57 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Crew Development Institute</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* CDI Brand Colors - BLACK & WHITE ONLY */
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
+            --cdi-dark: #0A0A0A;
+            --cdi-gray: #888;
+            --cdi-gray-light: #ccc;
+            
+            /* Ghana Heritage Colors (stripe only) */
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 100%);
-            color: #E0E1DD;
+            font-family: 'Barlow', system-ui, -apple-system, sans-serif;
+            background: var(--cdi-black);
+            color: var(--cdi-gray-light);
             line-height: 1.7;
             min-height: 100vh;
             padding: 40px 20px;
         }
+        .ghana-stripe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
+            z-index: 1000;
+        }
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.05);
-            border-radius: 20px;
+            margin: 40px auto 0;
+            background: rgba(255,255,255,0.03);
+            border-radius: 0;
             padding: 40px;
-            border: 1px solid rgba(201, 162, 39, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         h1 {
-            color: #C9A227;
+            font-family: 'Oswald', sans-serif;
+            color: var(--cdi-white);
             font-size: 2rem;
             margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
         .subtitle {
-            color: #888;
+            color: var(--cdi-gray);
             margin-bottom: 30px;
         }
         h2 {
-            color: #00B4A0;
+            font-family: 'Oswald', sans-serif;
+            color: var(--cdi-white);
             font-size: 1.3rem;
             margin-top: 30px;
             margin-bottom: 15px;
+            text-transform: uppercase;
         }
         p, li {
             margin-bottom: 15px;
-            color: #ccc;
+            color: var(--cdi-gray-light);
         }
         ul { padding-left: 25px; }
-        a { color: #C9A227; }
+        a { color: var(--cdi-white); }
+        a:hover { text-decoration: none; }
         .footer {
             margin-top: 40px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
-            color: #666;
+            color: var(--cdi-gray);
             font-size: 0.9rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--cdi-gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .back-link:hover {
+            color: var(--cdi-white);
         }
     </style>
 </head>
 <body>
+    <div class="ghana-stripe"></div>
     <div class="container">
+        <a href="/" class="back-link">← Back to Home</a>
         <h1>Privacy Policy</h1>
         <p class="subtitle">Crew Development Institute | Last Updated: February 26, 2026</p>
         
