@@ -278,6 +278,85 @@
             background: linear-gradient(90deg, #B22234 20%, #FFFFFF 20%, #FFFFFF 40%, #3C3B6E 40%);
         }
 
+        /* Interactive Map */
+        .map-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 60px;
+            background: var(--gray-100);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .world-map {
+            width: 100%;
+            height: auto;
+        }
+
+        .map-marker {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .map-marker:hover {
+            transform: scale(1.2);
+            z-index: 10;
+        }
+
+        .marker-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--cdi-black);
+            border: 3px solid var(--cdi-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .marker-dot.active {
+            background: var(--ghana-green);
+            animation: pulse 2s infinite;
+        }
+
+        .marker-dot.planned {
+            background: var(--gray-500);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 107, 63, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(0, 107, 63, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 107, 63, 0); }
+        }
+
+        .marker-label {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+            padding: 6px 12px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .map-marker:hover .marker-label {
+            opacity: 1;
+        }
+
+        .marker-flag {
+            font-size: 0.7rem;
+        }
+
         /* Map Section */
         .map-section {
             background: var(--gray-100);
@@ -375,7 +454,71 @@
     </section>
 
     <section class="locations-section">
-        <div class="section-label">Training Hubs</div>
+        <div class="section-label">Click a location to learn more</div>
+        
+        <!-- Interactive World Map -->
+        <div class="map-container">
+            <svg viewBox="0 0 1000 500" class="world-map">
+                <!-- Simplified world map background -->
+                <defs>
+                    <style>
+                        .land { fill: #E5E5E5; stroke: #CCCCCC; stroke-width: 0.5; }
+                    </style>
+                </defs>
+                
+                <!-- North America (simplified) -->
+                <path class="land" d="M 50,80 L 150,60 L 250,80 L 280,120 L 300,180 L 280,220 L 250,200 L 200,220 L 150,200 L 100,180 L 80,140 Z"/>
+                
+                <!-- South America (simplified) -->
+                <path class="land" d="M 200,250 L 250,240 L 280,280 L 300,350 L 280,420 L 240,450 L 200,420 L 180,350 L 190,280 Z"/>
+                
+                <!-- Europe (simplified) -->
+                <path class="land" d="M 450,80 L 520,70 L 560,90 L 550,130 L 500,150 L 450,140 L 440,100 Z"/>
+                
+                <!-- Africa (simplified) -->
+                <path class="land" d="M 450,160 L 520,150 L 580,180 L 600,250 L 580,350 L 520,400 L 460,380 L 430,300 L 420,220 L 440,180 Z"/>
+                
+                <!-- Asia (simplified) -->
+                <path class="land" d="M 560,80 L 700,60 L 850,100 L 900,180 L 880,250 L 800,280 L 700,260 L 600,220 L 580,160 L 560,100 Z"/>
+                
+                <!-- Australia (simplified) -->
+                <path class="land" d="M 800,320 L 880,310 L 920,350 L 900,420 L 840,440 L 780,400 L 790,350 Z"/>
+            </svg>
+            
+            <!-- Ghana Marker (Accra: ~5.5°N, 0.2°W) -->
+            <a href="/locations/ghana/" class="map-marker" style="left: 48%; top: 48%;">
+                <div class="marker-dot active">
+                    <span class="marker-flag">🇬🇭</span>
+                </div>
+                <div class="marker-label">Ghana – Active</div>
+            </a>
+            
+            <!-- Lagos Marker (~6.5°N, 3.4°E) -->
+            <a href="/locations/lagos/" class="map-marker" style="left: 50%; top: 47%;">
+                <div class="marker-dot planned">
+                    <span class="marker-flag">🇳🇬</span>
+                </div>
+                <div class="marker-label">Lagos – 2027</div>
+            </a>
+            
+            <!-- Los Angeles Marker (~34°N, 118°W) -->
+            <a href="/locations/la/" class="map-marker" style="left: 12%; top: 35%;">
+                <div class="marker-dot planned">
+                    <span class="marker-flag">🌴</span>
+                </div>
+                <div class="marker-label">Los Angeles – Coming Soon</div>
+            </a>
+            
+            <!-- Detroit Marker (~42°N, 83°W) -->
+            <a href="/locations/detroit/" class="map-marker" style="left: 22%; top: 30%;">
+                <div class="marker-dot planned">
+                    <span class="marker-flag">🏙️</span>
+                </div>
+                <div class="marker-label">Detroit – Coming Soon</div>
+            </a>
+        </div>
+        
+        <div class="section-label" style="margin-top: 60px;">All Locations</div>
         
         <div class="locations-grid">
             <!-- Ghana -->
@@ -457,6 +600,7 @@
 
     <footer class="footer">
         <p>© 2026 Crew Development Institute. <a href="/">cdi-global.org</a></p>
+        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">A 501(c)(3) nonprofit organization | EIN: 41-4211056</p>
     </footer>
 </body>
 </html>
