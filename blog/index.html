@@ -13,29 +13,26 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cdi-gold: #C9A227;
-            --cdi-gold-light: #E5C555;
-            --cdi-navy: #0D1B2A;
-            --cdi-navy-light: #1B3A5F;
-            --cdi-teal: #00B4A0;
-            --white: #FFFFFF;
-            --off-white: #F8F9FA;
-            --gray-100: #F1F3F5;
-            --gray-600: #6C757D;
-            --gray-700: #495057;
-            --gray-900: #212529;
-            --ghana-red: #CE1126;
-            --ghana-yellow: #FCD116;
-            --ghana-green: #006B3F;
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
+            --gray-100: #F5F5F5;
+            --gray-300: #D4D4D4;
+            --gray-500: #737373;
+            --gray-700: #404040;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: var(--font-family); font-size: 16px; line-height: 1.6; color: var(--gray-900); background: var(--white); }
+        body { 
+            font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif; 
+            font-size: 16px; 
+            line-height: 1.6; 
+            color: var(--cdi-black); 
+            background: var(--cdi-white); 
+        }
 
         /* Navigation */
         .nav {
@@ -44,22 +41,26 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            background: var(--cdi-navy);
+            background: var(--cdi-black);
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .nav-logo {
-            font-weight: 800;
-            font-size: 20px;
-            color: var(--white);
             text-decoration: none;
         }
-        .nav-logo span { color: var(--cdi-gold); }
+        .nav-logo .crew {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: 1px;
+            color: var(--cdi-white);
+            line-height: 0.9;
+        }
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a {
-            color: var(--white);
+            color: var(--cdi-white);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
@@ -68,26 +69,28 @@
         }
         .nav-links a:hover { opacity: 1; }
         .nav-links .btn-apply {
-            background: var(--cdi-gold);
-            color: var(--cdi-navy);
+            background: var(--cdi-white);
+            color: var(--cdi-black);
             padding: 10px 20px;
-            border-radius: 6px;
+            border-radius: 0;
             font-weight: 600;
         }
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-navy-light) 100%);
+            background: var(--cdi-black);
             padding: 140px 40px 80px;
             text-align: center;
-            color: var(--white);
+            color: var(--cdi-white);
         }
         .hero h1 {
+            font-family: 'Oswald', sans-serif;
             font-size: 48px;
-            font-weight: 800;
+            font-weight: 700;
+            letter-spacing: 2px;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
-        .hero h1 span { color: var(--cdi-gold); }
         .hero p {
             font-size: 18px;
             opacity: 0.9;
@@ -107,19 +110,18 @@
             gap: 30px;
         }
         .blog-card {
-            background: var(--white);
-            border-radius: 12px;
+            background: var(--cdi-white);
+            border: 2px solid var(--cdi-black);
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            box-shadow: 8px 8px 0 var(--cdi-black);
         }
         .blog-card-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--cdi-navy) 0%, var(--cdi-teal) 100%);
+            background: var(--cdi-black);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -132,30 +134,34 @@
         }
         .blog-card-tag {
             display: inline-block;
-            background: var(--cdi-gold);
-            color: var(--cdi-navy);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
             padding: 4px 12px;
-            border-radius: 20px;
+            font-family: 'Barlow Condensed', sans-serif;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 500;
             text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 15px;
         }
         .blog-card h3 {
+            font-family: 'Oswald', sans-serif;
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: var(--cdi-navy);
+            color: var(--cdi-black);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .blog-card h3 a {
             color: inherit;
             text-decoration: none;
         }
         .blog-card h3 a:hover {
-            color: var(--cdi-teal);
+            text-decoration: underline;
         }
         .blog-card p {
-            color: var(--gray-600);
+            color: var(--gray-700);
             font-size: 15px;
             margin-bottom: 15px;
         }
@@ -164,10 +170,10 @@
             justify-content: space-between;
             align-items: center;
             font-size: 13px;
-            color: var(--gray-600);
+            color: var(--gray-500);
         }
         .read-more {
-            color: var(--cdi-teal);
+            color: var(--cdi-black);
             font-weight: 600;
             text-decoration: none;
         }
@@ -175,18 +181,12 @@
 
         /* Footer */
         .footer {
-            background: var(--cdi-navy);
-            color: var(--white);
+            background: var(--cdi-black);
+            color: var(--cdi-white);
             padding: 40px;
             text-align: center;
         }
-        .footer a { color: var(--cdi-gold); text-decoration: none; }
-
-        /* Ghana stripe */
-        .ghana-stripe {
-            height: 6px;
-            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
-        }
+        .footer a { color: var(--cdi-white); text-decoration: underline; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 32px; }
@@ -197,7 +197,9 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="/" class="nav-logo">CDI<span>.</span></a>
+        <a href="/" class="nav-logo">
+            <div class="crew">CDI</div>
+        </a>
         <div class="nav-links">
             <a href="/#programs">Programs</a>
             <a href="/#team">Team</a>
@@ -208,7 +210,7 @@
     </nav>
 
     <section class="hero">
-        <h1>CDI <span>Blog</span></h1>
+        <h1>Blog</h1>
         <p>Insights, updates, and stories from our mission to build Africa's production workforce</p>
     </section>
 
@@ -248,7 +250,6 @@
         </div>
     </section>
 
-    <div class="ghana-stripe"></div>
     <footer class="footer">
         <p>© 2026 Crew Development Institute. <a href="/">cdi-global.org</a></p>
     </footer>
