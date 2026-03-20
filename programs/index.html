@@ -107,6 +107,42 @@
             color: var(--cdi-black);
         }
 
+        .nav-links > li {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--cdi-white);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 160px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--gray-100);
+        }
+
+        .nav-links > li:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-toggle::after {
+            content: " ▾";
+            font-size: 0.7em;
+        }
+
         .nav-cta {
             background: var(--cdi-black) !important;
             color: var(--cdi-white) !important;
@@ -392,6 +428,15 @@
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/programs/" class="active">Programs</a></li>
+                <li>
+                    <a href="/locations/" class="dropdown-toggle">Locations</a>
+                    <div class="dropdown-menu">
+                        <a href="/locations/ghana/">🇬🇭 Ghana</a>
+                        <a href="/locations/lagos/">🇳🇬 Lagos</a>
+                        <a href="/locations/la/">🌴 Los Angeles</a>
+                        <a href="/locations/detroit/">🏙️ Detroit</a>
+                    </div>
+                </li>
                 <li><a href="/#team">Team</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><a href="/sponsorship/">Partners</a></li>

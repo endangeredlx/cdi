@@ -129,6 +129,47 @@
             color: var(--black);
         }
 
+        .nav-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .nav-dropdown-toggle::after {
+            content: " ▾";
+            font-size: 0.7em;
+        }
+
+        .nav-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 160px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+
+        .nav-dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            white-space: nowrap;
+        }
+
+        .nav-dropdown-menu a:hover {
+            background: var(--gray-100);
+        }
+
+        .nav-dropdown:hover .nav-dropdown-menu {
+            display: block;
+        }
+
         .nav-links a.active::after {
             content: '';
             position: absolute;
@@ -786,6 +827,15 @@
             <div class="nav-links" id="navLinks">
                 <a href="/">Home</a>
                 <a href="/#programs">Programs</a>
+                <div class="nav-dropdown">
+                    <a href="/locations/" class="nav-dropdown-toggle">Locations</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="/locations/ghana/">🇬🇭 Ghana</a>
+                        <a href="/locations/lagos/">🇳🇬 Lagos</a>
+                        <a href="/locations/la/">🌴 Los Angeles</a>
+                        <a href="/locations/detroit/">🏙️ Detroit</a>
+                    </div>
+                </div>
                 <a href="/#team">Team</a>
                 <a href="/blog/" class="active">Blog</a>
                 <a href="/sponsorship/">Partners</a>

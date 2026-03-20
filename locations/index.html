@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CDI Locations | Training Hubs Worldwide</title>
+    <meta name="description" content="CDI training locations across Africa and the United States. Ghana, Lagos, Los Angeles, and Detroit.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --cdi-black: #000000;
+            --cdi-white: #FFFFFF;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-500: #737373;
+            --gray-700: #404040;
+            --ghana-red: #CE1126;
+            --ghana-yellow: #FCD116;
+            --ghana-green: #006B3F;
+            --nigeria-green: #008751;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Barlow', sans-serif;
+            background: var(--cdi-white);
+            color: var(--cdi-black);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--cdi-white);
+            border-bottom: 1px solid var(--gray-200);
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 44px;
+            height: 44px;
+            background: var(--cdi-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--cdi-white);
+        }
+
+        .logo-text {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: var(--cdi-black);
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-700);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover { color: var(--cdi-black); }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        /* Dropdown */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--cdi-white);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 160px;
+            padding: 8px 0;
+            z-index: 1001;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            white-space: nowrap;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--gray-100);
+        }
+
+        .nav-links > li:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+        }
+
+        .dropdown-toggle::after {
+            content: " ▾";
+            font-size: 0.7em;
+        }
+
+        .nav-cta {
+            background: var(--cdi-black) !important;
+            color: var(--cdi-white) !important;
+            padding: 12px 24px !important;
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Locations Grid */
+        .locations-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .location-card {
+            border: 2px solid var(--cdi-black);
+            text-decoration: none;
+            color: var(--cdi-black);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .location-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .location-header {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .location-flag {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+
+        .location-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .location-subtitle {
+            color: var(--gray-500);
+            font-size: 1rem;
+        }
+
+        .location-status {
+            padding: 16px 40px;
+            background: var(--gray-100);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-badge {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 12px;
+        }
+
+        .status-active {
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+        }
+
+        .status-coming {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .view-link {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Country stripes */
+        .stripe-ghana {
+            height: 4px;
+            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
+        }
+
+        .stripe-nigeria {
+            height: 4px;
+            background: linear-gradient(90deg, var(--nigeria-green) 33.33%, var(--cdi-white) 33.33%, var(--cdi-white) 66.66%, var(--nigeria-green) 66.66%);
+        }
+
+        .stripe-usa {
+            height: 4px;
+            background: linear-gradient(90deg, #B22234 20%, #FFFFFF 20%, #FFFFFF 40%, #3C3B6E 40%);
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--gray-100);
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .map-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .map-section p {
+            color: var(--gray-700);
+            margin-bottom: 32px;
+        }
+
+        .expansion-list {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .expansion-item {
+            text-align: center;
+        }
+
+        .expansion-item span {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .expansion-item p {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--cdi-black);
+            color: var(--cdi-white);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer a { 
+            color: var(--cdi-white); 
+            text-decoration: none; 
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .locations-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .expansion-list { gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="/" class="logo">
+                <div class="logo-mark">CDI</div>
+                <div class="logo-text">Crew<br>Development<br>Institute</div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/programs/">Programs</a></li>
+                <li>
+                    <a href="/locations/" class="dropdown-toggle">Locations</a>
+                    <div class="dropdown-menu">
+                        <a href="/locations/ghana/">🇬🇭 Ghana</a>
+                        <a href="/locations/lagos/">🇳🇬 Lagos</a>
+                        <a href="/locations/la/">🌴 Los Angeles</a>
+                        <a href="/locations/detroit/">🏙️ Detroit</a>
+                    </div>
+                </li>
+                <li><a href="/#team">Team</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><a href="/sponsorship/">Partners</a></li>
+                <li><a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="nav-cta">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Our Locations</h1>
+        <p>CDI training hubs across Africa and the United States. Building local crews in the markets that need them most.</p>
+    </section>
+
+    <section class="locations-section">
+        <div class="section-label">Training Hubs</div>
+        
+        <div class="locations-grid">
+            <!-- Ghana -->
+            <a href="/locations/ghana/" class="location-card">
+                <div class="stripe-ghana"></div>
+                <div class="location-header">
+                    <div class="location-flag">🇬🇭</div>
+                    <div class="location-name">Ghana</div>
+                    <div class="location-subtitle">Accra Training Hub</div>
+                </div>
+                <div class="location-status">
+                    <span class="status-badge status-active">Active</span>
+                    <span class="view-link">View Details →</span>
+                </div>
+            </a>
+
+            <!-- Lagos -->
+            <a href="/locations/lagos/" class="location-card">
+                <div class="stripe-nigeria"></div>
+                <div class="location-header">
+                    <div class="location-flag">🇳🇬</div>
+                    <div class="location-name">Lagos, Nigeria</div>
+                    <div class="location-subtitle">Coming 2027</div>
+                </div>
+                <div class="location-status">
+                    <span class="status-badge status-coming">Planned</span>
+                    <span class="view-link">View Details →</span>
+                </div>
+            </a>
+
+            <!-- Los Angeles -->
+            <a href="/locations/la/" class="location-card">
+                <div class="stripe-usa"></div>
+                <div class="location-header">
+                    <div class="location-flag">🌴</div>
+                    <div class="location-name">Los Angeles</div>
+                    <div class="location-subtitle">North Hollywood</div>
+                </div>
+                <div class="location-status">
+                    <span class="status-badge status-coming">Coming Soon</span>
+                    <span class="view-link">View Details →</span>
+                </div>
+            </a>
+
+            <!-- Detroit -->
+            <a href="/locations/detroit/" class="location-card">
+                <div class="stripe-usa"></div>
+                <div class="location-header">
+                    <div class="location-flag">🏙️</div>
+                    <div class="location-name">Detroit</div>
+                    <div class="location-subtitle">Motor City</div>
+                </div>
+                <div class="location-status">
+                    <span class="status-badge status-coming">Coming Soon</span>
+                    <span class="view-link">View Details →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2>Future Expansion</h2>
+        <p>Our vision extends across the continent and beyond.</p>
+        <div class="expansion-list">
+            <div class="expansion-item">
+                <span>🇰🇪</span>
+                <p>Nairobi</p>
+            </div>
+            <div class="expansion-item">
+                <span>🇿🇦</span>
+                <p>Johannesburg</p>
+            </div>
+            <div class="expansion-item">
+                <span>🇪🇬</span>
+                <p>Cairo</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Crew Development Institute. <a href="/">cdi-global.org</a></p>
+    </footer>
+</body>
+</html>
