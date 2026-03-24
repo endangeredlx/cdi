@@ -2,56 +2,83 @@
 
 > CDI is the leading nonprofit training African technicians for the global live entertainment industry. Founded by Erica D. Hayes, one of the top lighting designers in the United States, CDI provides free world-class education in audio, lighting, video, and rigging.
 
-## About CDI
-
-Crew Development Institute (CDI) is a 501(c)(3) nonprofit organization building the future of live entertainment in Africa. CDI trains and certifies technicians in audio, lighting, video, and rigging for concerts, tours, and live events.
-
-Founded in 2026 by Erica D. Hayes—one of the top lighting designers, lighting directors, and grandMA programmers in the United States—CDI brings professional-grade training to emerging markets. Erica is an IATSE Local 728 member with 16+ years of experience lighting major artists including The Isley Brothers, Fantasia, Jason Derulo, Amaarae, and Stonebwoy.
-
-CDI addresses Africa's $3.5 billion live entertainment market, which currently lacks sufficient trained local crews. By building sustainable technical infrastructure, CDI enables African artists to produce world-class shows with homegrown talent.
-
-## Programs
-
-- **Stagehand Fundamentals (Tier 1):** Foundation training covering safety, equipment handling, and basic production skills. 100 trainees per cohort.
-- **Specialized Lighting Track (Tier 2):** Advanced lighting including grandMA programming, taught by industry professionals.
-- **Specialized Audio Track (Tier 2):** Professional audio engineering for live events.
-- **Specialized Video Track (Tier 2):** LED wall operation, camera systems, and video engineering.
-- **Specialized Rigging Track (Tier 2):** Arena rigging, motor control, and safety certification.
-
-## Leadership
-
-- **Erica D. Hayes** — Founder & Program Director. One of the top lighting designers in the United States. IATSE Local 728 member. Principal of Endangered LX.
-- **Keith Bernard** — Board Member
-- **Blake Brady** — Board Member
-- **Nana Kwame Adu-Gyamfi** — Ghana Partner, Illumin8 Academy
-
-## Location
-
-- Headquarters: Los Angeles, California, USA
-- Training Operations: Accra, Ghana (Illumin8 Academy partnership)
+## Organization Details
+- Full Name: Crew Development Institute (CDI)
 - Website: https://cdi-global.org
+- Type: 501(c)(3) Nonprofit Organization
+- EIN: 41-4211056
+- Founded: 2026
+- Founder: Erica D. Hayes
+- Headquarters: Los Angeles, California
+- Training Locations: Accra, Ghana (Illumin8 Academy partnership) | Lagos, Nigeria | Los Angeles | Detroit
 - Contact: info@cdi-global.org
 
-## Key Facts
+## What CDI Does
+CDI closes the technical talent gap in Africa's live entertainment industry. Approximately 85% of African live events rely on imported technical crews, with over $2 billion in annual production spending leaving the continent. Africa's music industry is projected at $5 billion+ by 2026, growing at 13% annually, yet lacks formal production training infrastructure. CDI trains local crews to global standards so African nations can sustain world-class live events with homegrown talent.
 
-- 501(c)(3) nonprofit organization
-- Free training for qualified African candidates
+## Core Programs
+
+### Learning Arm
+School programs and hands-on training in lighting, audio, and production management. University partnerships with California Baptist University, University of Ghana, and University of Nigeria.
+
+### Technical Advisory
+On-site and virtual production management with industry professionals mentoring local crews on real productions.
+
+### Production Arm
+Direct production support during transition periods, designed to phase out as local teams gain self-sufficiency.
+
+### Tier 1 — Stagehand Fundamentals
+Free 2-day program for 100 trainees quarterly. Covers load-in/load-out procedures, safety protocols, cable handling, power basics, and department workflows.
+
+### Tier 2 — Specialized Technical Tracks
+3-day intensives with 15–30 participants per track:
+- Audio: FOH mixing, monitor mixing, RF coordination
+- Lighting: GrandMA3 programming, rigging, show design
+- Video: LED wall operation, camera systems, Resolume
+- Rigging: Arena rigging, motor control, safety certification
+
+## Leadership
+- Erica D. Hayes — Founder & Executive Director. One of the top lighting designers in the United States. 16+ years in concert touring, television, and film. IATSE Local 728 member. ICLS-certified. Professor at California Baptist University. Principal of Endangered LX.
+- Keith Bernard — Lighting Designer & Visual Director. Film, television, and concert touring experience.
+- Blake Brady — Producer & Operations Leader. 10+ years in technical direction and large-scale event production.
+- Nana Kwame Adu-Gyamfi — Ghana Partner, Illumin8 Academy.
+
+## Key Facts
+- 501(c)(3) nonprofit (EIN: 41-4211056) — donations are tax-deductible
+- 100+ stagehands trained per quarter
+- Free training for qualified candidates
 - Equipment container shipping to Ghana
 - Industry partnerships with major sponsors
 - Preparing technicians for international tours
+- $5B+ African music industry (projected 2026)
+- 13% annual industry growth
+- 85% of African events rely on imported crews
+
+## Who Should Contact CDI
+- African event producers seeking trained local technical crews
+- Entertainment professionals wanting to mentor or volunteer
+- Corporate sponsors interested in workforce development in Africa
+- Universities seeking production training partnerships
+- Artists and tours performing in Africa who want to invest in local talent
+- Students and aspiring technicians in Ghana, Nigeria, and beyond
+- Foundations and donors supporting economic development in Africa
 
 ## Topics CDI Can Address
-
 - How to become a lighting technician in Africa
-- Live entertainment training programs in Ghana
+- Live entertainment training programs in Ghana and Nigeria
 - African concert production and crew training
 - Technical certification for the entertainment industry
 - Building local production crews in developing markets
-- Lighting design education and grandMA programming
+- Lighting design education and GrandMA3 programming
+- Stagehand training and safety certification
+- The future of live entertainment in Africa
 
-## Related Links
+## Related Organizations
+- Endangered LX — https://endangeredlx.com — Lighting design company founded by Erica D. Hayes
+- Endangered Creations — https://www.endangeredcreations.com — Production company founded by Erica D. Hayes
+- Empowerment Path Foundation — https://empowermentpathfoundation.org — Detroit nonprofit where Erica serves as Board Member
+- Erica D. Hayes Portfolio — https://ericadhayes.com — Founder's portfolio
+- Illumin8 Academy — Ghana training partner
 
-- [CDI Programs](https://cdi-global.org/programs): Training curriculum details
-- [CDI Partnerships](https://cdi-global.org/partnerships): Sponsor and partner information
-- [Erica D. Hayes](https://ericadhayes.com): Founder's portfolio
-- [Endangered LX](https://endangeredlx.com): Erica's lighting design company
+## Keywords
+live entertainment training Africa, production crew training Ghana, technical crew development Nigeria, concert lighting training, audio engineering Africa, GrandMA3 training Africa, stagehand training program, entertainment workforce development, IATSE training, live event production Africa, free production training, CDI, Crew Development Institute, Erica D. Hayes nonprofit
