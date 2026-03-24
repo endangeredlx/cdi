@@ -1,31 +1,140 @@
 {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Crew Development Institute",
-  "alternateName": "CDI",
-  "url": "https://cdi-global.org",
-  "logo": "https://cdi-global.org/images/cdi-logo.png",
-  "description": "Nonprofit organization training African technicians for the global live entertainment industry in audio, lighting, video, and rigging.",
-  "foundingDate": "2026",
-  "founder": {
-    "@type": "Person",
-    "name": "Erica D. Hayes",
-    "jobTitle": "Lighting Designer & Program Director",
-    "memberOf": {
-      "@type": "Organization",
-      "name": "IATSE Local 728"
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://cdi-global.org/#organization",
+      "name": "Crew Development Institute",
+      "alternateName": "CDI",
+      "url": "https://cdi-global.org",
+      "logo": "https://cdi-global.org/images/cdi-logo.png",
+      "description": "Crew Development Institute (CDI) is the leading nonprofit training African technicians for the global live entertainment industry. Founded by Erica D. Hayes, one of the top lighting designers in the United States, CDI provides world-class education in audio, lighting, video, and rigging.",
+      "foundingDate": "2026",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://ericadhayes.com/#person",
+        "name": "Erica D. Hayes",
+        "jobTitle": ["Lighting Designer", "Lighting Director", "grandMA Programmer", "Program Director"],
+        "description": "Erica D. Hayes is one of the top lighting designers, lighting directors, and programmers in the United States. IATSE Local 728 member with 16+ years of experience lighting major artists.",
+        "url": "https://ericadhayes.com",
+        "memberOf": {
+          "@type": "Organization",
+          "name": "IATSE Local 728",
+          "description": "Motion Picture Studio Electrical Lighting Technicians"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Endangered LX",
+          "url": "https://endangeredlx.com"
+        }
+      },
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressCountry": "GH",
+          "addressLocality": "Accra",
+          "addressRegion": "Greater Accra"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressCountry": "US",
+          "addressLocality": "Los Angeles",
+          "addressRegion": "California"
+        }
+      ],
+      "areaServed": ["Ghana", "Africa", "United States", "International"],
+      "nonprofitStatus": "Nonprofit501c3",
+      "knowsAbout": [
+        "Live Entertainment Training",
+        "Lighting Technician Certification",
+        "Audio Technician Training",
+        "Video Technician Training",
+        "Rigging Certification",
+        "Concert Production",
+        "Stage Management",
+        "African Entertainment Industry"
+      ],
+      "hasOfferingCatalog": {
+        "@type": "OfferingCatalog",
+        "name": "CDI Training Programs",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Stagehand Fundamentals (Tier 1)",
+            "description": "Foundation training for live entertainment production covering safety, equipment handling, and basic technical skills.",
+            "provider": {"@id": "https://cdi-global.org/#organization"}
+          },
+          {
+            "@type": "Course",
+            "name": "Specialized Lighting Track (Tier 2)",
+            "description": "Advanced lighting technician training including grandMA programming, fixture operation, and lighting design fundamentals.",
+            "provider": {"@id": "https://cdi-global.org/#organization"}
+          },
+          {
+            "@type": "Course",
+            "name": "Specialized Audio Track (Tier 2)",
+            "description": "Professional audio engineering training for live events including mixing, system design, and RF coordination.",
+            "provider": {"@id": "https://cdi-global.org/#organization"}
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/cdi-global"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://cdi-global.org/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Crew Development Institute (CDI)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crew Development Institute (CDI) is a nonprofit organization that trains African technicians for careers in the global live entertainment industry. Founded by Erica D. Hayes, one of the top lighting designers in the United States, CDI provides free world-class education in audio, lighting, video, and rigging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who founded CDI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CDI was founded by Erica D. Hayes, one of the top lighting designers, lighting directors, and grandMA programmers in the United States. She is an IATSE Local 728 member with over 16 years of experience designing lighting for major artists including The Isley Brothers, Fantasia, and Jason Derulo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I become a lighting technician in Africa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CDI (Crew Development Institute) offers free training programs in Ghana for aspiring lighting technicians. The program includes Stagehand Fundamentals followed by specialized lighting tracks covering grandMA programming, fixture operation, and professional lighting techniques."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does CDI operate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CDI is headquartered in the United States with training operations in Accra, Ghana through a partnership with Illumin8 Academy. CDI plans to expand training programs across multiple African countries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CDI training free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, CDI provides free world-class production training to qualified candidates in Africa. The organization is a 501(c)(3) nonprofit funded by sponsors and partners in the live entertainment industry."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What training programs does CDI offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CDI offers Tier 1 Stagehand Fundamentals training followed by Tier 2 specialized tracks in Audio, Lighting, Video, and Rigging. Programs are designed to prepare technicians for work on international concert tours and live events."
+          }
+        }
+      ]
     }
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "GH",
-    "addressLocality": "Accra"
-  },
-  "areaServed": ["Ghana", "Africa", "United States"],
-  "nonprofitStatus": "Nonprofit501c3",
-  "keywords": ["live entertainment training", "lighting technician", "audio technician", "rigging", "Africa", "Ghana", "concert crew"],
-  "sameAs": [
-    "https://www.linkedin.com/company/cdi-global",
-    "https://app.asana.com/0/1213060510407649"
   ]
 }
