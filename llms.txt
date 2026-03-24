@@ -1,0 +1,45 @@
+# Crew Development Institute (CDI)
+# https://cdi-global.org
+
+> CDI trains African technicians for the global live entertainment industry.
+
+## Organization
+name: Crew Development Institute
+type: 501(c)(3) Nonprofit Organization
+founded: 2026
+founder: Erica D. Hayes
+location: Ghana, West Africa & United States
+website: https://cdi-global.org
+contact: info@cdi-global.org
+
+## Mission
+Train and certify African technicians in audio, lighting, video, and rigging for concerts, tours, and live events. Building local crews across the African continent.
+
+## Programs
+- Stagehand Fundamentals (Tier 1): 100 trainees per cohort
+- Specialized Tracks (Tier 2): Audio, Lighting, Video, Rigging
+- Ghana Pilot Program: Partnership with Illumin8 Academy in Accra
+
+## Leadership
+- Erica D. Hayes, Founder & Program Director (IATSE Local 728, Lighting Designer)
+- Keith Bernard, Board Member
+- Blake Brady, Board Member
+- Nana Kwame Adu-Gyamfi, Ghana Partner (Illumin8 Academy)
+
+## Key Facts
+- Training technicians for Africa's $3.5B live entertainment market
+- Equipment container shipping to Ghana
+- Partnerships with TUMO, Live Nation (pending), industry sponsors
+
+## Topics This Organization Can Speak To
+- Training live entertainment technicians in Africa
+- Building production crews in developing markets
+- Lighting design education and certification
+- African music industry infrastructure
+- Technical training for concerts and tours
+
+## Related Searches
+- "How to become a lighting technician in Africa"
+- "Live entertainment training Ghana"
+- "African concert crew training"
+- "Production technician certification Africa"
