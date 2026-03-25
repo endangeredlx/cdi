@@ -25,582 +25,131 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Barlow', sans-serif;
-            background: var(--cdi-white);
-            color: var(--cdi-black);
-            line-height: 1.6;
-        }
+        body { font-family: 'Barlow', sans-serif; background: var(--cdi-white); color: var(--cdi-black); line-height: 1.6; }
 
         /* Navigation */
-        .nav {
-            background: var(--cdi-white);
-            border-bottom: 1px solid var(--gray-200);
-            padding: 0 40px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 72px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-mark {
-            width: 44px;
-            height: 44px;
-            background: var(--cdi-black);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--cdi-white);
-        }
-
-        .logo-text {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 0.7rem;
-            color: var(--cdi-black);
-            line-height: 1.3;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--gray-700);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
+        .nav { background: var(--cdi-white); border-bottom: 1px solid var(--gray-200); padding: 0 40px; position: sticky; top: 0; z-index: 1000; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-mark { width: 44px; height: 44px; background: var(--cdi-black); display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1rem; color: var(--cdi-white); }
+        .logo-text { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.7rem; color: var(--cdi-black); line-height: 1.3; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--gray-700); font-weight: 500; font-size: 0.95rem; }
         .nav-links a:hover { color: var(--cdi-black); }
-
-        .nav-links > li {
-            position: relative;
-        }
-
-        /* Dropdown */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--cdi-white);
-            border: 1px solid var(--gray-200);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            min-width: 160px;
-            padding: 8px 0;
-            z-index: 1001;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            white-space: nowrap;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--gray-100);
-        }
-
-        .nav-links > li:hover .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-toggle {
-            cursor: pointer;
-        }
-
-        .dropdown-toggle::after {
-            content: " ▾";
-            font-size: 0.7em;
-        }
-
-        .nav-cta {
-            background: var(--cdi-black) !important;
-            color: var(--cdi-white) !important;
-            padding: 12px 24px !important;
-        }
+        .nav-links > li { position: relative; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--cdi-white); border: 1px solid var(--gray-200); box-shadow: 0 4px 12px rgba(0,0,0,0.1); min-width: 160px; padding: 8px 0; z-index: 1001; }
+        .dropdown-menu a { display: block; padding: 10px 20px; white-space: nowrap; }
+        .dropdown-menu a:hover { background: var(--gray-100); }
+        .nav-links > li:hover .dropdown-menu { display: block; }
+        .dropdown-toggle { cursor: pointer; }
+        .dropdown-toggle::after { content: " ▾"; font-size: 0.7em; }
+        .nav-cta { background: var(--cdi-black) !important; color: var(--cdi-white) !important; padding: 12px 24px !important; }
 
         /* Hero */
-        .hero {
-            background: var(--cdi-black);
-            color: var(--cdi-white);
-            padding: 100px 40px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 24px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
+        .hero { background: var(--cdi-black); color: var(--cdi-white); padding: 100px 40px; text-align: center; }
+        .hero h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
+        .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto; opacity: 0.9; }
         /* Locations Grid */
-        .locations-section {
-            padding: 80px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-label {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gray-500);
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .locations-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            margin-top: 48px;
-        }
-
-        .location-card {
-            border: 2px solid var(--cdi-black);
-            text-decoration: none;
-            color: var(--cdi-black);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .location-card:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            transform: translateY(-4px);
-        }
-
-        .location-header {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .location-flag {
-            font-size: 3rem;
-            margin-bottom: 16px;
-        }
-
-        .location-name {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        .location-subtitle {
-            color: var(--gray-500);
-            font-size: 1rem;
-        }
-
-        .location-status {
-            padding: 16px 40px;
-            background: var(--gray-100);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .status-badge {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 6px 12px;
-        }
-
-        .status-active {
-            background: var(--cdi-black);
-            color: var(--cdi-white);
-        }
-
-        .status-coming {
-            background: var(--gray-200);
-            color: var(--gray-700);
-        }
-
-        .view-link {
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Country stripes */
-        .stripe-ghana {
-            height: 4px;
-            background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%);
-        }
-
-        .stripe-nigeria {
-            height: 4px;
-            background: linear-gradient(90deg, var(--nigeria-green) 33.33%, var(--cdi-white) 33.33%, var(--cdi-white) 66.66%, var(--nigeria-green) 66.66%);
-        }
-
-        .stripe-usa {
-            height: 4px;
-            background: linear-gradient(90deg, #B22234 20%, #FFFFFF 20%, #FFFFFF 40%, #3C3B6E 40%);
-        }
+        .locations-section { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+        .section-label { font-family: 'Oswald', sans-serif; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gray-500); margin-bottom: 16px; text-align: center; }
+        .locations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 48px; }
+        .location-card { border: 2px solid var(--cdi-black); text-decoration: none; color: var(--cdi-black); transition: all 0.3s ease; overflow: hidden; }
+        .location-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.15); transform: translateY(-4px); }
+        .location-header { padding: 40px; text-align: center; }
+        .location-flag { font-size: 3rem; margin-bottom: 16px; }
+        .location-name { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .location-subtitle { color: var(--gray-500); font-size: 1rem; }
+        .location-status { padding: 16px 40px; background: var(--gray-100); display: flex; justify-content: space-between; align-items: center; }
+        .status-badge { font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 6px 12px; }
+        .status-active { background: var(--cdi-black); color: var(--cdi-white); }
+        .status-coming { background: var(--gray-200); color: var(--gray-700); }
+        .view-link { font-family: 'Oswald', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .stripe-ghana { height: 4px; background: linear-gradient(90deg, var(--ghana-red) 33.33%, var(--ghana-yellow) 33.33%, var(--ghana-yellow) 66.66%, var(--ghana-green) 66.66%); }
+        .stripe-nigeria { height: 4px; background: linear-gradient(90deg, var(--nigeria-green) 33.33%, var(--cdi-white) 33.33%, var(--cdi-white) 66.66%, var(--nigeria-green) 66.66%); }
+        .stripe-usa { height: 4px; background: linear-gradient(90deg, #B22234 20%, #FFFFFF 20%, #FFFFFF 40%, #3C3B6E 40%); }
 
         /* Interactive Map */
-        .map-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto 60px;
-            background: var(--gray-100);
-            border-radius: 8px;
-            padding: 40px;
-        }
-
-        .world-map {
-            width: 100%;
-            height: auto;
-        }
-
-        .map-marker {
-            position: absolute;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .map-marker:hover {
-            transform: scale(1.2);
-            z-index: 10;
-        }
-
-        .marker-dot {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--cdi-black);
-            border: 3px solid var(--cdi-white);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .marker-dot.active {
-            background: var(--ghana-green);
-            animation: pulse 2s infinite;
-        }
-
-        .marker-dot.planned {
-            background: var(--gray-500);
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 107, 63, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(0, 107, 63, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 107, 63, 0); }
-        }
-
-        .marker-label {
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--cdi-black);
-            color: var(--cdi-white);
-            padding: 6px 12px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-
-        .map-marker:hover .marker-label {
-            opacity: 1;
-        }
-
-        .marker-flag {
-            font-size: 0.7rem;
-        }
-
-        /* Map Section */
-        .map-section {
-            background: var(--gray-100);
-            padding: 80px 40px;
-            text-align: center;
-        }
-
-        .map-section h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .map-section p {
-            color: var(--gray-700);
-            margin-bottom: 32px;
-        }
-
-        .expansion-list {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            flex-wrap: wrap;
-        }
-
-        .expansion-item {
-            text-align: center;
-        }
-
-        .expansion-item span {
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        .expansion-item p {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--cdi-black);
-            color: var(--cdi-white);
-            padding: 40px;
-            text-align: center;
-        }
-
-        .footer a { 
-            color: var(--cdi-white); 
-            text-decoration: none; 
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .locations-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .expansion-list { gap: 24px; }
-        }
+        .map-container { position: relative; max-width: 1000px; margin: 0 auto 60px; background: linear-gradient(180deg, #E8F0F8 0%, #D6E6F2 50%, #E0ECF5 100%); border-radius: 8px; padding: 40px; overflow: hidden; }
+        .world-map { width: 100%; height: auto; }
+        .map-marker { position: absolute; cursor: pointer; transition: transform 0.3s ease; }
+        .map-marker:hover { transform: scale(1.2); z-index: 10; }
+        .marker-dot { width: 24px; height: 24px; border-radius: 50%; background: var(--cdi-black); border: 3px solid var(--cdi-white); box-shadow: 0 2px 8px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; }
+        .marker-dot.active { background: var(--ghana-green); animation: pulse 2s infinite; }
+        .marker-dot.planned { background: var(--gray-500); }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 107, 63, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(0, 107, 63, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 107, 63, 0); } }
+        .marker-label { position: absolute; top: 30px; left: 50%; transform: translateX(-50%); background: var(--cdi-black); color: var(--cdi-white); padding: 6px 12px; font-family: 'Oswald', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+        .map-marker:hover .marker-label { opacity: 1; }
+        .marker-flag { font-size: 0.7rem; }
+        .map-section { background: var(--gray-100); padding: 80px 40px; text-align: center; }
+        .map-section h2 { font-family: 'Oswald', sans-serif; font-size: 2rem; text-transform: uppercase; margin-bottom: 16px; }
+        .map-section p { color: var(--gray-700); margin-bottom: 32px; }
+        .expansion-list { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .expansion-item { text-align: center; }
+        .expansion-item span { display: block; font-size: 2rem; margin-bottom: 8px; }
+        .expansion-item p { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; }
+        .footer { background: var(--cdi-black); color: var(--cdi-white); padding: 40px; text-align: center; }
+        .footer a { color: var(--cdi-white); text-decoration: none; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .locations-grid { grid-template-columns: 1fr; } .nav-links { display: none; } .expansion-list { gap: 24px; } }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="/" class="logo">
-                <div class="logo-mark">CDI</div>
-                <div class="logo-text">Crew<br>Development<br>Institute</div>
-            </a>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/programs/">Programs</a></li>
-                <li>
-                    <a href="/locations/" class="dropdown-toggle">Locations</a>
-                    <div class="dropdown-menu">
-                        <a href="/locations/ghana/">🇬🇭 Ghana</a>
-                        <a href="/locations/lagos/">🇳🇬 Lagos</a>
-                        <a href="/locations/la/">🌴 Los Angeles</a>
-                        <a href="/locations/detroit/">🏙️ Detroit</a>
-                    </div>
-                </li>
-                <li><a href="/#team">Team</a></li>
-                <li><a href="/blog/">Blog</a></li>
-                <li><a href="/sponsorship/">Partners</a></li>
-                <li><a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="nav-cta">Apply Now</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1>Our Locations</h1>
-        <p>CDI training hubs across Africa and the United States. Building local crews in the markets that need them most.</p>
-    </section>
-
+    <nav class="nav"><div class="nav-inner"><a href="/" class="logo"><div class="logo-mark">CDI</div><div class="logo-text">Crew<br>Development<br>Institute</div></a><ul class="nav-links"><li><a href="/">Home</a></li><li><a href="/programs/">Programs</a></li><li><a href="/locations/" class="dropdown-toggle">Locations</a><div class="dropdown-menu"><a href="/locations/ghana/">🇬🇭 Ghana</a><a href="/locations/lagos/">🇳🇬 Lagos</a><a href="/locations/la/">🌴 Los Angeles</a><a href="/locations/detroit/">🏙️ Detroit</a></div></li><li><a href="/#team">Team</a></li><li><a href="/blog/">Blog</a></li><li><a href="/sponsorship/">Partners</a></li><li><a href="https://forms.gle/2zB35J2zLhBRNgVbA" target="_blank" class="nav-cta">Apply Now</a></li></ul></div></nav>
+    <section class="hero"><h1>Our Locations</h1><p>CDI training hubs across Africa and the United States. Building local crews in the markets that need them most.</p></section>
     <section class="locations-section">
         <div class="section-label">Click a location to learn more</div>
-        
-        <!-- Interactive World Map -->
         <div class="map-container">
             <svg viewBox="0 0 1000 500" class="world-map">
-                <!-- Simplified world map background -->
-                <defs>
-                    <style>
-                        .land { fill: #E5E5E5; stroke: #CCCCCC; stroke-width: 0.5; }
-                    </style>
-                </defs>
-                
-                <!-- North America (simplified) -->
-                <path class="land" d="M 50,80 L 150,60 L 250,80 L 280,120 L 300,180 L 280,220 L 250,200 L 200,220 L 150,200 L 100,180 L 80,140 Z"/>
-                
-                <!-- South America (simplified) -->
-                <path class="land" d="M 200,250 L 250,240 L 280,280 L 300,350 L 280,420 L 240,450 L 200,420 L 180,350 L 190,280 Z"/>
-                
-                <!-- Europe (simplified) -->
-                <path class="land" d="M 450,80 L 520,70 L 560,90 L 550,130 L 500,150 L 450,140 L 440,100 Z"/>
-                
-                <!-- Africa (simplified) -->
-                <path class="land" d="M 450,160 L 520,150 L 580,180 L 600,250 L 580,350 L 520,400 L 460,380 L 430,300 L 420,220 L 440,180 Z"/>
-                
-                <!-- Asia (simplified) -->
-                <path class="land" d="M 560,80 L 700,60 L 850,100 L 900,180 L 880,250 L 800,280 L 700,260 L 600,220 L 580,160 L 560,100 Z"/>
-                
-                <!-- Australia (simplified) -->
-                <path class="land" d="M 800,320 L 880,310 L 920,350 L 900,420 L 840,440 L 780,400 L 790,350 Z"/>
+                <defs><style>.land { fill: #D4D4D4; stroke: #BBBBBB; stroke-width: 0.4; } .land:hover { fill: #C0C0C0; }</style></defs>
+                <!-- North America -->
+                <path class="land" d="M33.3,50.0 L50.0,50.0 L69.4,52.8 L111.1,55.6 L138.9,50.0 L166.7,44.4 L194.4,41.7 L222.2,38.9 L236.1,47.2 L263.9,38.9 L277.8,44.4 L291.7,38.9 L311.1,44.4 L327.8,50.0 L338.9,61.1 L319.4,77.8 L325.0,83.3 L338.9,91.7 L333.3,105.6 L319.4,116.7 L313.9,125.0 L305.6,133.3 L300.0,138.9 L291.7,144.4 L286.1,152.8 L277.8,161.1 L272.2,169.4 L269.4,175.0 L272.2,180.6 L277.8,180.6 L272.2,186.1 L266.7,188.9 L258.3,191.7 L250.0,194.4 L244.4,197.2 L236.1,200.0 L230.6,202.8 L222.2,200.0 L211.1,194.4 L202.8,186.1 L194.4,180.6 L188.9,172.2 L183.3,166.7 L175.0,158.3 L166.7,155.6 L161.1,147.2 L155.6,138.9 L155.6,130.6 L155.6,122.2 L161.1,116.7 L155.6,111.1 L147.2,105.6 L138.9,100.0 L130.6,94.4 L122.2,88.9 L111.1,83.3 L97.2,83.3 L83.3,80.6 L77.8,86.1 L69.4,88.9 L55.6,88.9 L44.4,83.3 L38.9,72.2 L41.7,61.1 L33.3,55.6 Z"/>
+                <!-- South America -->
+                <path class="land" d="M283.3,222.2 L291.7,216.7 L300.0,216.7 L311.1,219.4 L325.0,222.2 L333.3,227.8 L338.9,230.6 L347.2,236.1 L355.6,238.9 L361.1,244.4 L361.1,250.0 L366.7,255.6 L375.0,258.3 L383.3,258.3 L394.4,261.1 L402.8,266.7 L402.8,277.8 L397.2,283.3 L394.4,291.7 L388.9,300.0 L386.1,305.6 L380.6,313.9 L372.2,316.7 L366.7,322.2 L366.7,327.8 L361.1,333.3 L355.6,341.7 L352.8,344.4 L347.2,347.2 L341.7,350.0 L338.9,355.6 L327.8,358.3 L322.2,363.9 L319.4,369.4 L319.4,377.8 L316.7,383.3 L311.1,388.9 L305.6,394.4 L300.0,400.0 L294.4,394.4 L291.7,388.9 L291.7,380.6 L297.2,375.0 L300.0,366.7 L300.0,355.6 L302.8,347.2 L302.8,333.3 L305.6,325.0 L305.6,316.7 L305.6,305.6 L300.0,300.0 L291.7,291.7 L288.9,286.1 L283.3,277.8 L277.8,269.4 L277.8,258.3 L277.8,250.0 L283.3,244.4 L286.1,238.9 L283.3,227.8 Z"/>
+                <!-- Europe -->
+                <path class="land" d="M472.2,150.0 L477.8,144.4 L475.0,138.9 L477.8,130.6 L494.4,127.8 L500.0,130.6 L508.3,130.6 L513.9,127.8 L505.6,119.4 L502.8,116.7 L491.7,116.7 L486.1,116.7 L477.8,116.7 L472.2,105.6 L483.3,100.0 L491.7,94.4 L486.1,88.9 L491.7,86.1 L500.0,88.9 L513.9,88.9 L522.2,97.2 L527.8,100.0 L533.3,97.2 L536.1,100.0 L541.7,100.0 L550.0,97.2 L555.6,97.2 L561.1,100.0 L566.7,97.2 L577.8,94.4 L583.3,88.9 L588.9,83.3 L583.3,77.8 L577.8,72.2 L569.4,66.7 L561.1,61.1 L555.6,55.6 L550.0,55.6 L541.7,58.3 L533.3,61.1 L527.8,72.2 L522.2,88.9 L516.7,100.0 L511.1,105.6 L508.3,108.3 L505.6,108.3 L500.0,111.1 L494.4,111.1 L486.1,111.1 L477.8,116.7 L472.2,127.8 L477.8,138.9 L477.8,147.2 Z"/>
+                <!-- Africa -->
+                <path class="land" d="M452.8,208.3 L455.6,202.8 L463.9,208.3 L477.8,211.1 L486.1,211.1 L500.0,208.3 L513.9,211.1 L527.8,213.9 L541.7,213.9 L550.0,208.3 L561.1,200.0 L569.4,194.4 L577.8,188.9 L583.3,183.3 L588.9,175.0 L591.7,166.7 L588.9,161.1 L583.3,163.9 L577.8,163.9 L569.4,163.9 L561.1,161.1 L550.0,152.8 L533.3,147.2 L527.8,147.2 L522.2,150.0 L513.9,150.0 L505.6,150.0 L500.0,150.0 L494.4,152.8 L486.1,155.6 L477.8,161.1 L466.7,172.2 L458.3,183.3 L452.8,191.7 L452.8,202.8 L455.6,208.3 L455.6,213.9 L452.8,216.7 L455.6,222.2 L458.3,227.8 L463.9,230.6 L472.2,233.3 L477.8,236.1 L486.1,236.1 L491.7,236.1 L500.0,236.1 L505.6,233.3 L513.9,236.1 L522.2,238.9 L527.8,238.9 L527.8,244.4 L527.8,250.0 L525.0,255.6 L527.8,263.9 L533.3,266.7 L538.9,272.2 L544.4,277.8 L550.0,283.3 L555.6,288.9 L569.4,291.7 L583.3,294.4 L591.7,300.0 L597.2,305.6 L597.2,313.9 L591.7,319.4 L588.9,325.0 L583.3,327.8 L577.8,333.3 L575.0,338.9 L577.8,344.4 L572.2,344.4 L561.1,344.4 L555.6,341.7 L550.0,341.7 L544.4,333.3 L541.7,327.8 L536.1,319.4 L533.3,311.1 L533.3,300.0 L527.8,291.7 L522.2,277.8 L522.2,263.9 L513.9,255.6 L508.3,250.0 L505.6,238.9 L500.0,236.1 L491.7,236.1 L486.1,236.1 L477.8,236.1 L472.2,233.3 L463.9,230.6 L458.3,222.2 L452.8,213.9 Z"/>
+                <!-- Asia -->
+                <path class="land" d="M577.8,133.3 L583.3,138.9 L591.7,147.2 L597.2,152.8 L600.0,158.3 L600.0,166.7 L611.1,172.2 L616.7,180.6 L622.2,188.9 L625.0,200.0 L633.3,208.3 L638.9,213.9 L644.4,208.3 L652.8,202.8 L658.3,194.4 L661.1,188.9 L666.7,183.3 L672.2,180.6 L680.6,180.6 L686.1,175.0 L694.4,172.2 L700.0,166.7 L705.6,158.3 L711.1,152.8 L716.7,158.3 L722.2,166.7 L727.8,172.2 L736.1,175.0 L744.4,180.6 L750.0,188.9 L755.6,194.4 L763.9,200.0 L772.2,205.6 L777.8,211.1 L783.3,216.7 L788.9,222.2 L794.4,216.7 L800.0,211.1 L800.0,200.0 L805.6,194.4 L811.1,188.9 L819.4,186.1 L827.8,180.6 L833.3,172.2 L836.1,166.7 L838.9,161.1 L844.4,152.8 L850.0,147.2 L855.6,144.4 L861.1,138.9 L866.7,133.3 L875.0,138.9 L883.3,150.0 L888.9,144.4 L894.4,130.6 L897.2,122.2 L894.4,111.1 L888.9,105.6 L883.3,97.2 L875.0,88.9 L861.1,83.3 L847.2,77.8 L833.3,72.2 L819.4,66.7 L805.6,61.1 L791.7,55.6 L777.8,50.0 L763.9,47.2 L750.0,50.0 L736.1,55.6 L722.2,50.0 L708.3,47.2 L694.4,50.0 L688.9,55.6 L680.6,61.1 L666.7,61.1 L652.8,55.6 L638.9,55.6 L633.3,61.1 L622.2,66.7 L611.1,66.7 L605.6,61.1 L597.2,55.6 L583.3,61.1 L577.8,69.4 L575.0,77.8 L577.8,83.3 L583.3,88.9 L588.9,94.4 L583.3,105.6 L577.8,116.7 L572.2,127.8 L577.8,133.3 Z"/>
+                <!-- Australia -->
+                <path class="land" d="M819.4,347.2 L822.2,344.4 L825.0,338.9 L819.4,333.3 L816.7,322.2 L816.7,311.1 L822.2,305.6 L827.8,305.6 L833.3,300.0 L838.9,297.2 L847.2,291.7 L855.6,288.9 L861.1,286.1 L866.7,283.3 L872.2,283.3 L877.8,283.3 L883.3,288.9 L888.9,291.7 L894.4,288.9 L900.0,291.7 L905.6,297.2 L911.1,305.6 L916.7,311.1 L919.4,316.7 L925.0,322.2 L925.0,327.8 L922.2,333.3 L919.4,341.7 L916.7,347.2 L911.1,352.8 L905.6,355.6 L900.0,355.6 L894.4,355.6 L888.9,352.8 L883.3,347.2 L877.8,347.2 L872.2,344.4 L866.7,341.7 L861.1,338.9 L855.6,338.9 L850.0,341.7 L838.9,344.4 L833.3,347.2 L827.8,347.2 Z"/>
+                <!-- Greenland -->
+                <path class="land" d="M347.2,83.3 L361.1,77.8 L366.7,72.2 L375.0,66.7 L383.3,61.1 L388.9,55.6 L394.4,50.0 L402.8,44.4 L416.7,38.9 L430.6,33.3 L444.4,27.8 L438.9,22.2 L422.2,19.4 L402.8,22.2 L383.3,22.2 L361.1,27.8 L355.6,33.3 L347.2,38.9 L338.9,44.4 L333.3,50.0 L338.9,61.1 L347.2,72.2 Z"/>
+                <!-- British Isles -->
+                <path class="land" d="M483.3,111.1 L486.1,105.6 L491.7,102.8 L488.9,97.2 L486.1,91.7 L491.7,88.9 L494.4,91.7 L500.0,94.4 L502.8,102.8 L502.8,108.3 L500.0,111.1 L494.4,111.1 L488.9,111.1 Z"/>
+                <path class="land" d="M472.2,105.6 L472.2,100.0 L477.8,97.2 L483.3,100.0 L483.3,105.6 L477.8,108.3 L472.2,105.6 Z"/>
+                <!-- Japan -->
+                <path class="land" d="M861.1,163.9 L866.7,158.3 L872.2,155.6 L877.8,152.8 L883.3,150.0 L888.9,144.4 L891.7,138.9 L894.4,130.6 L891.7,127.8 L888.9,130.6 L886.1,138.9 L880.6,150.0 L875.0,155.6 L869.4,158.3 L863.9,161.1 Z"/>
+                <!-- New Zealand -->
+                <path class="land" d="M980.6,352.8 L986.1,355.6 L994.4,358.3 L994.4,363.9 L988.9,363.9 L986.1,358.3 L983.3,355.6 Z"/>
+                <path class="land" d="M963.9,375.0 L969.4,377.8 L975.0,375.0 L980.6,372.2 L977.8,369.4 L972.2,369.4 L966.7,372.2 Z"/>
+                <!-- Madagascar -->
+                <path class="land" d="M622.2,286.1 L627.8,288.9 L633.3,294.4 L638.9,302.8 L638.9,311.1 L633.3,316.7 L627.8,319.4 L622.2,316.7 L622.2,305.6 L619.4,297.2 L622.2,288.9 Z"/>
+                <!-- Sri Lanka -->
+                <path class="land" d="M722.2,222.2 L725.0,227.8 L727.8,230.6 L725.0,233.3 L722.2,230.6 L722.2,225.0 Z"/>
+                <!-- Borneo, Sumatra, PNG, Philippines -->
+                <path class="land" d="M802.8,247.2 L805.6,244.4 L811.1,244.4 L819.4,238.9 L825.0,233.3 L827.8,236.1 L825.0,244.4 L822.2,250.0 L819.4,255.6 L816.7,258.3 L811.1,255.6 L805.6,252.8 L802.8,250.0 Z"/>
+                <path class="land" d="M766.7,233.3 L772.2,238.9 L777.8,244.4 L788.9,250.0 L794.4,255.6 L791.7,261.1 L788.9,263.9 L786.1,261.1 L777.8,252.8 L772.2,247.2 L766.7,238.9 Z"/>
+                <path class="land" d="M891.7,258.3 L897.2,261.1 L905.6,263.9 L911.1,266.7 L916.7,266.7 L922.2,263.9 L916.7,258.3 L908.3,255.6 L900.0,255.6 L894.4,255.6 Z"/>
+                <path class="land" d="M827.8,227.8 L833.3,222.2 L836.1,213.9 L838.9,205.6 L838.9,200.0 L836.1,202.8 L833.3,211.1 L830.6,216.7 L827.8,222.2 Z"/>
             </svg>
-            
-            <!-- Ghana Marker (Accra: ~5.5°N, 0.2°W) -->
-            <a href="/locations/ghana/" class="map-marker" style="left: 48%; top: 48%;">
-                <div class="marker-dot active">
-                    <span class="marker-flag">🇬🇭</span>
-                </div>
-                <div class="marker-label">Ghana – Active</div>
-            </a>
-            
-            <!-- Lagos Marker (~6.5°N, 3.4°E) -->
-            <a href="/locations/lagos/" class="map-marker" style="left: 50%; top: 47%;">
-                <div class="marker-dot planned">
-                    <span class="marker-flag">🇳🇬</span>
-                </div>
-                <div class="marker-label">Lagos – 2027</div>
-            </a>
-            
-            <!-- Los Angeles Marker (~34°N, 118°W) -->
-            <a href="/locations/la/" class="map-marker" style="left: 12%; top: 35%;">
-                <div class="marker-dot planned">
-                    <span class="marker-flag">🌴</span>
-                </div>
-                <div class="marker-label">Los Angeles – Coming Soon</div>
-            </a>
-            
-            <!-- Detroit Marker (~42°N, 83°W) -->
-            <a href="/locations/detroit/" class="map-marker" style="left: 22%; top: 30%;">
-                <div class="marker-dot planned">
-                    <span class="marker-flag">🏙️</span>
-                </div>
-                <div class="marker-label">Detroit – Coming Soon</div>
-            </a>
+            <!-- Ghana Marker (Accra: 5.6°N, 0.2°W) -->
+            <a href="/locations/ghana/" class="map-marker" style="left: 49.9%; top: 46.9%;"><div class="marker-dot active"><span class="marker-flag">🇬🇭</span></div><div class="marker-label">Ghana – Active</div></a>
+            <!-- Lagos Marker (6.5°N, 3.4°E) -->
+            <a href="/locations/lagos/" class="map-marker" style="left: 50.9%; top: 46.4%;"><div class="marker-dot planned"><span class="marker-flag">🇳🇬</span></div><div class="marker-label">Lagos – 2027</div></a>
+            <!-- Los Angeles Marker (34°N, 118.2°W) -->
+            <a href="/locations/la/" class="map-marker" style="left: 17.2%; top: 31.1%;"><div class="marker-dot planned"><span class="marker-flag">🌴</span></div><div class="marker-label">Los Angeles – Coming Soon</div></a>
+            <!-- Detroit Marker (42.3°N, 83°W) -->
+            <a href="/locations/detroit/" class="map-marker" style="left: 26.9%; top: 26.5%;"><div class="marker-dot planned"><span class="marker-flag">🏙️</span></div><div class="marker-label">Detroit – Coming Soon</div></a>
         </div>
-        
         <div class="section-label" style="margin-top: 60px;">All Locations</div>
-        
         <div class="locations-grid">
-            <!-- Ghana -->
-            <a href="/locations/ghana/" class="location-card">
-                <div class="stripe-ghana"></div>
-                <div class="location-header">
-                    <div class="location-flag">🇬🇭</div>
-                    <div class="location-name">Ghana</div>
-                    <div class="location-subtitle">Accra Training Hub</div>
-                </div>
-                <div class="location-status">
-                    <span class="status-badge status-active">Active</span>
-                    <span class="view-link">View Details →</span>
-                </div>
-            </a>
-
-            <!-- Lagos -->
-            <a href="/locations/lagos/" class="location-card">
-                <div class="stripe-nigeria"></div>
-                <div class="location-header">
-                    <div class="location-flag">🇳🇬</div>
-                    <div class="location-name">Lagos, Nigeria</div>
-                    <div class="location-subtitle">Coming 2027</div>
-                </div>
-                <div class="location-status">
-                    <span class="status-badge status-coming">Planned</span>
-                    <span class="view-link">View Details →</span>
-                </div>
-            </a>
-
-            <!-- Los Angeles -->
-            <a href="/locations/la/" class="location-card">
-                <div class="stripe-usa"></div>
-                <div class="location-header">
-                    <div class="location-flag">🌴</div>
-                    <div class="location-name">Los Angeles</div>
-                    <div class="location-subtitle">North Hollywood</div>
-                </div>
-                <div class="location-status">
-                    <span class="status-badge status-coming">Coming Soon</span>
-                    <span class="view-link">View Details →</span>
-                </div>
-            </a>
-
-            <!-- Detroit -->
-            <a href="/locations/detroit/" class="location-card">
-                <div class="stripe-usa"></div>
-                <div class="location-header">
-                    <div class="location-flag">🏙️</div>
-                    <div class="location-name">Detroit</div>
-                    <div class="location-subtitle">Motor City</div>
-                </div>
-                <div class="location-status">
-                    <span class="status-badge status-coming">Coming Soon</span>
-                    <span class="view-link">View Details →</span>
-                </div>
-            </a>
+            <a href="/locations/ghana/" class="location-card"><div class="stripe-ghana"></div><div class="location-header"><div class="location-flag">🇬🇭</div><div class="location-name">Ghana</div><div class="location-subtitle">Accra Training Hub</div></div><div class="location-status"><span class="status-badge status-active">Active</span><span class="view-link">View Details →</span></div></a>
+            <a href="/locations/lagos/" class="location-card"><div class="stripe-nigeria"></div><div class="location-header"><div class="location-flag">🇳🇬</div><div class="location-name">Lagos, Nigeria</div><div class="location-subtitle">Coming 2027</div></div><div class="location-status"><span class="status-badge status-coming">Planned</span><span class="view-link">View Details →</span></div></a>
+            <a href="/locations/la/" class="location-card"><div class="stripe-usa"></div><div class="location-header"><div class="location-flag">🌴</div><div class="location-name">Los Angeles</div><div class="location-subtitle">North Hollywood</div></div><div class="location-status"><span class="status-badge status-coming">Coming Soon</span><span class="view-link">View Details →</span></div></a>
+            <a href="/locations/detroit/" class="location-card"><div class="stripe-usa"></div><div class="location-header"><div class="location-flag">🏙️</div><div class="location-name">Detroit</div><div class="location-subtitle">Motor City</div></div><div class="location-status"><span class="status-badge status-coming">Coming Soon</span><span class="view-link">View Details →</span></div></a>
         </div>
     </section>
-
-    <section class="map-section">
-        <h2>Future Expansion</h2>
-        <p>Our vision extends across the continent and beyond.</p>
-        <div class="expansion-list">
-            <div class="expansion-item">
-                <span>🇰🇪</span>
-                <p>Nairobi</p>
-            </div>
-            <div class="expansion-item">
-                <span>🇿🇦</span>
-                <p>Johannesburg</p>
-            </div>
-            <div class="expansion-item">
-                <span>🇪🇬</span>
-                <p>Cairo</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>© 2026 Crew Development Institute. <a href="/">cdi-global.org</a></p>
-        <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">A 501(c)(3) nonprofit organization | EIN: 41-4211056</p>
-    </footer>
+    <section class="map-section"><h2>Future Expansion</h2><p>Our vision extends across the continent and beyond.</p><div class="expansion-list"><div class="expansion-item"><span>🇰🇪</span><p>Nairobi</p></div><div class="expansion-item"><span>🇿🇦</span><p>Johannesburg</p></div><div class="expansion-item"><span>🇪🇬</span><p>Cairo</p></div></div></section>
+    <footer class="footer"><p>© 2026 Crew Development Institute. <a href="/">cdi-global.org</a></p><p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.8;">A 501(c)(3) nonprofit organization | EIN: 41-4211056</p></footer>
 </body>
 </html>
