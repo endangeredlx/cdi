@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CDI Lagos | Nigeria Training Hub</title>
-    <meta name="description" content="CDI Lagos brings professional production training to Nigeria's entertainment capital. Free stagehand and specialist track programs launching 2027.">
+    <title>CDI Lagos | Nigeria Training Hub &mdash; Gaffers Lab May 5, 2026</title>
+    <meta name="description" content="CDI Lagos brings professional production training to Nigeria's entertainment capital. Featured event: Gaffers Lab with Erica D. Hayes, May 5, 2026. Full launch 2027.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -281,6 +281,113 @@
             opacity: 0.9;
         }
 
+        /* Featured Event */
+        .event-section {
+            background: var(--gray-100);
+            padding: 80px 40px;
+        }
+
+        .event-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .event-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--nigeria-green);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: block;
+            text-align: center;
+        }
+
+        .event-section h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .event-lede {
+            font-size: 1.1rem;
+            color: var(--gray-700);
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 40px;
+        }
+
+        .event-flyer-link {
+            display: block;
+            max-width: 520px;
+            margin: 0 auto 40px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+
+        .event-flyer-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+        }
+
+        .event-flyer {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .event-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .event-meta {
+            background: var(--cdi-white);
+            border: 2px solid var(--cdi-black);
+            padding: 24px;
+            text-align: center;
+        }
+
+        .event-meta h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .event-meta p {
+            font-size: 0.95rem;
+            color: var(--gray-700);
+            margin: 0;
+        }
+
+        .event-cta {
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        .event-cta .btn {
+            background: var(--nigeria-green);
+            color: var(--cdi-white);
+        }
+
+        .event-cta .btn:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .event-meta-grid { grid-template-columns: 1fr; }
+        }
+
         /* CTA */
         .cta-section {
             background: var(--cdi-black);
@@ -416,6 +523,37 @@
             <h3>Partnership Opportunities</h3>
             <p>We're actively seeking local partners to help launch CDI Lagos. If you're a production company, venue, event organizer, or educational institution in Nigeria interested in partnering with CDI, we want to hear from you.</p>
             <p>Our model relies on local expertise and relationships. The right partners will help us understand Lagos's unique production landscape, connect with emerging technicians, and place trained crews on real shows.</p>
+        </div>
+    </section>
+
+    <section class="event-section">
+        <div class="event-inner">
+            <span class="event-label">Featured Event &mdash; Lagos</span>
+            <h2>Gaffers Lab 2026</h2>
+            <p class="event-lede">Ahead of CDI's 2027 Lagos launch, Co-Founder Erica D. Hayes joins En-touch&eacute; Lighting House, Nigerian Female Gaffer, and leading Nigerian industry professionals to empower the next generation of lighting professionals. Limited to 30 participants.</p>
+
+            <a href="https://selar.com/dofloq8771" target="_blank" rel="noopener" class="event-flyer-link" aria-label="Register for Gaffers Lab &mdash; May 5, 2026">
+                <img src="../../images/gaffers-lab-lagos-2026.png" alt="Gaffers Lab flyer: Empowering the next generation of lighting professionals. May 5, 2026, 10am-5pm in Lagos, Nigeria. Facilitators: Clarence Peters, Erica D. Hayes, Mattew Yusuf. Hosted by Nigerian Female Gaffer." class="event-flyer">
+            </a>
+
+            <div class="event-meta-grid">
+                <div class="event-meta">
+                    <h4>When</h4>
+                    <p>May 5, 2026<br>10am &ndash; 5pm</p>
+                </div>
+                <div class="event-meta">
+                    <h4>Where</h4>
+                    <p>Lagos, Nigeria<br>En-touch&eacute; Lighting House</p>
+                </div>
+                <div class="event-meta">
+                    <h4>Registration</h4>
+                    <p>&#8358;20,000<br>30 slots only</p>
+                </div>
+            </div>
+
+            <div class="event-cta">
+                <a href="https://selar.com/dofloq8771" target="_blank" rel="noopener" class="btn">Register Now</a>
+            </div>
         </div>
     </section>
 
