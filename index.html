@@ -26,6 +26,15 @@
     {"@context":"https://schema.org","@graph":[{"@type":"NonprofitOrganization","@id":"https://cdi-global.org/#organization","name":"Crew Development Institute","alternateName":"CDI","url":"https://cdi-global.org","description":"CDI is the leading nonprofit training African technicians for the global live entertainment industry. Free world-class education in audio, lighting, video, and rigging. Founded by Erica D. Hayes, one of the top lighting designers in the United States.","foundingDate":"2026","nonprofitStatus":"501(c)(3)","taxID":"41-4211056","founder":{"@type":"Person","name":"Erica D. Hayes","jobTitle":"Founder & Executive Director","url":"https://ericadhayes.com","description":"One of the top lighting designers in the United States. IATSE Local 728 member. 16+ years experience. Professor at California Baptist University.","worksFor":[{"@type":"Organization","name":"Endangered LX","url":"https://endangeredlx.com"},{"@type":"Organization","name":"Endangered Creations","url":"https://www.endangeredcreations.com"},{"@type":"CollegeOrUniversity","name":"California Baptist University"}],"memberOf":{"@type":"Organization","name":"IATSE Local 728"}},"areaServed":[{"@type":"Country","name":"Ghana"},{"@type":"Country","name":"Nigeria"},{"@type":"Country","name":"United States"}],"knowsAbout":["Live entertainment production training","Concert lighting design","Audio engineering","GrandMA3 programming","Stage rigging","Video production","LED systems","Stagehand training","Entertainment workforce development in Africa"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"CDI Training Programs","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"EducationalOccupationalProgram","name":"Tier 1 — Stagehand Fundamentals","description":"Free 2-day program for 100 trainees quarterly. Safety, cable handling, load-in/load-out, department workflows.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"Offer","itemOffered":{"@type":"EducationalOccupationalProgram","name":"Tier 2 — Specialized Audio Track","description":"3-day intensive in FOH mixing, monitor mixing, and RF coordination."}},{"@type":"Offer","itemOffered":{"@type":"EducationalOccupationalProgram","name":"Tier 2 — Specialized Lighting Track","description":"3-day intensive in GrandMA3 programming, rigging, and show design."}},{"@type":"Offer","itemOffered":{"@type":"EducationalOccupationalProgram","name":"Tier 2 — Specialized Video Track","description":"3-day intensive in LED wall operation, camera systems, and Resolume."}},{"@type":"Offer","itemOffered":{"@type":"EducationalOccupationalProgram","name":"Tier 2 — Specialized Rigging Track","description":"3-day intensive in arena rigging, motor control, and safety certification."}}]},"sameAs":["https://endangeredlx.com","https://ericadhayes.com","https://www.endangeredcreations.com","https://empowermentpathfoundation.org"]},{"@type":"FAQPage","@id":"https://cdi-global.org/#faq","mainEntity":[{"@type":"Question","name":"What is CDI (Crew Development Institute)?","acceptedAnswer":{"@type":"Answer","text":"CDI is a 501(c)(3) nonprofit providing free, world-class production training for Africa's live entertainment industry. Founded by Erica D. Hayes, CDI trains local technicians in audio, lighting, video, and rigging to global standards."}},{"@type":"Question","name":"Is CDI training free?","acceptedAnswer":{"@type":"Answer","text":"Yes. CDI's Tier 1 Stagehand Fundamentals program is completely free. CDI is a 501(c)(3) nonprofit (EIN: 41-4211056) committed to accessible training."}},{"@type":"Question","name":"Why does Africa need production crew training?","acceptedAnswer":{"@type":"Answer","text":"85% of African live events rely on imported technical crews, with over $2 billion leaving the continent annually. Africa's $5B+ music industry is growing at 13% per year but lacks formal training infrastructure. CDI addresses this gap."}},{"@type":"Question","name":"Who founded CDI?","acceptedAnswer":{"@type":"Answer","text":"CDI was founded by Erica D. Hayes, one of the top lighting designers in the United States. She is an IATSE Local 728 member with 16+ years of experience, a professor at California Baptist University, and founder of Endangered LX and Endangered Creations."}}]}]}
     </script>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -134,27 +143,15 @@
             text-decoration: none;
         }
 
-        .logo-mark {
-            width: 44px;
-            height: 44px;
-            background: var(--cdi-black);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1rem;
-            color: var(--cdi-white);
+        .logo img {
+            height: 56px;
+            width: auto;
+            display: block;
         }
 
-        .logo-text {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 0.75rem;
-            color: var(--cdi-black);
-            line-height: 1.3;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        /* Footer uses the white-on-transparent version, slightly larger */
+        .footer .logo img {
+            height: 72px;
         }
 
         .nav-links {
@@ -1286,7 +1283,7 @@
         }
     </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://cdi-global.org/#organization","name":"Crew Development Institute","alternateName":"CDI","url":"https://cdi-global.org","logo":"https://cdi-global.org/images/cdi-logo.png","description":"Crew Development Institute (CDI) is the leading nonprofit training African technicians for the global live entertainment industry. Founded by Erica D. Hayes, one of the top lighting designers in the United States, CDI provides world-class education in audio, lighting, video, and rigging.","foundingDate":"2026","founder":{"@type":"Person","@id":"https://ericadhayes.com/#person","name":"Erica D. Hayes","jobTitle":["Lighting Designer","Lighting Director","grandMA Programmer","Program Director"],"description":"Erica D. Hayes is one of the top lighting designers, lighting directors, and programmers in the United States. IATSE Local 728 member with 16+ years of experience lighting major artists.","url":"https://ericadhayes.com","memberOf":{"@type":"Organization","name":"IATSE Local 728"}},"areaServed":["Ghana","Africa","United States","International"],"nonprofitStatus":"Nonprofit501c3","knowsAbout":["Live Entertainment Training","Lighting Technician Certification","Audio Technician Training","Concert Production","African Entertainment Industry"]},{"@type":"FAQPage","@id":"https://cdi-global.org/#faq","mainEntity":[{"@type":"Question","name":"What is Crew Development Institute (CDI)?","acceptedAnswer":{"@type":"Answer","text":"Crew Development Institute (CDI) is a nonprofit organization that trains African technicians for careers in the global live entertainment industry. Founded by Erica D. Hayes, one of the top lighting designers in the United States, CDI provides free world-class education in audio, lighting, video, and rigging."}},{"@type":"Question","name":"Who founded CDI?","acceptedAnswer":{"@type":"Answer","text":"CDI was founded by Erica D. Hayes, one of the top lighting designers, lighting directors, and grandMA programmers in the United States. She is an IATSE Local 728 member with over 16 years of experience designing lighting for major artists including The Isley Brothers, Fantasia, and Jason Derulo."}},{"@type":"Question","name":"How can I become a lighting technician in Africa?","acceptedAnswer":{"@type":"Answer","text":"CDI (Crew Development Institute) offers free training programs in Ghana for aspiring lighting technicians. The program includes Stagehand Fundamentals followed by specialized lighting tracks covering grandMA programming, fixture operation, and professional lighting techniques."}},{"@type":"Question","name":"Is CDI training free?","acceptedAnswer":{"@type":"Answer","text":"Yes, CDI provides free world-class production training to qualified candidates in Africa. The organization is a 501(c)(3) nonprofit funded by sponsors and partners in the live entertainment industry."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://cdi-global.org/#organization","name":"Crew Development Institute","alternateName":"CDI","url":"https://cdi-global.org","logo":"https://cdi-global.org/images/cdi-logo-full.png","description":"Crew Development Institute (CDI) is the leading nonprofit training African technicians for the global live entertainment industry. Founded by Erica D. Hayes, one of the top lighting designers in the United States, CDI provides world-class education in audio, lighting, video, and rigging.","foundingDate":"2026","founder":{"@type":"Person","@id":"https://ericadhayes.com/#person","name":"Erica D. Hayes","jobTitle":["Lighting Designer","Lighting Director","grandMA Programmer","Program Director"],"description":"Erica D. Hayes is one of the top lighting designers, lighting directors, and programmers in the United States. IATSE Local 728 member with 16+ years of experience lighting major artists.","url":"https://ericadhayes.com","memberOf":{"@type":"Organization","name":"IATSE Local 728"}},"areaServed":["Ghana","Africa","United States","International"],"nonprofitStatus":"Nonprofit501c3","knowsAbout":["Live Entertainment Training","Lighting Technician Certification","Audio Technician Training","Concert Production","African Entertainment Industry"]},{"@type":"FAQPage","@id":"https://cdi-global.org/#faq","mainEntity":[{"@type":"Question","name":"What is Crew Development Institute (CDI)?","acceptedAnswer":{"@type":"Answer","text":"Crew Development Institute (CDI) is a nonprofit organization that trains African technicians for careers in the global live entertainment industry. Founded by Erica D. Hayes, one of the top lighting designers in the United States, CDI provides free world-class education in audio, lighting, video, and rigging."}},{"@type":"Question","name":"Who founded CDI?","acceptedAnswer":{"@type":"Answer","text":"CDI was founded by Erica D. Hayes, one of the top lighting designers, lighting directors, and grandMA programmers in the United States. She is an IATSE Local 728 member with over 16 years of experience designing lighting for major artists including The Isley Brothers, Fantasia, and Jason Derulo."}},{"@type":"Question","name":"How can I become a lighting technician in Africa?","acceptedAnswer":{"@type":"Answer","text":"CDI (Crew Development Institute) offers free training programs in Ghana for aspiring lighting technicians. The program includes Stagehand Fundamentals followed by specialized lighting tracks covering grandMA programming, fixture operation, and professional lighting techniques."}},{"@type":"Question","name":"Is CDI training free?","acceptedAnswer":{"@type":"Answer","text":"Yes, CDI provides free world-class production training to qualified candidates in Africa. The organization is a 501(c)(3) nonprofit funded by sponsors and partners in the live entertainment industry."}}]}]}
 </script>
 </head>
 <body>
@@ -1296,9 +1293,8 @@
     <!-- Navigation -->
     <nav class="nav" id="navbar">
         <div class="container nav-inner">
-            <a href="#" class="logo">
-                <div class="logo-mark">CDI</div>
-                <div class="logo-text">Crew<br>Development<br>Institute</div>
+            <a href="#" class="logo" aria-label="CDI — Crew Development Institute">
+                <img src="/images/cdi-logo-black.svg" alt="Crew Development Institute crest logo">
             </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -1696,8 +1692,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <div class="logo-mark">CDI</div>
+                    <a href="#" class="logo" aria-label="CDI — Crew Development Institute">
+                        <img src="/images/cdi-logo-white.svg" alt="Crew Development Institute crest logo">
                     </a>
                     <p>Building Crews Who Build Shows. Free, world-class production training for Africa's live entertainment industry.</p>
                     <div class="footer-social">

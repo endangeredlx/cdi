@@ -6,7 +6,16 @@
     <title>CDI Partnership Deck | Crew Development Institute</title>
     <meta name="description" content="Partner with CDI to build Africa's live event production workforce. Training world-class crews in audio, lighting, video, and rigging.">
     <meta name="theme-color" content="#000000">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -161,19 +170,15 @@
         }
 
         /* CDI Logo Mark - Brand Standard */
-        .logo-mark {
-            width: 56px;
+        .logo-img {
             height: 56px;
-            background: var(--cdi-white);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--cdi-black);
-            border-radius: 0;
-            margin-bottom: 20px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-img--footer {
+            height: 72px;
+            filter: invert(1);
         }
         
         /* Logo Mark Image (using actual PNG) */
@@ -186,15 +191,7 @@
             object-fit: contain;
         }
 
-        .logo-text {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--cdi-white);
-            letter-spacing: 0.3em;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
+        
 
         /* Button Variants per Brand Guide */
         .btn-white {
@@ -1033,8 +1030,7 @@
     <nav class="top-nav">
         <div class="top-nav-inner">
             <a href="/" class="top-nav-logo">
-                <div class="top-nav-logo-mark">CDI</div>
-                <div class="top-nav-logo-text">Crew<br>Development<br>Institute</div>
+                <img src="/images/cdi-logo-black.svg" alt="Crew Development Institute crest logo" class="logo-img">
             </a>
             <ul class="top-nav-links">
                 <li><a href="/#about">About</a></li>

@@ -12,7 +12,16 @@
     <meta property="og:description" content="With a $5B+ market growing at 13% annually, Africa's entertainment industry faces a critical shortage. Here's why local crews matter.">
     <meta property="og:image" content="https://cdi-global.org/images/cdi-social-share.png">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
     
@@ -814,6 +823,18 @@
                 justify-content: center;
             }
         }
+    
+        .logo-img {
+            height: 56px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-img--footer {
+            height: 72px;
+            filter: invert(1);
+        }
+
     </style>
 </head>
 <body>
@@ -821,8 +842,7 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
-                <div class="nav-logo-crew">CDI</div>
-                <div class="nav-logo-subtitle">Crew Development Institute</div>
+                <img src="/images/cdi-logo-black.svg" alt="Crew Development Institute crest logo" class="logo-img">
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="/">Home</a>
@@ -997,7 +1017,7 @@
     <footer class="footer">
         <div class="footer-container">
             <a href="/" class="footer-logo">
-                <div class="footer-logo-text">CDI</div>
+                <img src="/images/cdi-logo-white.svg" alt="Crew Development Institute crest logo" class="logo-img logo-img--footer">
             </a>
             <div class="footer-copyright">
                 © 2026 Crew Development Institute. <a href="/">cdi-global.org</a><br>

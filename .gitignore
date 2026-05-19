@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# Local backup folders (rollback only — not part of deploy)
+_old-logos-backup-*/
+**/_old-logos-backup-*/
+
+# Editor/system
+*.swp
+Thumbs.db
